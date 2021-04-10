@@ -1,0 +1,12 @@
+{
+  "ProcedureActions":[
+    {
+    "ProcedureActionId":1,
+    "ProcedureActionName":"",
+    "ProcedureStepId":1,
+    "ProcedureActionType":1,
+    "ActionParams":"",
+    "IsAutomatic": false
+    }
+  ]
+}

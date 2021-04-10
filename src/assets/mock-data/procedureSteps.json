@@ -1,0 +1,18 @@
+{
+  "ProcedureSteps": [
+    {
+      "ProcedureStepID": 1000000,
+      "ProcedureID": 1000000,
+      "SequenceNumber": 1,
+      "Title": "Step 01",
+      "Instruction": "Step Instruction 01"
+    },
+    {
+      "ProcedureStepID": 1000001,
+      "ProcedureID": 1000001,
+      "SequenceNumber": 2,
+      "Title": "Step 02",
+      "Instruction": "Step Instruction 02"
+    }
+  ]
+}

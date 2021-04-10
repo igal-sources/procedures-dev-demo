@@ -1,0 +1,36 @@
+{
+  "Procedures": [
+    {
+      "ProcedureId": 1000000,
+      "Name": "Procedure 01",
+      "Description": "Procedure 01 Description",
+      "CreationDate": "2021-03-16 12:43:53.7033333",
+      "ModifyDate": "2021-03-16 12:43:53.7033333",
+      "ValidityDate": "Null",
+      "IsActive": true,
+      "IsDeleted": false,
+      "CreatingUserId": 1,
+      "ModifyUserId": 1,
+      "ProcedureGUID": "0456B357-DC66-4E0B-9E9B-7DAFA66A5C61",
+      "OrganizationId": 1,
+      "LockedByUserID": "NULL",
+      "IsLocked": false
+    },
+    {
+      "ProcedureId": 1000001,
+      "Name": "Procedure 02",
+      "Description": "Procedure 02 Description",
+      "CreationDate": "2021-03-16 12:43:53.7033333",
+      "ModifyDate": "2021-03-16 12:43:53.7033333",
+      "ValidityDate": "Null",
+      "IsActive": true,
+      "IsDeleted": false,
+      "CreatingUserId": 1,
+      "ModifyUserId": 1,
+      "ProcedureGUID": "998E978A-A3D7-4F55-9B2C-FC556D7B68E9",
+      "OrganizationId": 1,
+      "LockedByUserID": "NULL",
+      "IsLocked": false
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "ProceduresSchedules": [
+    {
+      "ScheduleID": 1,
+      "RecurrenceType": 1,
+      "StartDate": "",
+      "EndDate": "",
+      "StartTime": "",
+      "EndTime": "",
+      "RecurrenceValues": "",
+      "Duration": ""
+    }
+  ]
+}

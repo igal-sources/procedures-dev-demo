@@ -1,0 +1,42 @@
+[
+  {
+    "EventSeverityID": 0,
+    "EventSeverityName": "Warning",
+    "TermId": 231,
+    "DateCreated": "2021-03-30T15:12:31.230",
+    "DateModified": "2021-03-30T15:12:31.230",
+    "ChangedBy": "-1",
+    "CITguid": "AA8BD2D2-D8CC-4FA1-BDC6-49D434C9CDF0",
+    "ConfigVersion": -1
+  },
+  {
+    "EventSeverityID": 1,
+    "EventSeverityName": "Minor",
+    "TermId": 230,
+    "DateCreated": "2021-03-30T15:12:31.230",
+    "DateModified": "2021-03-30T15:12:31.230",
+    "ChangedBy": "-1",
+    "CITguid": "A8CF1049-0EF8-4B22-BDBA-B25548F75ECC",
+    "ConfigVersion": -1
+  },
+  {
+    "EventSeverityID": 2,
+    "EventSeverityName": "Major",
+    "TermId": 229,
+    "DateCreated": "2021-03-30T15:12:31.230",
+    "DateModified": "2021-03-30T15:12:31.230",
+    "ChangedBy": "-1",
+    "CITguid": "C5FDA2E6-248F-4BF7-AEA2-66CF846D77FB",
+    "ConfigVersion": -1
+  },
+  {
+    "EventSeverityID": 3,
+    "EventSeverityName": "Critical",
+    "TermId": 228,
+    "DateCreated": "2021-03-30T15:12:31.230",
+    "DateModified": "2021-03-30T15:12:31.230",
+    "ChangedBy": "-1",
+    "CITguid": "DC2817EA-106D-40C0-A90E-8EA8728491F6",
+    "ConfigVersion": -1
+  }
+]
