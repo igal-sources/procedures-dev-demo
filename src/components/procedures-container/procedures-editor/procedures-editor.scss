@@ -1,9 +1,9 @@
 .ProceduresEditor-container {
-  background: #283758;
-  color: #fff;
+  background: var(--main-color-background);
+  color: var(--main-foreground-color);
   .ui.grid {
     margin-left: 20px;
-    color: #fff;
+    color: var(--main-foreground-color);
   }
 }
 

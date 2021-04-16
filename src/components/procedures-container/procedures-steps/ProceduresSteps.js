@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Table } from "semantic-ui-react";
 import classNames from "classnames";
-import ComponentTitle from "../../../shared/component-title/ComponentTitle";
+import ComponentTitle from "../../../shared/custom-components/component-title/ComponentTitle";
 import "./procedures-steps.scss";
 
 const ProceduresSteps = ({ procedure = {} }) => {

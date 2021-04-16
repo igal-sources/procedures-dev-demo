@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Grid } from "semantic-ui-react";
 import ProceduresConditions from "./procedures-conditions/ProceduresConditions";
 import ProceduresFrom from "./procedures-from/ProceduresFrom";
-import ComponentTitle from "../../../shared/component-title/ComponentTitle";
+import ComponentTitle from "../../../shared/custom-components/component-title/ComponentTitle";
 import new_procedure from "../../../images/32_procedure.png";
 import "./procedures-details.scss";
 

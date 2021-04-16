@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import { Table, Checkbox, Dropdown } from "semantic-ui-react";
+import { DataGrid, Column, Lookup, Editing, Selection } from "devextreme-react/data-grid";
 import classNames from "classnames";
 import { EmptyFn } from "../../../shared/types";
-import ComponentTitle from "../../../shared/component-title/ComponentTitle";
+import ComponentTitle from "../../../shared/custom-components/component-title/ComponentTitle";
+import EventTypes from "../../../assets/mock-data/EventTypes.json";
+import EventSeverities from "../../../assets/mock-data/EventSeverities.json";
 import "./procedures-list.scss";
+import { Row } from "devextreme-react/responsive-box";
 
 const ProceduresList = ({ procedures, onSelected = EmptyFn }) => {
   const [activeRowId, setActiveRowId] = useState(undefined);
+  const { ProcedureCondition = {} } = procedures;
 
-  const handleSelected = (id) => {
+  const handleSelected = ({ selectedRowsData }) => {
+    const { id } = selectedRowsData[0];
+
     onSelected(id);
     setActiveRowId(id);
   };
@@ -19,36 +26,32 @@ const ProceduresList = ({ procedures, onSelected = EmptyFn }) => {
   return (
     <div className="ProceduresList-container">
       <ComponentTitle title={"Procedures"} />
-      <Table singleLine selectable>
-        <Table.Header className="ProceduresList-table-header">
-          <Table.Row className="ProceduresList-header-rows">
-            <Table.HeaderCell>System Id</Table.HeaderCell>
-            <Table.HeaderCell>Active</Table.HeaderCell>
-            <Table.HeaderCell>Name</Table.HeaderCell>
-            <Table.HeaderCell>Event Type</Table.HeaderCell>
-            <Table.HeaderCell>Severity</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
-          {procedures.map((row) => (
-            <Table.Row
-              className={selectedClassName(row.id)}
-              key={row.id}
-              onClick={() => handleSelected(row.id)}
-            >
-              <Table.Cell>{row.id}</Table.Cell>
-              <Table.Cell>
-                <Checkbox checked={row.IsActive} name={row.id} />
-              </Table.Cell>
-              <Table.Cell>{row.Name}</Table.Cell>
-              <Table.Cell>
-                {/* <Dropdown fluid selection options={row.ProcedureCondition.EventTypeID} /> */}
-              </Table.Cell>
-              <Table.Cell>{row.ProcedureCondition.Severity}</Table.Cell>
-            </Table.Row>
-          ))}
-        </Table.Body>
-      </Table>
+      <DataGrid
+        allowColumnReordering={true}
+        selection={{ mode: 'single' }}
+        columnAutoWidth={true}
+        hoverStateEnabled={true}
+        onSelectionChanged={handleSelected}
+        dataSource={procedures}
+        keyExpr="id"
+      >
+        <Column dataField="id" caption="System Id" width={80}></Column>
+        <Column type={Checkbox} dataField="IsActive" caption="Active" width={80}></Column>
+        <Column dataField="Name" width={400}></Column>
+        <Column caption="Event Type" width={270} dataField="ProcedureCondition.EventTypeID">
+          <Lookup dataSource={EventTypes} valueExpr="EventTypeId" displayExpr="EventTypeName" />
+        </Column>
+        <Column dataField="ProcedureCondition.EventTypeID" caption="Type" width={270}>
+          <Lookup dataSource={EventTypes} valueExpr="EventTypeId" displayExpr="EventTypeName" />
+        </Column>
+        <Column dataField="ProcedureCondition.Severity" caption="Severity" width={80}>
+          <Lookup
+            dataSource={EventSeverities}
+            valueExpr="EventSeverityID"
+            displayExpr="EventSeverityName"
+          />
+        </Column>
+      </DataGrid>
     </div>
   );
 };

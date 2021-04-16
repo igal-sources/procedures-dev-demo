@@ -1,5 +1,5 @@
 import React from "react";
-import Form, { GroupItem, SimpleItem, TextArea } from "devextreme-react/form";
+import Form, { GroupItem, SimpleItem, TextArea, Label } from "devextreme-react/form";
 import "./procedures-from.scss";
 
 const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
@@ -18,12 +18,20 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
         colCount={2}
         width={600}
       >
-        <GroupItem caption="Form">
+        <GroupItem caption="From">
           <SimpleItem dataField="Name" />
-          <SimpleItem dataField="CreatingUserId" />
-          <SimpleItem dataField="CreationDate" />
-          <SimpleItem dataField="ModifyUserId" text="AAAAA" />
-          <SimpleItem dataField="ModifyDate" />
+          <SimpleItem dataField="CreatingUserId">
+            <Label visible={true} text={"Created By"} />
+          </SimpleItem>
+          <SimpleItem dataField="CreationDate">
+            <Label visible={true} text={"Creation Date"} />
+          </SimpleItem>
+          <SimpleItem dataField="ModifyUserId">
+            <Label visible={true} text={"Last Modification User"} />
+          </SimpleItem>
+          <SimpleItem dataField="ModifyDate">
+          <Label visible={true} text={"Last Modification Date"} />
+          </SimpleItem>
           <SimpleItem dataField="IsActive" />
           <SimpleItem dataField="Description" />
         </GroupItem>

@@ -1,7 +1,7 @@
 .ProceduresConditions-container {
   margin-right: 20px;
   .form.ui.form input[type="text"] {
-    color: white !important;
+    color:var(--main-foreground-color) !important;
     height: 23px;
   }
 
@@ -15,7 +15,7 @@
     font-size: 20px;
     vertical-align: middle;
     background: #000000;
-    color: #fbff00;
+    color: var(--main-header-color);
     border-radius: 0px;
   }
 }
@@ -25,5 +25,5 @@
 }
 
 #form {
-  color: #fff;
+  color: var(--main-foreground-color);
 }

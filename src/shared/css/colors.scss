@@ -1,0 +1,33 @@
+:root {
+  --main-color-background: #283758;
+  --active-link-color: #1291db;
+  --not-active-link-color: #4f5356;
+  --main-component-title-color: #466a80;
+  --main-foreground-color: #ffffff;
+  --main-divider-color: #ebeff2;
+  --main-tree-border-color: #adb3b4;
+  --main-header-color: #fbff00;
+  --main-header-disabled-color: rgba(40, 40, 40, 0.3);
+  --main-small-divider-color: #d9d9d9;
+  --main-light-blue-color-title: #5087a9;
+  --main-gauge-grey-title-color: #434343;
+  --main-machine-grey-background: rgba(247, 247, 247, 1);
+  --main-success-color-base: rgba(144, 195, 63, 1);
+  --main-success-color-offset: rgba(123, 167, 52, 1);
+  --main-warning-color-base: rgba(255, 198, 0, 1);
+  --main-warning-color-offset: rgba(255, 198, 0, 0.4);
+  --main-fail-color-base: rgba(255, 77, 45, 1);
+  --main-fail-color-offset: rgba(255, 77, 45, 0.4);
+  --main-unknown-color-base: rgba(220, 220, 220, 1);
+  --main-discrepancy-color-base: rgba(100, 100, 100, 1);
+  --main-discrepancy-color-offset: rgba(100, 100, 100, 0.4);
+  --main-idle-color-base: rgb(127, 155, 180);
+  --bm-blue-primary: #004976;
+  --bm-orange-primary: #e03c31;
+  --bm-lt-blue: #0092db;
+  --bm-grey-title: #4d4d4d;
+  --bm-lt-grey-border: #dfdfdf;
+  --bm-vlt-grey-border: #dadada;
+  --main-status-color: var(--main-unknown-color-base);
+  --main-status-color-offset: var(--main-unknown-color-base);
+}

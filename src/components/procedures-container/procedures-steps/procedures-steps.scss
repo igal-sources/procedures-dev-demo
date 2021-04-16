@@ -1,3 +1,5 @@
+@import "../../../shared/css/main.scss";
+
 .ProceduresSteps-container {
   .ui.table {
     margin: 0;
@@ -12,14 +14,14 @@
           align-items: center;
           letter-spacing: 0.15em;
           background: #000000;
-          color: #ffffff;      
+          color: var(--main-foreground-color);
           border-radius: 0px;
         }
 
         &-header-rows {
           height: 22px;
           background: #000000 !important;
-          color: #ffffff !important;
+          color: var(--main-foreground-color) !important;
           border: none;
         }
 
@@ -30,7 +32,7 @@
           font-size: 14px;
           align-items: center;
           background: #110000 !important;
-          color: #fff !important;
+          color: var(--main-foreground-color) !important;
           cursor: default;
         }
 

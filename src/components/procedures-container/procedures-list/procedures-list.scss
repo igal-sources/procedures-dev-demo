@@ -1,25 +1,27 @@
+@import "../../../shared/css/main.scss";
+
 .ProceduresList-container {
-  .ui.table {
+  .dx-datagrid dx-gridbase-container {
     margin: 0;
 
-    &.single.line {
-      .ProceduresList {
+    .dx-datagrid-headers.ProceduresList {
         &-table-header tr th {
           font-style: normal;
           font-weight: 700;
-          font-size: 14px;
+          font-size: 19px;
           line-height: 16px;
           align-items: center;
           letter-spacing: 0.15em;
-          background: #000000;
-          color: #ffffff;
+          background: #978c8c;
+          color: var(--main-foreground-color);
           border-radius: 0px;
-        }
+    }
+    
 
         &-header-rows {
           height: 22px;
           background: #000000 !important;
-          color: #ffffff !important;
+          color: var(--main-foreground-color) !important;
           border: none;
         }
 
@@ -30,7 +32,7 @@
           font-size: 14px;
           align-items: center;
           background: #110000 !important;
-          color: #fff !important;
+          color: var(--main-foreground-color) !important;
           cursor: pointer;
         }
 
@@ -39,6 +41,5 @@
           transition: background-color 400ms ease-in-out;
         }
       }
-    }
   }
 }

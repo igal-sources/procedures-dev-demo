@@ -34,8 +34,12 @@ const ProceduresConditions = ({ procedureCondition = {}, isReadOnly }) => {
               displayExpr: "EventTypeName",
               value: procedureCondition.EventTypeId,
             }}
-          />
-          <SimpleItem dataField="EventSubTypeID" />
+          >
+            <Label visible={true} text={"Event Type"} />
+          </SimpleItem>
+          <SimpleItem dataField="EventSubTypeID" >
+          <Label visible={true} text={"Event Sub Type"} />
+          </SimpleItem>
           <SimpleItem
             dataField="Severity"
             editorType="dxSelectBox"
