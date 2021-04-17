@@ -5,7 +5,6 @@ import EventSeverities from "../../../../assets/mock-data/EventSeverities.json";
 import "./procedures-conditions.scss";
 
 const ProceduresConditions = ({ procedureCondition = {}, isReadOnly }) => {
-  console.log("procedureCondition: ", procedureCondition);
   
   return (
     <div className="ProceduresConditions-container">

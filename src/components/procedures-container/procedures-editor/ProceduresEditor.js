@@ -15,8 +15,6 @@ const ProceduresEditor = ({
   confirm = EmptyFn,
 }) => {
   const [condition, setCondition] = useState({});
-  console.log("ProceduresEditor---procedure: ", procedure);
-  console.log("ProceduresEditor---condition: ", condition);
 
   useEffect(() => {
     const { ProcedureCondition = {} } = procedure;

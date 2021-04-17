@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Table } from "semantic-ui-react";
+import { DataGrid, Column, Lookup } from "devextreme-react/data-grid";
 import classNames from "classnames";
 import ComponentTitle from "../../../shared/custom-components/component-title/ComponentTitle";
 import "./procedures-steps.scss";
@@ -15,29 +15,17 @@ const ProceduresSteps = ({ procedure = {} }) => {
   return (
     <div className="ProceduresSteps-container">
       <ComponentTitle title="Steps" />
-      <Table singleLine selectable>
-        <Table.Header className="ProceduresSteps-table-header">          
-          <Table.Row className="ProceduresSteps-header-rows">
-            <Table.HeaderCell colSpan="3">Instructions :</Table.HeaderCell>
-          </Table.Row>
-          <Table.Row className="ProceduresSteps-header-rows">
-            <Table.HeaderCell>#</Table.HeaderCell>
-            <Table.HeaderCell>Title</Table.HeaderCell>
-            <Table.HeaderCell>Instruction</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-
-        <Table.Body>
-          {ProcedureSteps &&
-            ProcedureSteps.map((row) => (
-              <Table.Row key={row.SequenceNumber} className={selectedClassName(row.id)}>
-                <Table.Cell>{row.SequenceNumber}</Table.Cell>
-                <Table.Cell>{row.Title}</Table.Cell>
-                <Table.Cell>{row.Instruction}</Table.Cell>
-              </Table.Row>
-            ))}
-        </Table.Body>
-      </Table>
+      <DataGrid
+        allowColumnReordering={true}
+        selection={{ mode: "single" }}
+        columnAutoWidth={true}
+        hoverStateEnabled={true}
+        dataSource={ProcedureSteps}
+        keyExpr="ProcedureStepID">
+          <Column dataField="SequenceNumber" caption="#" width={50}></Column>
+          <Column dataField="Title" caption="Title" width={320}></Column>
+          <Column dataField="Instruction" caption="Instruction" width={320}></Column>
+      </DataGrid>
     </div>
   );
 };

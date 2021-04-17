@@ -1,34 +1,24 @@
 import React, { useState } from "react";
 import { Checkbox } from "semantic-ui-react";
-import { DataGrid, Column, Lookup, Editing, Selection } from "devextreme-react/data-grid";
-import classNames from "classnames";
+import { DataGrid, Column, Lookup } from "devextreme-react/data-grid";
 import { EmptyFn } from "../../../shared/types";
 import ComponentTitle from "../../../shared/custom-components/component-title/ComponentTitle";
 import EventTypes from "../../../assets/mock-data/EventTypes.json";
 import EventSeverities from "../../../assets/mock-data/EventSeverities.json";
 import "./procedures-list.scss";
-import { Row } from "devextreme-react/responsive-box";
 
 const ProceduresList = ({ procedures, onSelected = EmptyFn }) => {
-  const [activeRowId, setActiveRowId] = useState(undefined);
-  const { ProcedureCondition = {} } = procedures;
-
   const handleSelected = ({ selectedRowsData }) => {
     const { id } = selectedRowsData[0];
-
     onSelected(id);
-    setActiveRowId(id);
   };
-
-  const selectedClassName = (selectedId) =>
-    classNames("ProceduresList-row-item", { selected: activeRowId === selectedId });
 
   return (
     <div className="ProceduresList-container">
       <ComponentTitle title={"Procedures"} />
       <DataGrid
         allowColumnReordering={true}
-        selection={{ mode: 'single' }}
+        selection={{ mode: "single" }}
         columnAutoWidth={true}
         hoverStateEnabled={true}
         onSelectionChanged={handleSelected}
