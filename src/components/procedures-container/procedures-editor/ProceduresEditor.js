@@ -1,17 +1,31 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
+import { Modal, Button } from "react-bootstrap";
 import { Grid } from "semantic-ui-react";
-//import { Modal, Button } from "react-bootstrap";
 import { EmptyFn } from "../../../shared/types";
 import ProceduresConditions from "../procedures-details/procedures-conditions/ProceduresConditions";
 import ProceduresFrom from "../procedures-details/procedures-from/ProceduresFrom";
 import ProceduresSteps from "../procedures-steps/ProceduresSteps";
 import "./procedures-editor.scss";
 
-const ProceduresEditor = ({procedure, isReadOnly, show = EmptyFn, close = EmptyFn, confirm = EmptyFn }) => {
+const ProceduresEditor = ({
+  procedure,
+  isReadOnly,
+  show = EmptyFn,
+  close = EmptyFn,
+  confirm = EmptyFn,
+}) => {
+  const [condition, setCondition] = useState({});
+  console.log("ProceduresEditor---procedure: ", procedure);
+  console.log("ProceduresEditor---condition: ", condition);
+
+  useEffect(() => {
+    const { ProcedureCondition = {} } = procedure;
+    const { Name = "" } = procedure;
+    setCondition(ProcedureCondition);
+  }, [procedure.id]);
 
   return (
-    <div></div>
-   /* <>
+    <>
       <Modal size="lg" show={show} backdrop="static" keyboard={false}>
         <Modal.Header closeButton>
           <Modal.Title>Procedure Editor</Modal.Title>
@@ -23,7 +37,7 @@ const ProceduresEditor = ({procedure, isReadOnly, show = EmptyFn, close = EmptyF
                 <ProceduresFrom procedure={procedure} isReadOnly={isReadOnly} />
               </Grid.Column>
               <Grid.Column className="ProceduresDetails-Conditions">
-                <ProceduresConditions procedure={procedure} isReadOnly={isReadOnly} />
+                <ProceduresConditions procedureCondition={condition} isReadOnly={isReadOnly} />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={1}>
@@ -42,7 +56,7 @@ const ProceduresEditor = ({procedure, isReadOnly, show = EmptyFn, close = EmptyF
           </Button>
         </Modal.Footer>
       </Modal>
-    </>*/
+    </>
   );
 };
 

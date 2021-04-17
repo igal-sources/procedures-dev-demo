@@ -23,7 +23,7 @@
         "Priority": "NULL",
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
-        "GeoAreaID": "NULL",
+        "GeoAreaID": "4646464646",
         "ScheduleID": "NULL"
       },
       "ProcedureSteps": [

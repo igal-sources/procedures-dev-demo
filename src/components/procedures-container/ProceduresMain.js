@@ -10,8 +10,6 @@ const ProceduresMain = () => {
   const isCancelled = useRef(false);
   const [procedures, setProcedures] = useState([]);
   const [selectedProcedure, setSelectedProcedure] = useState({});
-  //console.log('selectedProcedure: ', selectedProcedure);
-  //console.log("procedures Main: ", procedures);
 
   const fetchData = () => {
     getAllProcedures().then((res) => {
@@ -25,7 +23,7 @@ const ProceduresMain = () => {
     
     getProcedure(id).then((res) => {
       setSelectedProcedure(res.data);
-      localStorage.setItem("selectedProcedure", JSON.stringify(selectedProcedure));
+      localStorage.setItem("selectedProcedure", JSON.stringify(res.data));
     });
   };
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Table, Checkbox, Dropdown } from "semantic-ui-react";
+import { Checkbox } from "semantic-ui-react";
 import { DataGrid, Column, Lookup, Editing, Selection } from "devextreme-react/data-grid";
 import classNames from "classnames";
 import { EmptyFn } from "../../../shared/types";

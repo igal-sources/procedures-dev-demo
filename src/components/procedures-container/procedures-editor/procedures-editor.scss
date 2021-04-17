@@ -1,12 +1,15 @@
+@import "../../../shared/css/main.scss";
+
 .ProceduresEditor-container {
-  background: var(--main-color-background);
-  color: var(--main-foreground-color);
+  background: #283758;
+  color: #fff;
   .ui.grid {
     margin-left: 20px;
-    color: var(--main-foreground-color);
+    color: #fff;
   }
 }
 
 .modal-content {
   height: 900px;
 }
+

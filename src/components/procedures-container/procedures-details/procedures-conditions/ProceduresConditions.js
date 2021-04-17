@@ -6,14 +6,9 @@ import "./procedures-conditions.scss";
 
 const ProceduresConditions = ({ procedureCondition = {}, isReadOnly }) => {
   console.log("procedureCondition: ", procedureCondition);
-
-  const customizeText = () => {
-    return "Location";
-  };
   
   return (
     <div className="ProceduresConditions-container">
-      {/* <div className="ProceduresConditions-header">Conditions</div> */}
       <Form
         id="form"
         formData={procedureCondition}

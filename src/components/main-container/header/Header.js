@@ -20,7 +20,9 @@ const Header = () => {
     setIsReadOnly(readOnly);
 
     setSelectedProcedure({});
+    console.log('readOnly: ', readOnly);
     if (readOnly === true) {
+     
       setSelectedProcedure(JSON.parse(localStorage.getItem("selectedProcedure")));
       console.log("selectedProcedure11: ", JSON.parse(localStorage.getItem("selectedProcedure")));
     }
