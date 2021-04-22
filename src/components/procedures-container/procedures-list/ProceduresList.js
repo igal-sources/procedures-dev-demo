@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { Checkbox } from "semantic-ui-react";
 import { DataGrid, Column, Lookup } from "devextreme-react/data-grid";
-import { EmptyFn } from "../../../shared/types";
+import * as types from "../../../shared/types";
 import ComponentTitle from "../../../shared/custom-components/component-title/ComponentTitle";
 import EventTypes from "../../../assets/mock-data/EventTypes.json";
 import EventSeverities from "../../../assets/mock-data/EventSeverities.json";
 import "./procedures-list.scss";
 
-const ProceduresList = ({ procedures, onSelected = EmptyFn }) => {
+const ProceduresList = ({ procedures, onSelected = types.EmptyFn }) => {
   const handleSelected = ({ selectedRowsData }) => {
     const { id } = selectedRowsData[0];
     onSelected(id);
@@ -24,6 +24,10 @@ const ProceduresList = ({ procedures, onSelected = EmptyFn }) => {
         onSelectionChanged={handleSelected}
         dataSource={procedures}
         keyExpr="id"
+        showColumnLines={true}
+        showRowLines={false}
+        showBorders={true}
+        rowAlternationEnabled={true}
       >
         <Column dataField="id" caption="System Id" width={80}></Column>
         <Column type={Checkbox} dataField="IsActive" caption="Active" width={80}></Column>

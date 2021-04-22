@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Form, { GroupItem, SimpleItem, Label } from "devextreme-react/form";
 import EventTypes from "../../../../assets/mock-data/EventTypes.json";
 import EventSeverities from "../../../../assets/mock-data/EventSeverities.json";
 import "./procedures-conditions.scss";
 
 const ProceduresConditions = ({ procedureCondition = {}, isReadOnly }) => {
-  
   return (
     <div className="ProceduresConditions-container">
       <Form
@@ -31,8 +30,8 @@ const ProceduresConditions = ({ procedureCondition = {}, isReadOnly }) => {
           >
             <Label visible={true} text={"Event Type"} />
           </SimpleItem>
-          <SimpleItem dataField="EventSubTypeID" >
-          <Label visible={true} text={"Event Sub Type"} />
+          <SimpleItem dataField="EventSubTypeID">
+            <Label visible={true} text={"Event Sub Type"} />
           </SimpleItem>
           <SimpleItem
             dataField="Severity"

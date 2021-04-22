@@ -15,17 +15,16 @@ const Header = () => {
 
   const onClose = () => setIsOpen(false);
 
-  const open = (readOnly) => {
+  const openNew = () => {
     setIsOpen(true);
-    setIsReadOnly(readOnly);
-
+    setIsReadOnly(false);
     setSelectedProcedure({});
-    console.log('readOnly: ', readOnly);
-    if (readOnly === true) {
-     
-      setSelectedProcedure(JSON.parse(localStorage.getItem("selectedProcedure")));
-      console.log("selectedProcedure11: ", JSON.parse(localStorage.getItem("selectedProcedure")));
-    }
+  }
+
+  const openView = () => {
+    setIsOpen(true);
+    setIsReadOnly(false);
+    setSelectedProcedure(JSON.parse(localStorage.getItem("selectedProcedure")));
   };
   const onConfirm = () => {
     setIsOpen(false);
@@ -51,13 +50,13 @@ const Header = () => {
           procedure={selectedProcedure}
           isReadOnly={isReadOnly}
         />
-        <Menu.Item onClick={() => open(false)}>
+        <Menu.Item onClick={() => openNew()}>
           <div>
             <Image src={new_procedure} />
             <span className="Header-title">New</span>
           </div>
         </Menu.Item>
-        <Menu.Item onClick={() => open(true)}>
+        <Menu.Item onClick={() => openView()}>
           <div>
             <Image src={view_procedure} />
             <span className="Header-title">View</span>

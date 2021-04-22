@@ -1,5 +1,5 @@
 import React from "react";
-import Form, { GroupItem, SimpleItem, TextArea, Label } from "devextreme-react/form";
+import Form, { GroupItem, SimpleItem, Label } from "devextreme-react/form";
 import "./procedures-from.scss";
 
 const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
@@ -30,7 +30,7 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
             <Label visible={true} text={"Last Modification User"} />
           </SimpleItem>
           <SimpleItem dataField="ModifyDate">
-          <Label visible={true} text={"Last Modification Date"} />
+            <Label visible={true} text={"Last Modification Date"} />
           </SimpleItem>
           <SimpleItem dataField="IsActive" />
           <SimpleItem dataField="Description" />
