@@ -6,6 +6,7 @@ import ComponentTitle from "../../../shared/custom-components/component-title/Co
 import EventTypes from "../../../assets/mock-data/EventTypes.json";
 import EventSeverities from "../../../assets/mock-data/EventSeverities.json";
 import "./procedures-list.scss";
+import { Center } from "devextreme-react/map";
 
 const ProceduresList = ({ procedures, onSelected = types.EmptyFn }) => {
   const handleSelected = ({ selectedRowsData }) => {
@@ -29,8 +30,8 @@ const ProceduresList = ({ procedures, onSelected = types.EmptyFn }) => {
         showBorders={true}
         rowAlternationEnabled={true}
       >
-        <Column dataField="id" caption="System Id" width={80}></Column>
-        <Column type={Checkbox} dataField="IsActive" caption="Active" width={80}></Column>
+        <Column dataField="id" caption="Id" alignment="center"></Column>
+        <Column type={Checkbox} dataField="IsActive" caption="Active"></Column>
         <Column dataField="Name" width={400}></Column>
         <Column caption="Event Type" width={270} dataField="ProcedureCondition.EventTypeID">
           <Lookup dataSource={EventTypes} valueExpr="EventTypeId" displayExpr="EventTypeName" />
