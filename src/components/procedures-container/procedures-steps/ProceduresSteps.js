@@ -1,21 +1,79 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState, useEffect, useRef } from "react";
 import { DataGrid, Column, Editing } from "devextreme-react/data-grid";
 import DataSource from "devextreme/data/data_source";
+import { updateProcedure } from "../../../services/procedures-http.service";
 import ComponentTitle from "../../../shared/custom-components/component-title/ComponentTitle";
-import { actions } from "../../../shared/types";
+//import { actions } from "../../../shared/types";
+
 import "./procedures-steps.scss";
 
+async function sendBatchRequest(changes, procedure) {
+  console.log("updateProcedure: procedure.id, procedure: ", procedure.id, procedure);
+  updateProcedure(procedure.id, procedure);
+}
+
+async function processBatchRequest(changes, component, procedure) {
+  await sendBatchRequest(changes, procedure);
+  await component.refresh(true);
+  component.cancelEditData();
+}
+
 const ProceduresSteps = ({ procedure, isReadOnly }) => {
+  const isCancelled = useRef(false);
+  const [procedureSteps, setProcedureSteps] = useState([]);
+  console.log("procedureSteps: ", procedureSteps);
+
   const { ProcedureSteps = [] } = procedure;
   const stepsDataSource = new DataSource(ProcedureSteps);
-  console.log("ProceduresSteps - ProcedureSteps: ", ProcedureSteps);
+
+  useEffect(() => {
+    !isCancelled.current && setProcedureSteps(ProcedureSteps);
+    return () => {
+      isCancelled.current = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onSaving = useCallback((e) => {
     e.cancel = true;
 
     if (e.changes.length) {
-      //e.promise = processBatchRequest(`${URL}/Batch`, e.changes, e.component);
-      console.log("e.changes: ", e.changes);
+      switch (change.type) {
+        case "insert":
+
+        case "update":
+
+        case "remove":
+
+        default:
+          break;
+      }
+
+      const [{ data }] = e.changes;
+
+      const newStep = [
+        {
+          ProcedureStepID: 1,
+          ProcedureID: procedure.id,
+          SequenceNumber: data.SequenceNumber,
+          Title: data.Title,
+          Instruction: data.Instruction,
+        },
+      ];
+
+      procedure.ProcedureSteps = [
+        ...ProcedureSteps,
+        {
+          ProcedureStepID: 1,
+          ProcedureID: procedure.id,
+          SequenceNumber: data.SequenceNumber,
+          Title: data.Title,
+          Instruction: data.Instruction,
+        },
+      ];
+
+      e.promise = processBatchRequest(e.changes, e.component, procedure);
+      stepsDataSource.refresh;
     }
   }, []);
 
@@ -88,6 +146,7 @@ const ProceduresSteps = ({ procedure, isReadOnly }) => {
       <ComponentTitle title="Steps" />
       <DataGrid
         allowColumnReordering={true}
+        repaintChangesOnly
         selection={{ mode: "single" }}
         columnAutoWidth={true}
         hoverStateEnabled={true}

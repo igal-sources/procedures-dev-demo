@@ -1,5 +1,5 @@
 import React from "react";
-import Form, { GroupItem, SimpleItem, Label } from "devextreme-react/form";
+import Form, { GroupItem, SimpleItem, Label, RequiredRule } from "devextreme-react/form";
 import "./procedures-from.scss";
 
 const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
@@ -19,7 +19,9 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
         width={600}
       >
         <GroupItem caption="From">
-          <SimpleItem dataField="Name" />
+          <SimpleItem dataField="Name">
+            <RequiredRule message="Name is required" />
+          </SimpleItem>
           <SimpleItem dataField="CreatingUserId">
             <Label visible={true} text={"Created By"} />
           </SimpleItem>
