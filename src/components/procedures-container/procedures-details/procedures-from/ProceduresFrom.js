@@ -3,7 +3,7 @@ import Form, { GroupItem, SimpleItem, Label, RequiredRule } from "devextreme-rea
 import "./procedures-from.scss";
 
 const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
-  console.log("ProceduresFrom: ", procedure);
+  //console.log("ProceduresFrom: ", procedure);
 
   return (
     <div className="ProceduresFrom-container">

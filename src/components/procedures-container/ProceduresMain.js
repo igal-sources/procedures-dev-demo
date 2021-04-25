@@ -33,7 +33,7 @@ const ProceduresMain = () => {
       isCancelled.current = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [procedures]);
 
   return (
     <div className="ProceduresMain-container">

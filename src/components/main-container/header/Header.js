@@ -21,7 +21,7 @@ const Header = () => {
     setSelectedProcedure({});
   }
 
-  const openView = () => {
+  const openEdit = () => {
     setIsOpen(true);
     setIsReadOnly(false);
     setSelectedProcedure(JSON.parse(localStorage.getItem("selectedProcedure")));
@@ -30,15 +30,6 @@ const Header = () => {
     setIsOpen(false);
     //setConfirm(true);
   };
-
-  // const addProcedure = (data) => {
-  //   createProcedure(data)
-  //     .then(() => {
-  //       showAlert("success", "Create success");
-  //       closeDialog();
-  //     })
-  //     .catch(() => showAlert("error", "Create failed"));
-  // };
 
   return (
     <>
@@ -56,10 +47,10 @@ const Header = () => {
             <span className="Header-title">New</span>
           </div>
         </Menu.Item>
-        <Menu.Item onClick={() => openView()}>
+        <Menu.Item onClick={() => openEdit()}>
           <div>
             <Image src={view_procedure} />
-            <span className="Header-title">View</span>
+            <span className="Header-title">Edit</span>
           </div>
         </Menu.Item>
         <Menu.Item as="a">

@@ -28,32 +28,24 @@
       },
       "ProcedureSteps": [
         {
-          "ProcedureStepID": 5,
-          "ProcedureID": 3,
+          "ProcedureStepID": 1,
+          "ProcedureID": 1,
           "SequenceNumber": 1,
           "Title": "LESIONADOS(10101) Step 01",
           "Instruction": "LESIONADOS(10101) Step Instruction 01"
         },
         {
-          "ProcedureStepID": 6,
-          "ProcedureID": 3,
+          "ProcedureStepID": 2,
+          "ProcedureID": 1,
           "SequenceNumber": 2,
           "Title": "LESIONADOS(10101) Step 02",
           "Instruction": "LESIONADOS(10101) Step Instruction 02"
         },
         {
-          "ProcedureStepID": 1,
-          "ProcedureID": 1,
-          "SequenceNumber": 3,
-          "Title": "step 3",
-          "Instruction": "Inst 3"
-        },
-        {
-          "ProcedureStepID": 1,
-          "ProcedureID": 1,
           "SequenceNumber": 4,
-          "Title": "step 4",
-          "Instruction": "Inst 4"
+          "Title": "44",
+          "Instruction": "44",
+          "ProcedureStepID": "93b1bb89-a5ad-29e0-c676-a2dd56156c74"
         }
       ]
     },
@@ -85,15 +77,15 @@
       },
       "ProcedureSteps": [
         {
-          "ProcedureStepID": 5,
-          "ProcedureID": 3,
+          "ProcedureStepID": 3,
+          "ProcedureID": 2,
           "SequenceNumber": 1,
           "Title": "LESIONAD(10102) Step 01",
           "Instruction": "LESIONAD(10102) Step Instruction 01"
         },
         {
-          "ProcedureStepID": 6,
-          "ProcedureID": 3,
+          "ProcedureStepID": 4,
+          "ProcedureID": 2,
           "SequenceNumber": 2,
           "Title": "LESIONAD(10102) Step 02",
           "Instruction": "LESIONAD(10102) Step Instruction 02"
@@ -355,6 +347,12 @@
           "SequenceNumber": 2,
           "Title": "AHOGAMIENTO(10201) Step 02",
           "Instruction": "AHOGAMIENTO(10201) Step Instruction 02"
+        },
+        {
+          "SequenceNumber": 8,
+          "Title": "888",
+          "Instruction": "888",
+          "ProcedureStepID": "b2c477d9-7866-8325-d13c-06876eab1cd3"
         }
       ]
     },
@@ -398,27 +396,6 @@
           "SequenceNumber": 2,
           "Title": "AMPUTACION(10202) Step 02",
           "Instruction": "AMPUTACION(10202) Step Instruction 02"
-        },
-        {
-          "ProcedureStepID": 1,
-          "ProcedureID": 9,
-          "SequenceNumber": 5,
-          "Title": "555",
-          "Instruction": "555"
-        },
-        {
-          "ProcedureStepID": 1,
-          "ProcedureID": 9,
-          "SequenceNumber": 3,
-          "Title": "333",
-          "Instruction": "333"
-        },
-        {
-          "ProcedureStepID": 1,
-          "ProcedureID": 9,
-          "SequenceNumber": 6,
-          "Title": "666",
-          "Instruction": "666"
         }
       ]
     },

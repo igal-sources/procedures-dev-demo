@@ -22,8 +22,8 @@ const ProceduresConditions = ({ procedureCondition = {}, isReadOnly }) => {
 
     //if (e.changes.length) {
     //e.promise = processBatchRequest(`${URL}/Batch`, e.changes, e.component);
-    console.log("Conditions - e.changes: ", e);
-    console.log("procedureCondition - changes: ", procedureCondition);
+    //console.log("Conditions - e.changes: ", e);
+    //console.log("procedureCondition - changes: ", procedureCondition);
     //}
   };
   return (

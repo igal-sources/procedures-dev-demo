@@ -5,6 +5,7 @@ import * as types from "../../../shared/types";
 import ProceduresConditions from "../procedures-details/procedures-conditions/ProceduresConditions";
 import ProceduresFrom from "../procedures-details/procedures-from/ProceduresFrom";
 import ProceduresSteps from "../procedures-steps/ProceduresSteps";
+import { updateProcedure } from "../../../services/procedures-http.service";
 import "./procedures-editor.scss";
 
 const ProceduresEditor = ({
@@ -16,8 +17,15 @@ const ProceduresEditor = ({
 }) => {
   const [condition, setCondition] = useState({});
 
+  const onConfirm = () => {
+    console.log('onConfirm - procedure: ', procedure);
+    updateProcedure(procedure.id, procedure);
+    confirm();
+  }
+
   useEffect(() => {
     const { ProcedureCondition = {} } = procedure;
+    
     setCondition(ProcedureCondition);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [procedure.id]);
@@ -49,7 +57,7 @@ const ProceduresEditor = ({
           <Button variant="secondary" onClick={close}>
             Close
           </Button>
-          <Button variant="primary" type="submit" onClick={confirm}>
+          <Button variant="primary" type="submit" onClick={onConfirm}>
             Save
           </Button>
         </Modal.Footer>

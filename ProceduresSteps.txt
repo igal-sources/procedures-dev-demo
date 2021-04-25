@@ -22,7 +22,7 @@ async function processBatchRequest(changes, component, procedure) {
 const ProceduresSteps = ({ procedure, isReadOnly }) => {
   const isCancelled = useRef(false);
   const [procedureSteps, setProcedureSteps] = useState([]);
-  //console.log("procedureSteps: ", procedureSteps);
+  console.log("procedureSteps: ", procedureSteps);
 
   const { ProcedureSteps = [] } = procedure;
   const stepsDataSource = new DataSource(ProcedureSteps);
@@ -33,33 +33,15 @@ const ProceduresSteps = ({ procedure, isReadOnly }) => {
       isCancelled.current = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [procedure.ProcedureSteps]);
-
-  const onRowInserted = (e) => {
-    //console.log("onRowInserted: ", e);
-
-    const { data } = e;
-    //console.log('onRowInserted-data: ', data);
-    
-    //console.log("onRowInserted-procedure: ", procedure);
-  }
-
-  const onRowUpdated = (e) => {
-    //console.log("onRowUpdated: ", e);
-  }
-
-  const onRowRemoved = (e) => {
-    //console.log("onRowRemoved: ", e);
-  }
+  }, [procedure]);
 
   const onSaving = useCallback((e) => {
     e.cancel = true;
-    //console.log("onSaving: ", e);
 
     if (e.changes.length) {
 
       const [{ data, type }] = e.changes;
-     // console.log("data, type: ", data, type);
+      console.log("data, type: ", data, type);
 
       switch (type) {
         case "insert":
@@ -93,7 +75,7 @@ const ProceduresSteps = ({ procedure, isReadOnly }) => {
         },
       ];
 
-      //e.promise = processBatchRequest(e.changes, e.component, procedure);
+      e.promise = processBatchRequest(e.changes, e.component, procedure);
     }
   }, []);
 
@@ -102,14 +84,13 @@ const ProceduresSteps = ({ procedure, isReadOnly }) => {
       <ComponentTitle title="Steps" />
       <DataGrid
         allowColumnReordering={true}
+        repaintChangesOnly
         selection={{ mode: "single" }}
         columnAutoWidth={true}
         hoverStateEnabled={true}
-        dataSource={ProcedureSteps}
+        dataSource={stepsDataSource}
         keyExpr="ProcedureStepID"
-        onRowInserted={onRowInserted}
-        onRowUpdated={onRowUpdated}
-        onRowRemoved={onRowRemoved}
+        onSaving={onSaving}
       >
         <Editing
           mode="row"
