@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Menu, Image } from "semantic-ui-react";
-import { createProcedure } from "../../../services/procedures-http.service";
 import ProceduresEditor from "../../procedures-container/procedures-editor/ProceduresEditor";
 import new_procedure from "../../../images/32_new_procedure.png";
 import view_procedure from "../../../images/32_view_procedure.png";

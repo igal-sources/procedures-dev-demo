@@ -18,14 +18,15 @@ const ProceduresEditor = ({
   const [condition, setCondition] = useState({});
 
   const onConfirm = () => {
-    console.log('onConfirm - procedure: ', procedure);
+    console.log("onConfirm - procedure: ", procedure);
     updateProcedure(procedure.id, procedure);
+    localStorage.setItem("selectedProcedure", JSON.stringify(procedure));
     confirm();
-  }
+  };
 
   useEffect(() => {
     const { ProcedureCondition = {} } = procedure;
-    
+
     setCondition(ProcedureCondition);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [procedure.id]);

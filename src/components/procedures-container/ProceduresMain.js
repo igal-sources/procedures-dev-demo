@@ -20,7 +20,7 @@ const ProceduresMain = () => {
 
   const handleSelectedProcedure = (id) => {
     localStorage.setItem("procedureId", id);
-    
+
     getProcedure(id).then((res) => {
       setSelectedProcedure(res.data);
       localStorage.setItem("selectedProcedure", JSON.stringify(res.data));
@@ -28,12 +28,13 @@ const ProceduresMain = () => {
   };
 
   useEffect(() => {
+    console.log("ProceduresMain - useEffect: ", procedures);
     !isCancelled.current && fetchData();
     return () => {
       isCancelled.current = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [procedures]);
+  }, [selectedProcedure]);
 
   return (
     <div className="ProceduresMain-container">

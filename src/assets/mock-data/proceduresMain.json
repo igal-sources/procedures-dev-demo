@@ -144,7 +144,7 @@
       "ValidityDate": "2017-01-01T00:00:00",
       "IsActive": true,
       "IsDeleted": false,
-      "CreatingUserId": 1,
+      "CreatingUserId": 11,
       "ModifyUserId": 0,
       "ProcedureGUID": "A0244EC6-1C5D-4D28-930D-57E4A67C9AD8",
       "OrganizationId": -1,
@@ -187,7 +187,7 @@
       "ValidityDate": "2017-01-01T00:00:00",
       "IsActive": true,
       "IsDeleted": false,
-      "CreatingUserId": 1,
+      "CreatingUserId": 66,
       "ModifyUserId": 0,
       "ProcedureGUID": "C97A62DD-4B2D-4F1D-B66E-5118D70CC454",
       "OrganizationId": -1,
@@ -261,6 +261,12 @@
           "SequenceNumber": 2,
           "Title": "FALLECID(10106) Step 02",
           "Instruction": "FALLECID(10106) Step Instruction 02"
+        },
+        {
+          "SequenceNumber": 77,
+          "Title": "77",
+          "Instruction": "77",
+          "ProcedureStepID": "57a6df59-7c02-3779-ab62-5bec272cdb3c"
         }
       ]
     },

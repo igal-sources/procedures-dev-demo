@@ -6,7 +6,6 @@ import ComponentTitle from "../../../shared/custom-components/component-title/Co
 import EventTypes from "../../../assets/mock-data/EventTypes.json";
 import EventSeverities from "../../../assets/mock-data/EventSeverities.json";
 import "./procedures-list.scss";
-import { Center } from "devextreme-react/map";
 
 const ProceduresList = ({ procedures, onSelected = types.EmptyFn }) => {
   const handleSelected = ({ selectedRowsData }) => {
