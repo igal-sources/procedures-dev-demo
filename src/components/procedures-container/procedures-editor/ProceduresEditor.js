@@ -5,21 +5,32 @@ import * as types from "../../../shared/types";
 import ProceduresConditions from "../procedures-details/procedures-conditions/ProceduresConditions";
 import ProceduresFrom from "../procedures-details/procedures-from/ProceduresFrom";
 import ProceduresSteps from "../procedures-steps/ProceduresSteps";
-import { updateProcedure } from "../../../services/procedures-http.service";
+import { createProcedure, updateProcedure } from "../../../services/procedures-http.service";
 import "./procedures-editor.scss";
 
 const ProceduresEditor = ({
   procedure,
   isReadOnly,
+  actionType,
   show = types.EmptyFn,
   close = types.EmptyFn,
   confirm = types.EmptyFn,
 }) => {
   const [condition, setCondition] = useState({});
 
-  const onConfirm = () => {
-    console.log("onConfirm - procedure: ", procedure);
-    updateProcedure(procedure.id, procedure);
+  const onConfirm = (action) => {
+    console.log("onConfirm - procedure, action: ", procedure, action);
+    switch (action) {
+      case types.actions.ADD:
+        createProcedure(procedure);
+        break;
+      case types.actions.EDIT:
+        updateProcedure(procedure.id, procedure);
+        break;
+      default:
+        break;
+    }
+
     localStorage.setItem("selectedProcedure", JSON.stringify(procedure));
     confirm();
   };
@@ -58,7 +69,7 @@ const ProceduresEditor = ({
           <Button variant="secondary" onClick={close}>
             Close
           </Button>
-          <Button variant="primary" type="submit" onClick={onConfirm}>
+          <Button variant="primary" type="submit" onClick={() => onConfirm(actionType)}>
             Save
           </Button>
         </Modal.Footer>

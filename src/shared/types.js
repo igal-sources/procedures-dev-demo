@@ -8,3 +8,8 @@ export const actions = {
   ARROW_UP: 5,
   ARROW_DOWN: 6,
 };
+
+export const initializeProcedure = {
+  ProcedureCondition: {},
+  ProcedureSteps: [],
+};

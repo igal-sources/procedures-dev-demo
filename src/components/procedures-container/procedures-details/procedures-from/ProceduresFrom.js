@@ -1,5 +1,6 @@
 import React from "react";
 import Form, { GroupItem, SimpleItem, Label, RequiredRule } from "devextreme-react/form";
+import TextArea from 'devextreme-react/text-area';
 import "./procedures-from.scss";
 
 const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
@@ -7,7 +8,7 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
 
   return (
     <div className="ProceduresFrom-container">
-      {/* <div className="ProceduresFrom-header">From</div> */}
+
       <Form
         id="From"
         formData={procedure}
@@ -16,7 +17,7 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
         labelLocation={"left"}
         minColWidth={500}
         colCount={2}
-        width={600}
+        width={750}
       >
         <GroupItem caption="From">
           <SimpleItem dataField="Name">
@@ -25,17 +26,23 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
           <SimpleItem dataField="CreatingUserId">
             <Label visible={true} text={"Created By"} />
           </SimpleItem>
-          <SimpleItem dataField="CreationDate">
+          <SimpleItem dataField="CreationDate" editorType="dxDateBox">
             <Label visible={true} text={"Creation Date"} />
           </SimpleItem>
           <SimpleItem dataField="ModifyUserId">
             <Label visible={true} text={"Last Modification User"} />
           </SimpleItem>
-          <SimpleItem dataField="ModifyDate">
+          <SimpleItem dataField="ModifyDate" editorType="dxDateBox">
             <Label visible={true} text={"Last Modification Date"} />
           </SimpleItem>
-          <SimpleItem dataField="IsActive" />
-          <SimpleItem dataField="Description" />
+          <SimpleItem dataField="IsActive" editorType="dxCheckBox" />
+          <SimpleItem dataField="Description" editorType="dxTextArea">
+            <TextArea
+            height={90}
+            maxLength={500}
+            value={procedure.Description} />
+          </SimpleItem>
+          
         </GroupItem>
       </Form>
     </div>

@@ -1,30 +1,43 @@
 import React, { useState } from "react";
 import { Menu, Image } from "semantic-ui-react";
 import ProceduresEditor from "../../procedures-container/procedures-editor/ProceduresEditor";
+import { removeProcedure } from "../../../services/procedures-http.service";
 import new_procedure from "../../../images/32_new_procedure.png";
 import view_procedure from "../../../images/32_view_procedure.png";
 import delete_procedure from "../../../images/32_delete_procedure.png";
 import refresh_procedure from "../../../images/refresh_32x32.png";
+import * as types from "../../../shared/types";
 import "./header.scss";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [action, setAction] = useState();
   const [isReadOnly, setIsReadOnly] = useState(false);
   const [selectedProcedure, setSelectedProcedure] = useState({});
 
   const onClose = () => setIsOpen(false);
 
   const openNew = () => {
+    setAction(types.actions.ADD);
     setIsOpen(true);
     setIsReadOnly(false);
-    setSelectedProcedure({});
-  }
+    setSelectedProcedure(types.initializeProcedure);
+  };
 
   const openEdit = () => {
+    setAction(types.actions.EDIT);
     setIsOpen(true);
     setIsReadOnly(false);
     setSelectedProcedure(JSON.parse(localStorage.getItem("selectedProcedure")));
   };
+
+  const removeProc = () => {
+    //setSelectedProcedure(JSON.parse(localStorage.getItem("selectedProcedure")));
+    var procedureId = localStorage.getItem("procedureId");
+    console.log("REMOVE - procedureId: ", procedureId);
+    removeProcedure(procedureId);
+  };
+
   const onConfirm = () => {
     setIsOpen(false);
     //setConfirm(true);
@@ -37,6 +50,7 @@ const Header = () => {
           show={isOpen}
           close={onClose}
           confirm={onConfirm}
+          actionType={action}
           procedure={selectedProcedure}
           isReadOnly={isReadOnly}
         />
@@ -52,7 +66,7 @@ const Header = () => {
             <span className="Header-title">Edit</span>
           </div>
         </Menu.Item>
-        <Menu.Item as="a">
+        <Menu.Item onClick={() => removeProc()}>
           <div>
             <Image src={delete_procedure} />
             <span className="Header-title">Delete</span>

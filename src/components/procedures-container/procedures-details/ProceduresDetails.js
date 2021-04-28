@@ -21,10 +21,10 @@ const ProceduresDetails = ({ procedure, isReadOnly }) => {
     <div className="ProceduresDetails-container">
       <ComponentTitle title={procedureName} image={new_procedure} />
       <Grid>
-        <Grid.Column className="ProceduresDetails-Conditions" width={8}>
+        <Grid.Column className="ProceduresDetails-Conditions" width={7}>
           <ProceduresConditions procedureCondition={condition} isReadOnly={isReadOnly} />
         </Grid.Column>
-        <Grid.Column className="ProceduresConditions-From" width={8}>
+        <Grid.Column className="ProceduresConditions-From" width={7}>
           <ProceduresFrom procedure={procedure} isReadOnly={isReadOnly} />
         </Grid.Column>
       </Grid>
