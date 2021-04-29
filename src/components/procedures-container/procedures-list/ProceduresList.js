@@ -34,13 +34,13 @@ const ProceduresList = ({ procedures, onSelected = types.EmptyFn }) => {
           mode="row"         
           confirmDelete={true}
         />
-        <Column dataField="id" caption="Id" alignment="center"></Column>
-        <Column type={Checkbox} dataField="IsActive" caption="Active"></Column>
+        {/* <Column dataField="id" caption="Id" alignment="center"></Column> */}
+        <Column type={Checkbox} dataField="IsActive" caption="Active" width={60}></Column>
         <Column dataField="Name" width={400}></Column>
-        <Column caption="Event Type" width={270} dataField="ProcedureCondition.EventTypeID">
+        <Column caption="Event Type" width={260} dataField="ProcedureCondition.EventTypeID">
           <Lookup dataSource={EventTypes} valueExpr="EventTypeId" displayExpr="EventTypeName" />
         </Column>
-        <Column dataField="ProcedureCondition.EventTypeID" caption="Type" width={270}>
+        <Column dataField="ProcedureCondition.EventTypeID" caption="Type" width={255}>
           <Lookup dataSource={EventTypes} valueExpr="EventTypeId" displayExpr="EventTypeName" />
         </Column>
         <Column dataField="ProcedureCondition.Severity" caption="Severity" width={80}>

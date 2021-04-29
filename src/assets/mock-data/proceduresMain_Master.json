@@ -849,44 +849,6 @@
           ]
         }
       ]
-    },
-    {
-      "id": "def03c04-a584-491d-ba9e-9941c153aac7",
-      "Name": "Stam",
-      "Description": "",
-      "CreationDate": "2021-04-29T16:18:51.759Z",
-      "ModifyDate": "2021-04-29T16:20:45.338Z",
-      "ValidityDate": "2021-04-29T16:18:51.760Z",
-      "IsActive": true,
-      "IsDeleted": false,
-      "CreatingUserId": 1,
-      "ModifyUserId": 1,
-      "OrganizationId": 1,
-      "IsLocked": false,
-      "ProcedureCondition": {
-        "EventTypeID": 6,
-        "Severity": 1,
-        "Priority": "NULL",
-        "StartAt": "",
-        "EndAt": "",
-        "GeoAreaID": "NULL",
-        "ScheduleID": -1,
-        "Recurring": "1"
-      },
-      "ProcedureSteps": [
-        {
-          "__KEY__": "70ec5702-8e98-9127-a829-5307a74ea3cc",
-          "SequenceNumber": "1",
-          "Title": "11",
-          "Instruction": "11"
-        },
-        {
-          "__KEY__": "915bd22d-aa39-319d-689d-827727ec9bc3",
-          "SequenceNumber": "2",
-          "Title": "22",
-          "Instruction": "22"
-        }
-      ]
     }
   ]
 }

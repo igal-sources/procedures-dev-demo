@@ -1,6 +1,6 @@
 import React from "react";
 import Form, { GroupItem, SimpleItem, Label, RequiredRule } from "devextreme-react/form";
-import TextArea from 'devextreme-react/text-area';
+import TextArea from "devextreme-react/text-area";
 import "./procedures-from.scss";
 
 const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
@@ -8,7 +8,6 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
 
   return (
     <div className="ProceduresFrom-container">
-
       <Form
         id="From"
         formData={procedure}
@@ -23,26 +22,35 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
           <SimpleItem dataField="Name">
             <RequiredRule message="Name is required" />
           </SimpleItem>
-          <SimpleItem dataField="CreatingUserId">
+          <SimpleItem
+            dataField="CreatingUserId"
+            editorOptions={{
+              readOnly: true,
+            }}
+          >
             <Label visible={true} text={"Created By"} />
           </SimpleItem>
-          <SimpleItem dataField="CreationDate" editorType="dxDateBox">
-            <Label visible={true} text={"Creation Date"} />
+          <SimpleItem dataField="CreationDate" editorType="dxDateBox" editorOptions={{
+              readOnly: true,
+            }}>
+            <Label visible={true} text={"Creation Date"} editorOptions={{
+              readOnly: true,
+            }}/>
           </SimpleItem>
           <SimpleItem dataField="ModifyUserId">
-            <Label visible={true} text={"Last Modification User"} />
+            <Label visible={true} text={"Last Modification User"} editorOptions={{
+              readOnly: true,
+            }}/>
           </SimpleItem>
-          <SimpleItem dataField="ModifyDate" editorType="dxDateBox">
+          <SimpleItem dataField="ModifyDate" editorType="dxDateBox" editorOptions={{
+              readOnly: true,
+            }}>
             <Label visible={true} text={"Last Modification Date"} />
           </SimpleItem>
           <SimpleItem dataField="IsActive" editorType="dxCheckBox" />
           <SimpleItem dataField="Description" editorType="dxTextArea">
-            <TextArea
-            height={90}
-            maxLength={500}
-            value={procedure.Description} />
+            <TextArea height={90} maxLength={500} value={procedure.Description} />
           </SimpleItem>
-          
         </GroupItem>
       </Form>
     </div>

@@ -1,24 +1,15 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { DataGrid, Column, Editing } from "devextreme-react/data-grid";
-//import DataSource from "devextreme/data/data_source";
 import ComponentTitle from "../../../shared/custom-components/component-title/ComponentTitle";
 import "./procedures-steps.scss";
 
-const ProceduresSteps = ({ procedure, isReadOnly }) => {
-  const isCancelled = useRef(false);
-  //const [procedureSteps, setProcedureSteps] = useState([]);
-  //console.log("procedureSteps: ", procedureSteps);
-
+const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
   const { ProcedureSteps = [] } = procedure;
-  //const stepsDataSource = new DataSource(ProcedureSteps);
 
   useEffect(() => {
-    //!isCancelled.current && setProcedureSteps(ProcedureSteps);
-    return () => {
-      isCancelled.current = true;
-    };
+    return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [procedure.ProcedureSteps]);  
+  }, [procedure]);
 
   return (
     <div className="ProceduresSteps-container">
@@ -29,7 +20,7 @@ const ProceduresSteps = ({ procedure, isReadOnly }) => {
         columnAutoWidth={true}
         hoverStateEnabled={true}
         dataSource={ProcedureSteps}
-        keyExpr="ProcedureStepID"
+        keyExpr=""
       >
         <Editing
           mode="row"

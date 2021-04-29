@@ -7,7 +7,7 @@ const ComponentTitle = ({ title, image }) => {
   return (
     <div className="ComponentTitle-container">
       <div className="ComponentTitle-header">
-        <Image className="ComponentTitle-header-image" src={image} />
+        {image && <Image className="ComponentTitle-header-image" src={image} />}
         <p className="ComponentTitle-header-text">{title}</p>
       </div>
     </div>

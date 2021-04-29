@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { Grid } from "semantic-ui-react";
+import { v4 as uuidv4 } from 'uuid';
 import * as types from "../../../shared/types";
 import ProceduresConditions from "../procedures-details/procedures-conditions/ProceduresConditions";
 import ProceduresFrom from "../procedures-details/procedures-from/ProceduresFrom";
@@ -16,7 +17,27 @@ const ProceduresEditor = ({
   close = types.EmptyFn,
   confirm = types.EmptyFn,
 }) => {
-  const [condition, setCondition] = useState({});
+  const initData = (action) => {
+    let today = new Date();
+
+    switch (actionType) {
+      case types.actions.ADD:
+        procedure.id = uuidv4();
+        procedure.OrganizationId = 1; //TODO: from outside
+        procedure.CreatingUserId = 1; //TODO: from outside
+        procedure.ModifyUserId = 1; //TODO: from outside
+        procedure.CreationDate = today.toISOString();
+        procedure.ModifyDate = today.toISOString();
+        procedure.ValidityDate = new Date().toISOString();
+        break;
+      case types.actions.EDIT:
+        procedure.ModifyDate = today.toISOString();
+        procedure.ModifyUserId = 1; //TODO: from outside
+        break;
+      default:
+        break;
+    }
+  };
 
   const onConfirm = (action) => {
     console.log("onConfirm - procedure, action: ", procedure, action);
@@ -36,11 +57,12 @@ const ProceduresEditor = ({
   };
 
   useEffect(() => {
-    const { ProcedureCondition = {} } = procedure;
-
-    setCondition(ProcedureCondition);
+    
+    initData(actionType);
+    console.log("useEffect: ", actionType);
+    return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [procedure.id]);
+  }, [procedure]);
 
   return (
     <>
@@ -55,12 +77,12 @@ const ProceduresEditor = ({
                 <ProceduresFrom procedure={procedure} isReadOnly={isReadOnly} />
               </Grid.Column>
               <Grid.Column>
-                <ProceduresConditions procedureCondition={condition} isReadOnly={isReadOnly} />
+                <ProceduresConditions procedure={procedure} isReadOnly={isReadOnly} />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={1}>
               <Grid.Column>
-                <ProceduresSteps procedure={procedure} isReadOnly={isReadOnly} />
+                <ProceduresSteps procedure={procedure} isReadOnly={isReadOnly} actionType={actionType} />
               </Grid.Column>
             </Grid.Row>
           </Grid>

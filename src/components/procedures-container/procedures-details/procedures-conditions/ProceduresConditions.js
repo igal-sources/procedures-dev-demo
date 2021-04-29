@@ -1,14 +1,16 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Form, { GroupItem, SimpleItem, Label } from "devextreme-react/form";
 import { SelectBox } from "devextreme-react/select-box";
 import EventTypes from "../../../../assets/mock-data/EventTypes.json";
 import EventSeverities from "../../../../assets/mock-data/EventSeverities.json";
 import "./procedures-conditions.scss";
 
-const ProceduresConditions = ({ procedureCondition = {}, isReadOnly }) => {
-  const isCancelled = useRef(false);
+const ProceduresConditions = ({ procedure, isReadOnly }) => {
   const [eventSubtypes, setEventSubtypes] = useState([]);
-  //console.log("procedureCondition: ", procedureCondition);
+  const [condition, setCondition] = useState({});
+
+  console.log("ProceduresConditions - procedure: ", procedure);
+  console.log("procedureCondition: ", condition);
 
   const getEventSubTypes = (eventId) => {
     const event = EventTypes.filter((s) => s.ParentId === eventId).EventTypeId;
@@ -24,18 +26,20 @@ const ProceduresConditions = ({ procedureCondition = {}, isReadOnly }) => {
   };
 
   useEffect(() => {
-    !isCancelled.current && getEventSubTypes(2);
+    const { ProcedureCondition = {} } = procedure;
+    setCondition(ProcedureCondition);
+    console.log("useEffect - ProcedureCondition: ", ProcedureCondition);
     return () => {
-      isCancelled.current = true;
+      
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [procedure]);
 
   return (
     <div className="ProceduresConditions-container">
       <Form
         id="form"
-        formData={procedureCondition}
+        formData={condition}
         readOnly={isReadOnly}
         showColonAfterLabel={true}
         labelLocation={"left"}
@@ -51,7 +55,7 @@ const ProceduresConditions = ({ procedureCondition = {}, isReadOnly }) => {
               items: EventTypes,
               valueExpr: "EventTypeId",
               displayExpr: "EventTypeName",
-              value: procedureCondition.EventTypeId
+              value: condition.EventTypeId,
             }}
           >
             <Label visible={true} text={"Event Type"} />
@@ -63,7 +67,7 @@ const ProceduresConditions = ({ procedureCondition = {}, isReadOnly }) => {
               items: EventTypes,
               valueExpr: "EventTypeId",
               displayExpr: "EventTypeName",
-              value: procedureCondition.EventTypeId,
+              value: condition.EventTypeId,
             }}
           >
             <Label visible={true} text={"Event SubType"} />
@@ -92,7 +96,7 @@ const ProceduresConditions = ({ procedureCondition = {}, isReadOnly }) => {
               items: EventSeverities,
               valueExpr: "EventSeverityID",
               displayExpr: "EventSeverityName",
-              value: procedureCondition.EventSeverityID,
+              value: condition.EventSeverityID,
             }}
           />
           <SimpleItem dataField="GeoAreaID">

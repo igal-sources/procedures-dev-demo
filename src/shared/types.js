@@ -10,6 +10,26 @@ export const actions = {
 };
 
 export const initializeProcedure = {
-  ProcedureCondition: {},
+  id: "",
+  Name: "",
+  Description: "",
+  CreationDate: "",
+  ModifyDate: "",
+  ValidityDate: "",
+  IsActive: true,
+  IsDeleted: false,
+  CreatingUserId: "",
+  ModifyUserId: "",
+  OrganizationId: "",
+  IsLocked: false,
+  ProcedureCondition: {
+    EventTypeID: -1,
+    Severity: -1,
+    Priority: "NULL",
+    StartAt: "",
+    EndAt: "",
+    GeoAreaID: "NULL",
+    ScheduleID: -1,
+  },
   ProcedureSteps: [],
 };

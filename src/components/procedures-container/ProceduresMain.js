@@ -28,7 +28,6 @@ const ProceduresMain = () => {
   };
 
   useEffect(() => {
-    console.log("ProceduresMain - useEffect: ", procedures);
     !isCancelled.current && fetchData();
     return () => {
       isCancelled.current = true;
@@ -39,14 +38,13 @@ const ProceduresMain = () => {
   return (
     <div className="ProceduresMain-container">
       <Grid>
-        <Grid.Column className="ProceduresMain-ProceduresList" width={10}>
+        <Grid.Column className="ProceduresMain-ProceduresList" width={9}>
           <ProceduresList
             procedures={procedures}
             onSelected={(id) => handleSelectedProcedure(id)}
-            className="ProceduresMain-ProceduresList"
           />
         </Grid.Column>
-        <Grid.Column className="ProceduresMain-ProceduresConditions" width={6}>
+        <Grid.Column className="ProceduresMain-ProceduresConditions" width={7}>
           <ProceduresDetails procedure={selectedProcedure} isReadOnly={true} />
           <ProceduresSteps procedure={selectedProcedure} isReadOnly={true} />
         </Grid.Column>

@@ -8,13 +8,10 @@ import "./procedures-details.scss";
 
 const ProceduresDetails = ({ procedure, isReadOnly }) => {
   const [procedureName, setProcedureName] = useState("");
-  const [condition, setCondition] = useState({});
 
   useEffect(() => {
-    const { ProcedureCondition = {} } = procedure;
     const { Name = "" } = procedure;
     setProcedureName(Name);
-    setCondition(ProcedureCondition);
   }, [procedure]);
 
   return (
@@ -22,7 +19,7 @@ const ProceduresDetails = ({ procedure, isReadOnly }) => {
       <ComponentTitle title={procedureName} image={new_procedure} />
       <Grid>
         <Grid.Column className="ProceduresDetails-Conditions" width={7}>
-          <ProceduresConditions procedureCondition={condition} isReadOnly={isReadOnly} />
+          <ProceduresConditions procedure={procedure} isReadOnly={isReadOnly} />
         </Grid.Column>
         <Grid.Column className="ProceduresConditions-From" width={7}>
           <ProceduresFrom procedure={procedure} isReadOnly={isReadOnly} />
