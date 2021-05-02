@@ -5,6 +5,12 @@ import "./procedures-steps.scss";
 
 const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
   const { ProcedureSteps = [] } = procedure;
+  console.log("ProcedureSteps: ", ProcedureSteps);
+
+  const cellRender = (data) => {
+    const res = data.value.map((v) => Object.values(v.Name).join("")).join(", ");
+    return res;
+  };
 
   useEffect(() => {
     return () => {};
@@ -30,8 +36,9 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
           confirmDelete={true}
         />
         <Column dataField="SequenceNumber" caption="#" width={30}></Column>
-        <Column dataField="Title"></Column>
-        <Column dataField="Instruction"></Column>
+        <Column dataField="Title" width={320}></Column>
+        <Column dataField="Instruction" width={320}></Column>
+        <Column dataField="ProcedureStepResults" caption="Results" cellRender={cellRender}></Column>
       </DataGrid>
     </div>
   );
