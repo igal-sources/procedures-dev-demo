@@ -49,7 +49,6 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
           </SimpleItem>
           <SimpleItem dataField="IsActive" editorType="dxCheckBox" />
           <SimpleItem dataField="Description" editorType="dxTextArea">
-            <TextArea height={90} maxLength={500} value={procedure.Description} />
           </SimpleItem>
         </GroupItem>
       </Form>

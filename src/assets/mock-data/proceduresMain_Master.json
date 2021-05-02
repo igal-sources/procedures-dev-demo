@@ -14,7 +14,8 @@
       "OrganizationId": -1,
       "IsLocked": false,
       "ProcedureCondition": {
-        "EventTypeID": 3,
+        "EventTypeID": 2,
+        "EventSubTypeID": 3,
         "Severity": 2,
         "Priority": "NULL",
         "StartAt": "00:00:00.0000000",
@@ -99,7 +100,8 @@
       "OrganizationId": -1,
       "IsLocked": false,
       "ProcedureCondition": {
-        "EventTypeID": 7,
+        "EventTypeID": 2,
+        "EventSubTypeID": 7,
         "Severity": 1,
         "Priority": "NULL",
         "StartAt": "00:00:00.0000000",
@@ -184,7 +186,8 @@
       "OrganizationId": -1,
       "IsLocked": false,
       "ProcedureCondition": {
-        "EventTypeID": 10,
+        "EventTypeID": 2,
+        "EventSubTypeID": 10,
         "Severity": 3,
         "Priority": "NULL",
         "StartAt": "00:00:00.0000000",
@@ -269,7 +272,8 @@
       "OrganizationId": -1,
       "IsLocked": false,
       "ProcedureCondition": {
-        "EventTypeID": 143,
+        "EventTypeID": 2,
+        "EventSubTypeID": 143,
         "Severity": 1,
         "Priority": "NULL",
         "StartAt": "00:00:00.0000000",
@@ -354,7 +358,8 @@
       "OrganizationId": -1,
       "IsLocked": false,
       "ProcedureCondition": {
-        "EventTypeID": 15,
+        "EventTypeID": 13,
+        "EventSubTypeID": 15,
         "Severity": 1,
         "Priority": "NULL",
         "StartAt": "00:00:00.0000000",
@@ -439,7 +444,8 @@
       "OrganizationId": -1,
       "IsLocked": false,
       "ProcedureCondition": {
-        "EventTypeID": 19,
+        "EventTypeID": 16,
+        "EventSubTypeID": 19,
         "Severity": 3,
         "Priority": "NULL",
         "StartAt": "00:00:00.0000000",
@@ -524,7 +530,8 @@
       "OrganizationId": -1,
       "IsLocked": false,
       "ProcedureCondition": {
-        "EventTypeID": 28,
+        "EventTypeID": 27,
+        "EventSubTypeID": 28,
         "Severity": 2,
         "Priority": "NULL",
         "StartAt": "00:00:00.0000000",
@@ -609,7 +616,8 @@
       "OrganizationId": -1,
       "IsLocked": false,
       "ProcedureCondition": {
-        "EventTypeID": 34,
+        "EventTypeID": 31,
+        "EventSubTypeID": 34,
         "Severity": 2,
         "Priority": "NULL",
         "StartAt": "00:00:00.0000000",
@@ -694,7 +702,8 @@
       "OrganizationId": -1,
       "IsLocked": false,
       "ProcedureCondition": {
-        "EventTypeID": 128,
+        "EventTypeID": 31,
+        "EventSubTypeID": 128,
         "Severity": 2,
         "Priority": "NULL",
         "StartAt": "00:00:00.0000000",
@@ -779,7 +788,8 @@
       "OrganizationId": -1,
       "IsLocked": false,
       "ProcedureCondition": {
-        "EventTypeID": 1087,
+        "EventTypeID": 1085,
+        "EventSubTypeID": 1087,
         "Severity": 2,
         "Priority": "NULL",
         "StartAt": "00:00:00.0000000",

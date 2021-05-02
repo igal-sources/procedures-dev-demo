@@ -55,19 +55,19 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
               items: EventTypes,
               valueExpr: "EventTypeId",
               displayExpr: "EventTypeName",
-              value: condition.EventTypeId,
+              value: condition.EventTypeID,
             }}
           >
             <Label visible={true} text={"Event Type"} />
           </SimpleItem>
           <SimpleItem
-            dataField="EventTypeID"
+            dataField="EventSubTypeID"
             editorType="dxSelectBox"
             editorOptions={{
               items: EventTypes,
               valueExpr: "EventTypeId",
               displayExpr: "EventTypeName",
-              value: condition.EventTypeId,
+              value: condition.EventSubTypeID,
             }}
           >
             <Label visible={true} text={"Event SubType"} />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Checkbox } from "semantic-ui-react";
 import { DataGrid, Column, Lookup, Editing } from "devextreme-react/data-grid";
 import * as types from "../../../shared/types";
@@ -8,7 +8,8 @@ import EventSeverities from "../../../assets/mock-data/EventSeverities.json";
 import "./procedures-list.scss";
 
 const ProceduresList = ({ procedures, onSelected = types.EmptyFn }) => {
-  //console.log('ProceduresList - procedures: ', procedures);
+  const [eventTypeParent, setEventTypeParent] = useState([]);
+
   const handleSelected = ({ selectedRowsData }) => {
     const { id } = selectedRowsData[0];
     onSelected(id);
@@ -18,29 +19,27 @@ const ProceduresList = ({ procedures, onSelected = types.EmptyFn }) => {
     <div className="ProceduresList-container">
       <ComponentTitle title={"Procedures"} />
       <DataGrid
+        dataSource={procedures}
+        repaintChangesOnly={true}
         allowColumnReordering={true}
         selection={{ mode: "single" }}
         columnAutoWidth={true}
         hoverStateEnabled={true}
         onSelectionChanged={handleSelected}
-        dataSource={procedures}
         keyExpr="id"
         showColumnLines={true}
         showRowLines={false}
         showBorders={true}
         rowAlternationEnabled={true}
       >
-        <Editing
-          mode="row"         
-          confirmDelete={true}
-        />
+        <Editing mode="row" confirmDelete={true} />
         {/* <Column dataField="id" caption="Id" alignment="center"></Column> */}
         <Column type={Checkbox} dataField="IsActive" caption="Active" width={60}></Column>
         <Column dataField="Name" width={400}></Column>
-        <Column caption="Event Type" width={260} dataField="ProcedureCondition.EventTypeID">
+        <Column caption="Event Type" dataField="ProcedureCondition.EventTypeID" width={260}>
           <Lookup dataSource={EventTypes} valueExpr="EventTypeId" displayExpr="EventTypeName" />
         </Column>
-        <Column dataField="ProcedureCondition.EventTypeID" caption="Type" width={255}>
+        <Column caption="Type" dataField="ProcedureCondition.EventSubTypeID" width={255}>
           <Lookup dataSource={EventTypes} valueExpr="EventTypeId" displayExpr="EventTypeName" />
         </Column>
         <Column dataField="ProcedureCondition.Severity" caption="Severity" width={80}>

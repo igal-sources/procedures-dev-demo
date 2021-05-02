@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { Grid } from "semantic-ui-react";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import * as types from "../../../shared/types";
 import ProceduresConditions from "../procedures-details/procedures-conditions/ProceduresConditions";
 import ProceduresFrom from "../procedures-details/procedures-from/ProceduresFrom";
 import ProceduresSteps from "../procedures-steps/ProceduresSteps";
 import { createProcedure, updateProcedure } from "../../../services/procedures-http.service";
+import eventBus from "../../../services/EventBus";
 import "./procedures-editor.scss";
 
 const ProceduresEditor = ({
@@ -53,11 +54,11 @@ const ProceduresEditor = ({
     }
 
     localStorage.setItem("selectedProcedure", JSON.stringify(procedure));
+    eventBus.dispatch("procedureChanged", { message: "procedureChanged" });
     confirm();
   };
 
   useEffect(() => {
-    
     initData(actionType);
     console.log("useEffect: ", actionType);
     return () => {};
@@ -82,7 +83,11 @@ const ProceduresEditor = ({
             </Grid.Row>
             <Grid.Row columns={1}>
               <Grid.Column>
-                <ProceduresSteps procedure={procedure} isReadOnly={isReadOnly} actionType={actionType} />
+                <ProceduresSteps
+                  procedure={procedure}
+                  isReadOnly={isReadOnly}
+                  actionType={actionType}
+                />
               </Grid.Column>
             </Grid.Row>
           </Grid>
