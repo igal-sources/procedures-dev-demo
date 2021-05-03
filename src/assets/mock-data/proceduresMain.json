@@ -435,12 +435,12 @@
       "Name": "Crossing a Restricted Line (19) Caution",
       "Description": "Crossing a Restricted Line (19) Caution",
       "CreationDate": "2017-01-01T00:00:00",
-      "ModifyDate": "2017-01-01T00:00:00",
+      "ModifyDate": "2021-05-03T16:06:40.693Z",
       "ValidityDate": "2017-01-01T00:00:00",
       "IsActive": true,
       "IsDeleted": false,
       "CreatingUserId": 1,
-      "ModifyUserId": 0,
+      "ModifyUserId": 1,
       "OrganizationId": -1,
       "IsLocked": false,
       "ProcedureCondition": {
@@ -511,6 +511,28 @@
             {
               "SequenceNumber": 2,
               "Name": "Not done"
+            }
+          ]
+        },
+        {
+          "SequenceNumber": 5,
+          "Title": "444",
+          "Instruction": "4555",
+          "ProcedureStepResults": [
+            {
+              "SequenceNumber": "5",
+              "Name": "5555"
+            }
+          ]
+        },
+        {
+          "SequenceNumber": 6,
+          "Title": "666",
+          "Instruction": "8888",
+          "ProcedureStepResults": [
+            {
+              "SequenceNumber": "8",
+              "Name": "8888"
             }
           ]
         }
@@ -855,6 +877,44 @@
             {
               "SequenceNumber": 2,
               "Name": "Not done"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "494b89bc-5fed-419c-bd40-f85c28e31096",
+      "Name": "P1",
+      "Description": "879797",
+      "CreationDate": "2021-05-03T16:16:37.630Z",
+      "ModifyDate": "2021-05-03T16:17:37.775Z",
+      "ValidityDate": "2021-05-03T16:16:37.630Z",
+      "IsActive": true,
+      "IsDeleted": false,
+      "CreatingUserId": 1,
+      "ModifyUserId": 1,
+      "OrganizationId": 1,
+      "IsLocked": false,
+      "ProcedureCondition": {
+        "EventTypeID": 2,
+        "Severity": 3,
+        "Priority": "NULL",
+        "StartAt": "",
+        "EndAt": "",
+        "GeoAreaID": "NULL7979",
+        "ScheduleID": -1,
+        "EventSubTypeID": 5,
+        "Recurring": "79797"
+      },
+      "ProcedureSteps": [
+        {
+          "SequenceNumber": 1,
+          "Title": "S1",
+          "Instruction": "I1",
+          "ProcedureStepResults": [
+            {
+              "SequenceNumber": "1",
+              "Name": "5655"
             }
           ]
         }

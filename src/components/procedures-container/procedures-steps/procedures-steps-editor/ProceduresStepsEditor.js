@@ -22,7 +22,6 @@ const ProceduresStepsEditor = ({
     const { ProcedureStepResults = [] } = selectedStep;
 
     setStepResults(ProcedureStepResults);
-    console.log("ProcedureStepResults1: ", ProcedureStepResults);
 
     switch (action) {
       case types.actions.ADD:

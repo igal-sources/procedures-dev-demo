@@ -8,14 +8,27 @@ import "./procedures-steps.scss";
 const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [action, setAction] = useState();
-  const [selectedStep, setSelectedStep] = useState([]);
+  const [selectedStep, setSelectedStep] = useState({});
 
   const { ProcedureSteps = [] } = procedure;
 
-  console.log("ProcedureSteps: ", ProcedureSteps);
+  //console.log("ProcedureSteps: ", ProcedureSteps);
 
-  const cellRender = (data) => {
-    const res = data.value.map((v) => Object.values(v.Name).join("")).join(", ");
+  const initNewProcedureStep = () => {
+    const newStep = types.initializeProcedureStep;
+
+    if (ProcedureSteps.length === 0) {
+      newStep.SequenceNumber = 1;
+    } else {
+      newStep.SequenceNumber = ProcedureSteps[ProcedureSteps.length - 1].SequenceNumber + 1;
+    }
+
+    //console.log("newStep: ", newStep);
+    setSelectedStep(newStep);
+  };
+
+  const cellRenderResults = (data) => {
+    const res = data && data.value.map((v) => Object.values(v.Name).join("")).join(", ");
     return res;
   };
 
@@ -23,9 +36,19 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
 
   const onConfirm = () => {
     setIsOpen(false);
-    console.log("onConfirm-Procedure: ", procedure);
-    console.log("onConfirm-ProcedureSteps: ", selectedStep);
-    procedure.ProcedureSteps = [...procedure.ProcedureSteps, selectedStep];
+    //console.log("onConfirm-Procedure: ", procedure);
+    //console.log("onConfirm-ProcedureSteps: ", selectedStep);
+
+    switch (action) {
+      case types.actions.ADD:
+        procedure.ProcedureSteps = [...procedure.ProcedureSteps, selectedStep];
+        break;
+      case types.actions.EDIT:
+        break;
+      default:
+        break;
+    }
+
     //setConfirm(true);
   };
 
@@ -64,14 +87,16 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
   };
 
   const handleToolbarActionsClick = (action) => {
+    setAction(action);
+
     switch (action) {
       case types.actions.ADD:
-        setAction(types.actions.ADD);
+        //console.log("types.actions.ADD: ", types.actions.ADD);
         setIsOpen(true);
-        setSelectedStep(types.initializeProcedureStep);
+        initNewProcedureStep();
         break;
       case types.actions.EDIT:
-        setAction(types.actions.EDIT);
+        //console.log("types.actions.EDIT: ", types.actions.EDIT);
         setIsOpen(true);
         setSelectedStep(selectedStep);
         break;
@@ -116,7 +141,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
         <Column dataField="SequenceNumber" caption="#" width={30}></Column>
         <Column dataField="Title" width={320}></Column>
         <Column dataField="Instruction" width={320}></Column>
-        <Column dataField="ProcedureStepResults" caption="Results" cellRender={cellRender}></Column>
+        <Column dataField="ProcedureStepResults" caption="Results" cellRender={cellRenderResults}></Column>
       </DataGrid>
     </div>
   );
