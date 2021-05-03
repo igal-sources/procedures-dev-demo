@@ -1,6 +1,6 @@
 import React from "react";
 import Form, { GroupItem, SimpleItem, Label, RequiredRule } from "devextreme-react/form";
-import TextArea from "devextreme-react/text-area";
+import 'devextreme-react/text-area';
 import "./procedures-from.scss";
 
 const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {

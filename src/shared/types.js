@@ -33,3 +33,10 @@ export const initializeProcedure = {
   },
   ProcedureSteps: [],
 };
+
+export const initializeProcedureStep = {
+  SequenceNumber: "",
+  Title: "",
+  Instruction: "",
+  ProcedureStepResults: [],
+};

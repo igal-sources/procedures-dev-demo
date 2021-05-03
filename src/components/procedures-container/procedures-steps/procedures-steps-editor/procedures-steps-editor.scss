@@ -1,0 +1,17 @@
+@import "../../../../shared/css/main.scss";
+
+.ProceduresStepsEditor-container {
+  background: #283758;
+  color: #fff;
+  .ui.grid {
+    margin-left: 20px;
+    color: #fff;
+  }
+}
+
+.ProceduresStepsEditor-Modal .modal-content {
+  background: #283758;
+  height: auto;
+  width: auto;
+  margin-top: 200px;
+}

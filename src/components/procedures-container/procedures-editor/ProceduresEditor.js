@@ -21,7 +21,7 @@ const ProceduresEditor = ({
   const initData = (action) => {
     let today = new Date();
 
-    switch (actionType) {
+    switch (action) {
       case types.actions.ADD:
         procedure.id = uuidv4();
         procedure.OrganizationId = 1; //TODO: from outside
