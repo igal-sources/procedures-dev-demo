@@ -8,7 +8,7 @@ import ComponentTitle from "../../../../shared/custom-components/component-title
 import "./procedures-steps-editor.scss";
 
 const ProceduresStepsEditor = ({
-  procedure,
+  selectedStep,
   isReadOnly,
   actionType,
   show = types.EmptyFn,
@@ -17,17 +17,12 @@ const ProceduresStepsEditor = ({
 }) => {
   const [headerText, setHeaderText] = useState("");
   const [stepResults, setStepResults] = useState([]);
-  const [procedureSteps, setProcedureSteps] = useState([]);
-  const [newProcedureStep, setNewProcedureStep] = useState({});
 
   const initData = (action) => {
-    const { ProcedureSteps = [] } = procedure;
-    const { ProcedureStepResults = [] } = ProcedureSteps;
+    const { ProcedureStepResults = [] } = selectedStep;
 
-    setNewProcedureStep(types.initializeProcedureStep);
-    setProcedureSteps(ProcedureSteps);
     setStepResults(ProcedureStepResults);
-    console.log("ProcedureStepResults: ", ProcedureStepResults);
+    console.log("ProcedureStepResults1: ", ProcedureStepResults);
 
     switch (action) {
       case types.actions.ADD:
@@ -42,11 +37,9 @@ const ProceduresStepsEditor = ({
   };
 
   const onConfirm = (action) => {
-    //console.log("ProceduresStepsEditor-onConfirm - procedureSteps: ", procedureSteps);
-    //console.log("ProceduresStepsEditor-onConfirm - stepResults: ", stepResults);
     switch (action) {
       case types.actions.ADD:
-        procedure.ProcedureSteps = [...procedure.ProcedureSteps, newProcedureStep];
+        
         break;
       case types.actions.EDIT:
         break;
@@ -54,7 +47,6 @@ const ProceduresStepsEditor = ({
         break;
     }
 
-    console.log("ProceduresStepsEditor-onConfirm - procedure: ", procedure);
     confirm();
   };
 
@@ -63,7 +55,7 @@ const ProceduresStepsEditor = ({
 
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [procedureSteps]);
+  }, [selectedStep]);
 
   return (
     <>
@@ -84,7 +76,7 @@ const ProceduresStepsEditor = ({
                 <div className="ProceduresStepsEditor-StepForm">
                   <Form
                     id="form"
-                    formData={newProcedureStep}
+                    formData={selectedStep}
                     readOnly={false}
                     showColonAfterLabel={true}
                     labelLocation={"left"}

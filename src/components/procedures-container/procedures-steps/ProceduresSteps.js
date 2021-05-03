@@ -8,7 +8,7 @@ import "./procedures-steps.scss";
 const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [action, setAction] = useState();
-  const [selectedSteps, setSelectedSteps] = useState([]);
+  const [selectedStep, setSelectedStep] = useState([]);
 
   const { ProcedureSteps = [] } = procedure;
 
@@ -24,12 +24,13 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
   const onConfirm = () => {
     setIsOpen(false);
     console.log("onConfirm-Procedure: ", procedure);
-    console.log("onConfirm-ProcedureSteps: ", selectedSteps);
+    console.log("onConfirm-ProcedureSteps: ", selectedStep);
+    procedure.ProcedureSteps = [...procedure.ProcedureSteps, selectedStep];
     //setConfirm(true);
   };
 
   const handleSelected = ({ selectedRowsData }) => {
-    setSelectedSteps(selectedRowsData[0]);
+    setSelectedStep(selectedRowsData[0]);
   };
 
   const onToolbarPreparing = (e) => {
@@ -67,12 +68,12 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
       case types.actions.ADD:
         setAction(types.actions.ADD);
         setIsOpen(true);
-        setSelectedSteps(types.initializeProcedureStep);
+        setSelectedStep(types.initializeProcedureStep);
         break;
       case types.actions.EDIT:
         setAction(types.actions.EDIT);
         setIsOpen(true);
-        setSelectedSteps(selectedSteps);
+        setSelectedStep(selectedStep);
         break;
       default:
         break;
@@ -91,7 +92,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
         close={onClose}
         confirm={onConfirm}
         actionType={action}
-        procedure={procedure}
+        selectedStep={selectedStep}
         isReadOnly={isReadOnly}
       />
       <ComponentTitle title="Steps" />
