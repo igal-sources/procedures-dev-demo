@@ -38,7 +38,6 @@ const ProceduresStepsEditor = ({
   const onConfirm = (action) => {
     switch (action) {
       case types.actions.ADD:
-        
         break;
       case types.actions.EDIT:
         break;
@@ -57,18 +56,20 @@ const ProceduresStepsEditor = ({
   }, [selectedStep]);
 
   return (
-    <>
+    <div className="ProceduresStepsEditor-container">
       <Modal
         size="lg"
         show={show}
         backdrop="static"
-        keyboard={false}
+        keyboard={false}  
+        aria-labelledby="contained-modal-title-vcenter"
+      centered  
         className="ProceduresStepsEditor-Modal"
       >
         <Modal.Header closeButton={false}>
-          <Modal.Title>{headerText}</Modal.Title>
+          <Modal.Title id="contained-modal-title-vcenter">{headerText}</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="ProceduresStepsEditor-container">
+        <Modal.Body className="ProceduresStepsEditor-editor-container">
           <Grid divided="vertically">
             <Grid.Row columns={1}>
               <Grid.Column>
@@ -127,7 +128,7 @@ const ProceduresStepsEditor = ({
           </Button>
         </Modal.Footer>
       </Modal>
-    </>
+    </div>
   );
 };
 

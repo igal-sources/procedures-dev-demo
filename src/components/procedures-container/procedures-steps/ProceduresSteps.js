@@ -12,8 +12,6 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
 
   const { ProcedureSteps = [] } = procedure;
 
-  //console.log("ProcedureSteps: ", ProcedureSteps);
-
   const initNewProcedureStep = () => {
     const newStep = types.initializeProcedureStep;
 
@@ -23,7 +21,6 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
       newStep.SequenceNumber = ProcedureSteps[ProcedureSteps.length - 1].SequenceNumber + 1;
     }
 
-    //console.log("newStep: ", newStep);
     setSelectedStep(newStep);
   };
 
@@ -36,8 +33,6 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
 
   const onConfirm = () => {
     setIsOpen(false);
-    //console.log("onConfirm-Procedure: ", procedure);
-    //console.log("onConfirm-ProcedureSteps: ", selectedStep);
 
     switch (action) {
       case types.actions.ADD:
@@ -91,14 +86,14 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
 
     switch (action) {
       case types.actions.ADD:
-        //console.log("types.actions.ADD: ", types.actions.ADD);
         setIsOpen(true);
         initNewProcedureStep();
         break;
       case types.actions.EDIT:
-        //console.log("types.actions.EDIT: ", types.actions.EDIT);
         setIsOpen(true);
         setSelectedStep(selectedStep);
+        break;
+      case types.actions.REMOVE:
         break;
       default:
         break;
@@ -131,17 +126,21 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
         keyExpr=""
         onToolbarPreparing={onToolbarPreparing}
       >
-        {/* <Editing
+        <Editing
           mode="row"
-          allowAdding={!isReadOnly}
-          allowDeleting={!isReadOnly}
-          allowUpdating={!isReadOnly}
+          // allowAdding={!isReadOnly}
+          // allowDeleting={!isReadOnly}
+          // allowUpdating={!isReadOnly}
           confirmDelete={true}
-        /> */}
+        />
         <Column dataField="SequenceNumber" caption="#" width={30}></Column>
         <Column dataField="Title" width={320}></Column>
         <Column dataField="Instruction" width={320}></Column>
-        <Column dataField="ProcedureStepResults" caption="Results" cellRender={cellRenderResults}></Column>
+        <Column
+          dataField="ProcedureStepResults"
+          caption="Results"
+          cellRender={cellRenderResults}
+        ></Column>
       </DataGrid>
     </div>
   );
