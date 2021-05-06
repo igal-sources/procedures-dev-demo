@@ -15,6 +15,7 @@ const ProceduresMain = () => {
     getAllProcedures().then((res) => {
       setProcedures(res.data);
       setSelectedProcedure(res.data[0]);
+      localStorage.setItem("procedureId", selectedProcedure.id);
     });
   };
 

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Menu, Image } from "semantic-ui-react";
 import ProceduresEditor from "../../procedures-container/procedures-editor/ProceduresEditor";
 import { removeProcedure } from "../../../services/procedures-http.service";
+import { confirmAlert } from "react-confirm-alert"; // Import
+import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import new_procedure from "../../../images/32_new_procedure.png";
 import view_procedure from "../../../images/32_view_procedure.png";
 import delete_procedure from "../../../images/32_delete_procedure.png";
@@ -31,11 +33,26 @@ const Header = () => {
     setSelectedProcedure(JSON.parse(localStorage.getItem("selectedProcedure")));
   };
 
+  const confirmRemove = () => {
+    confirmAlert({
+      title: "Remove Procedure",
+      message: "Are you sure you wish to delete?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => removeProc(),
+        },
+        {
+          label: "No",
+        },
+      ],
+    });
+  };
+
   const removeProc = () => {
-    //setSelectedProcedure(JSON.parse(localStorage.getItem("selectedProcedure")));
     var procedureId = localStorage.getItem("procedureId");
     console.log("REMOVE - procedureId: ", procedureId);
-    removeProcedure(procedureId);
+    procedureId && removeProcedure(procedureId);
   };
 
   const onConfirm = () => {
@@ -66,13 +83,13 @@ const Header = () => {
             <span className="Header-title">Edit</span>
           </div>
         </Menu.Item>
-        <Menu.Item onClick={() => removeProc()}>
+        <Menu.Item onClick={() => confirmRemove()}>
           <div>
             <Image src={delete_procedure} />
             <span className="Header-title">Delete</span>
           </div>
         </Menu.Item>
-        <Menu.Item as="a">
+        <Menu.Item onClick={() => confirmRemove()}>
           <div>
             <Image src={refresh_procedure} />
             <span className="Header-title">Refresh</span>

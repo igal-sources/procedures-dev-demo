@@ -883,12 +883,12 @@
       ]
     },
     {
-      "id": "494b89bc-5fed-419c-bd40-f85c28e31096",
-      "Name": "P1",
-      "Description": "879797",
-      "CreationDate": "2021-05-03T16:16:37.630Z",
-      "ModifyDate": "2021-05-03T16:17:37.775Z",
-      "ValidityDate": "2021-05-03T16:16:37.630Z",
+      "id": "a7db25ae-512f-4763-9336-b03f93306be7",
+      "Name": "Proc 1",
+      "Description": "1111",
+      "CreationDate": "2021-05-06T10:55:32.233Z",
+      "ModifyDate": "2021-05-06T11:04:30.602Z",
+      "ValidityDate": "2021-05-06T10:55:32.233Z",
       "IsActive": true,
       "IsDeleted": false,
       "CreatingUserId": 1,
@@ -896,25 +896,29 @@
       "OrganizationId": 1,
       "IsLocked": false,
       "ProcedureCondition": {
-        "EventTypeID": 2,
+        "EventTypeID": 70,
         "Severity": 3,
         "Priority": "NULL",
         "StartAt": "",
         "EndAt": "",
-        "GeoAreaID": "NULL7979",
+        "GeoAreaID": "NULL11",
         "ScheduleID": -1,
-        "EventSubTypeID": 5,
-        "Recurring": "79797"
+        "EventSubTypeID": 73,
+        "Recurring": "11"
       },
       "ProcedureSteps": [
         {
           "SequenceNumber": 1,
-          "Title": "S1",
-          "Instruction": "I1",
+          "Title": "S11",
+          "Instruction": "I11",
           "ProcedureStepResults": [
             {
               "SequenceNumber": "1",
-              "Name": "5655"
+              "Name": "2222"
+            },
+            {
+              "SequenceNumber": "2",
+              "Name": "aaaa"
             }
           ]
         }

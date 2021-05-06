@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Form, { GroupItem, SimpleItem, Label } from "devextreme-react/form";
+import { Tooltip } from "devextreme-react/tooltip";
 import EventTypes from "../../../../assets/mock-data/EventTypes.json";
 import EventSeverities from "../../../../assets/mock-data/EventSeverities.json";
 import "./procedures-conditions.scss";
@@ -10,8 +11,11 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
   const [condition, setCondition] = useState({});
 
   const eventTypeValueChanged = ({ component }) => {
-    const { EventTypeId } = component.option("selectedItem");
-    getEventSubTypes(EventTypeId);
+    const selectedItem = component.option("selectedItem");
+    if (selectedItem !== null) {
+      const { EventTypeId = {} } = selectedItem && selectedItem;
+      getEventSubTypes(EventTypeId);
+    }
   };
 
   const getEventSubTypes = (eventId) => {
@@ -20,7 +24,6 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
         return p;
       }
     });
-    console.log("subTypes: ", subTypes);
     setEventSubtypes(subTypes);
   };
 
@@ -47,6 +50,8 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
       >
         <GroupItem caption="Conditions">
           <SimpleItem
+            id="eventType"
+            isRequired={true}
             dataField="EventTypeID"
             editorType="dxSelectBox"
             editorOptions={{
@@ -61,6 +66,7 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
           </SimpleItem>
           <SimpleItem
             dataField="EventSubTypeID"
+            isRequired={true}
             editorType="dxSelectBox"
             editorOptions={{
               items: eventSubTypes,
@@ -71,23 +77,6 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
           >
             <Label visible={true} text={"Event SubType"} />
           </SimpleItem>
-          {/* <SimpleItem
-            // dataField="EventTypeID"
-            editorType="dxSelectBox"
-            // editorOptions={{
-            //   items: EventTypes.map((p) => p.EventTypeId === procedureCondition.EventTypeId),
-            //   valueExpr: "EventTypeId",
-            //   displayExpr: "EventTypeName",
-            //   value: EventTypes.map((p) => p.EventTypeId === procedureCondition.EventTypeId),
-            // }}
-          >
-            <Label visible={true} text={"Event Sub Type"} />
-            <SelectBox
-              dataSource={eventSubtypes}
-              valueExpr="EventTypeId"
-              displayExpr="EventTypeName"
-            />
-          </SimpleItem> */}
           <SimpleItem
             dataField="Severity"
             editorType="dxSelectBox"
@@ -95,7 +84,7 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
               items: EventSeverities,
               valueExpr: "EventSeverityID",
               displayExpr: "EventSeverityName",
-              value: condition.EventSeverityID,
+              value: condition.Severity,
             }}
           />
           <SimpleItem dataField="GeoAreaID">
