@@ -421,7 +421,7 @@
   },
   {
     "EventTypeId": 70,
-    "EventTypeName": "Event_Type_Terror\t",
+    "EventTypeName": "Event_Type_Terror",
     "ParentId": -1,
     "TermId": 315,
     "IsDeleted": false,

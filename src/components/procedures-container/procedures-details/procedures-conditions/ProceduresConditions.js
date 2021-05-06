@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Form, { GroupItem, SimpleItem, Label } from "devextreme-react/form";
-import { SelectBox } from "devextreme-react/select-box";
 import EventTypes from "../../../../assets/mock-data/EventTypes.json";
 import EventSeverities from "../../../../assets/mock-data/EventSeverities.json";
 import "./procedures-conditions.scss";
 
 const ProceduresConditions = ({ procedure, isReadOnly }) => {
-  const [eventSubtypes, setEventSubtypes] = useState([]);
+  const [eventSubTypes, setEventSubtypes] = useState([]);
+  const [eventParentTypes, setEventParentTypes] = useState([]);
   const [condition, setCondition] = useState({});
 
-  console.log("ProceduresConditions - procedure: ", procedure);
-  console.log("procedureCondition: ", condition);
+  const eventTypeValueChanged = ({ component }) => {
+    const { EventTypeId } = component.option("selectedItem");
+    getEventSubTypes(EventTypeId);
+  };
 
   const getEventSubTypes = (eventId) => {
-    const event = EventTypes.filter((s) => s.ParentId === eventId).EventTypeId;
-    console.log("eventId: ", event);
-    //const subTypesObj = JSON.parse(EventTypes);
     const subTypes = EventTypes.filter((p) => {
       if (p.ParentId === eventId) {
         return p;
@@ -28,10 +27,9 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
   useEffect(() => {
     const { ProcedureCondition = {} } = procedure;
     setCondition(ProcedureCondition);
-    console.log("useEffect - ProcedureCondition: ", ProcedureCondition);
-    return () => {
-      
-    };
+    setEventParentTypes(EventTypes.filter((e) => e.ParentId === -1));
+    isReadOnly ? setEventSubtypes(EventTypes) : getEventSubTypes(ProcedureCondition.EventTypeID);
+    return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [procedure]);
 
@@ -52,9 +50,10 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
             dataField="EventTypeID"
             editorType="dxSelectBox"
             editorOptions={{
-              items: EventTypes,
+              items: eventParentTypes,
               valueExpr: "EventTypeId",
               displayExpr: "EventTypeName",
+              onValueChanged: eventTypeValueChanged,
               value: condition.EventTypeID,
             }}
           >
@@ -64,7 +63,7 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
             dataField="EventSubTypeID"
             editorType="dxSelectBox"
             editorOptions={{
-              items: EventTypes,
+              items: eventSubTypes,
               valueExpr: "EventTypeId",
               displayExpr: "EventTypeName",
               value: condition.EventSubTypeID,

@@ -4,7 +4,6 @@ import { getAllProcedures, getProcedure } from "../../services/procedures-http.s
 import ProceduresList from "./procedures-list/ProceduresList";
 import ProceduresDetails from "./procedures-details/ProceduresDetails";
 import ProceduresSteps from "./procedures-steps/ProceduresSteps";
-import eventBus from "../../services/EventBus";
 import "./procedures-main.scss";
 
 const ProceduresMain = () => {
@@ -31,13 +30,7 @@ const ProceduresMain = () => {
   useEffect(() => {
     !isCancelled.current && fetchData();
 
-    // eventBus.on("procedureChanged", (data) => {
-    //   fetchData();
-    //   handleSelectedProcedure(localStorage.getItem("procedureId"));
-    // });
-
     return () => {
-      //eventBus.remove("procedureChanged");
       isCancelled.current = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
