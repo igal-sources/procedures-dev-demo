@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Menu, Image } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 import ProceduresEditor from "../../procedures-container/procedures-editor/ProceduresEditor";
 import { removeProcedure } from "../../../services/procedures-http.service";
 import { confirmAlert } from "react-confirm-alert"; // Import
@@ -55,6 +56,12 @@ const Header = () => {
     procedureId && removeProcedure(procedureId);
   };
 
+  const refreshPage = () => {
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
+  };
+
   const onConfirm = () => {
     setIsOpen(false);
     //setConfirm(true);
@@ -89,7 +96,7 @@ const Header = () => {
             <span className="Header-title">Delete</span>
           </div>
         </Menu.Item>
-        <Menu.Item onClick={() => confirmRemove()}>
+        <Menu.Item onClick={refreshPage}>
           <div>
             <Image src={refresh_procedure} />
             <span className="Header-title">Refresh</span>
