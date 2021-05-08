@@ -9,19 +9,32 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [action, setAction] = useState();
   const [selectedStep, setSelectedStep] = useState({});
+  const [procedureSteps, setProcedureSteps] = useState({});
 
-  const { ProcedureSteps = [] } = procedure;
+  const initData = () => {
+    const { ProcedureSteps = [] } = procedure;
+    setProcedureSteps(ProcedureSteps);
+  };
 
   const initNewProcedureStep = () => {
     const newStep = types.initializeProcedureStep;
 
-    if (ProcedureSteps.length === 0) {
+    if (procedureSteps.length === 0) {
       newStep.SequenceNumber = 1;
     } else {
-      newStep.SequenceNumber = ProcedureSteps[ProcedureSteps.length - 1].SequenceNumber + 1;
+      newStep.SequenceNumber = procedureSteps[procedureSteps.length - 1].SequenceNumber + 1;
     }
 
     setSelectedStep(newStep);
+  };
+
+  const removeStep = () => {
+    const newSteps = procedureSteps.filter(
+      (item) => item.SequenceNumber !== selectedStep.SequenceNumber
+    );
+
+    procedure.ProcedureSteps = newSteps;
+    setProcedureSteps(procedure.ProcedureSteps);
   };
 
   const cellRenderResults = (data) => {
@@ -40,6 +53,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
         break;
       case types.actions.EDIT:
         break;
+
       default:
         break;
     }
@@ -94,6 +108,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
         setSelectedStep(selectedStep);
         break;
       case types.actions.REMOVE:
+        removeStep();
         break;
       default:
         break;
@@ -101,9 +116,10 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
   };
 
   useEffect(() => {
+    initData();
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [procedure]);
+  }, [procedure.ProcedureSteps]);
 
   return (
     <div className="ProceduresSteps-container">
@@ -121,7 +137,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
         selection={{ mode: "single" }}
         columnAutoWidth={true}
         hoverStateEnabled={true}
-        dataSource={ProcedureSteps}
+        dataSource={procedureSteps}
         onSelectionChanged={handleSelected}
         keyExpr=""
         onToolbarPreparing={onToolbarPreparing}

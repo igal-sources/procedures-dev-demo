@@ -435,7 +435,7 @@
       "Name": "Crossing a Restricted Line (19) Caution",
       "Description": "Crossing a Restricted Line (19) Caution",
       "CreationDate": "2017-01-01T00:00:00",
-      "ModifyDate": "2021-05-03T16:06:40.693Z",
+      "ModifyDate": "2021-05-08T14:37:16.393Z",
       "ValidityDate": "2017-01-01T00:00:00",
       "IsActive": true,
       "IsDeleted": false,
@@ -511,28 +511,6 @@
             {
               "SequenceNumber": 2,
               "Name": "Not done"
-            }
-          ]
-        },
-        {
-          "SequenceNumber": 5,
-          "Title": "444",
-          "Instruction": "4555",
-          "ProcedureStepResults": [
-            {
-              "SequenceNumber": "5",
-              "Name": "5555"
-            }
-          ]
-        },
-        {
-          "SequenceNumber": 6,
-          "Title": "666",
-          "Instruction": "8888",
-          "ProcedureStepResults": [
-            {
-              "SequenceNumber": "8",
-              "Name": "8888"
             }
           ]
         }

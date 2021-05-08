@@ -19,9 +19,10 @@ const ProceduresStepsEditor = ({
   const [stepResults, setStepResults] = useState([]);
 
   const initData = (action) => {
-    const { ProcedureStepResults = [] } = selectedStep;
-
-    setStepResults(ProcedureStepResults);
+    if (selectedStep) {
+      const { ProcedureStepResults = [] } = selectedStep;
+      setStepResults(ProcedureStepResults);
+    }
 
     switch (action) {
       case types.actions.ADD:
@@ -61,9 +62,9 @@ const ProceduresStepsEditor = ({
         size="lg"
         show={show}
         backdrop="static"
-        keyboard={false}  
+        keyboard={false}
         aria-labelledby="contained-modal-title-vcenter"
-      centered  
+        centered
         className="ProceduresStepsEditor-Modal"
       >
         <Modal.Header closeButton={false}>
