@@ -11,7 +11,11 @@ import * as types from "../../../shared/types";
 import ConfirmDialog from "../../../shared/custom-components/dialog/ConfirmDialog";
 import "./header.scss";
 
-const Header = () => {
+const Header = (
+  {handleAdd = types.EmptyFn,
+  handleEdit = types.EmptyFn,
+  handleRemove = types.EmptyFn}
+) => {
   const [isOpen, setIsOpen] = useState(false);
   const [action, setAction] = useState();
   const [isReadOnly, setIsReadOnly] = useState(false);
@@ -51,6 +55,7 @@ const Header = () => {
 
   const onConfirm = () => {
     setIsOpen(false);
+    handleEdit();
     //setConfirm(true);
   };
 

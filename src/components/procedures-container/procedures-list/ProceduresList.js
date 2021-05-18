@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Checkbox } from "semantic-ui-react";
 import { DataGrid, Column, Lookup, Editing } from "devextreme-react/data-grid";
 import * as types from "../../../shared/types";
@@ -8,11 +8,17 @@ import EventSeverities from "../../../assets/mock-data/EventSeverities.json";
 import "./procedures-list.scss";
 
 const ProceduresList = ({ procedures, onSelected = types.EmptyFn }) => {
-
   const handleSelected = ({ selectedRowsData }) => {
     const { id } = selectedRowsData[0];
     onSelected(id);
   };
+
+  useEffect(() => {
+
+    return () => {
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [procedures]);
 
   return (
     <div className="ProceduresList-container">

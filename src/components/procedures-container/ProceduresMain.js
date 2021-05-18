@@ -4,14 +4,17 @@ import { getAllProcedures, getProcedure } from "../../services/procedures-http.s
 import ProceduresList from "./procedures-list/ProceduresList";
 import ProceduresDetails from "./procedures-details/ProceduresDetails";
 import ProceduresSteps from "./procedures-steps/ProceduresSteps";
+import Header from "../main-container/header/Header";
 import "./procedures-main.scss";
 
 const ProceduresMain = () => {
   const isCancelled = useRef(false);
   const [procedures, setProcedures] = useState([]);
+  console.log("ProceduresMain-procedures: ", procedures);
   const [selectedProcedure, setSelectedProcedure] = useState({});
 
   const fetchData = () => {
+    console.log("ProceduresMain-fetchData: ");
     getAllProcedures().then((res) => {
       setProcedures(res.data);
       setSelectedProcedure(res.data[0]);
@@ -35,10 +38,17 @@ const ProceduresMain = () => {
       isCancelled.current = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedProcedure]);
+  }, [procedures]);
 
   return (
     <div className="ProceduresMain-container">
+      <div className="App-header">
+        <Header
+          handleAdd={() => fetchData()}
+          handleEdit={() => fetchData()}
+          handleRemove={() => fetchData()}
+        />
+      </div>
       <Grid>
         <Grid.Column className="ProceduresMain-ProceduresList" width={9}>
           <ProceduresList

@@ -1,5 +1,14 @@
 export const EmptyFn = () => {};
 
+export const LIST_PROCEDURES = "LIST_PROCEDURES";
+export const GET_PROCEDURE = "GET_PROCEDURE";
+export const ADD_PROCEDURE = "ADD_PROCEDURE";
+export const UPDATE_PROCEDURE = "UPDATE_PROCEDURE";
+export const DELETE_PROCEDURES = "DELETE_PROCEDURES";
+export const DELETE_PROCEDURE = "DELETE_PROCEDURE";
+export const CHECKED_PROCEDURE = "CHECKED_PROCEDURE";
+export const ALL_CHECKED = "ALL_CHECKED";
+
 export const actions = {
   ADD: 1,
   READ: 2,

@@ -7,7 +7,6 @@ import ProceduresConditions from "../procedures-details/procedures-conditions/Pr
 import ProceduresFrom from "../procedures-details/procedures-from/ProceduresFrom";
 import ProceduresSteps from "../procedures-steps/ProceduresSteps";
 import { createProcedure, updateProcedure } from "../../../services/procedures-http.service";
-import eventBus from "../../../services/EventBus";
 import "./procedures-editor.scss";
 
 const ProceduresEditor = ({
@@ -54,7 +53,6 @@ const ProceduresEditor = ({
     }
 
     localStorage.setItem("selectedProcedure", JSON.stringify(procedure));
-    eventBus.dispatch("procedureChanged", { message: "procedureChanged" });
     confirm();
   };
 

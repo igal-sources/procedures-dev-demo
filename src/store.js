@@ -1,8 +1,8 @@
-import { configureStore } from "@reduxjs/toolkit";
-import proceduresReducer from "./stateMgr/procedureSlice";
+// import { configureStore } from "@reduxjs/toolkit";
+// import proceduresReducer from "./stateMgr/procedureSlice";
 
-export default configureStore({
-  reducer: {
-    Procedures: proceduresReducer,
-  },
-});
+// export default configureStore({
+//   reducer: {
+//     Procedures: proceduresReducer,
+//   },
+// });

@@ -5,6 +5,7 @@ import "semantic-ui-css/semantic.min.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from "react-router-dom";
 import { Grid } from "semantic-ui-react";
+import ProceduresMain from "./components/procedures-container/ProceduresMain";
 import Routes from "./components/main-container/appRoutes";
 import Header from "./components/main-container/header/Header";
 import 'devextreme/dist/css/dx.common.css';
@@ -15,13 +16,10 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="App-main">
-        <div className="App-header">
-          <Header />
-        </div>
+      <div className="App-main">       
         <Grid>
           <Grid.Column className="App-content">
-            <Routes />
+            <ProceduresMain />
           </Grid.Column>
         </Grid>
       </div>
