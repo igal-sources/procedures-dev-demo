@@ -1,8 +1,5 @@
-// import { configureStore } from "@reduxjs/toolkit";
-// import proceduresReducer from "./stateMgr/procedureSlice";
+import { createStore } from "redux";
+import reducer from "./state-manager/reducers";
+const store = createStore(reducer);
 
-// export default configureStore({
-//   reducer: {
-//     Procedures: proceduresReducer,
-//   },
-// });
+export default store;

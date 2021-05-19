@@ -3,38 +3,38 @@ import {
   ADD_PROCEDURE,
   UPDATE_PROCEDURE,
   DELETE_PROCEDURE,
-  initializeProcedure,
 } from "../../shared/types";
 
 let initialState = {
-  lists: [],
+  Procedures: [],
 };
 
 const procedureReducer = (state = initialState, action) => {
   switch (action.type) {
+    
     case LIST_PROCEDURES:
       return {
         ...state,
-        lists: action.payload,
+        Procedures: action.payload,
       };
     case ADD_PROCEDURE:
       return {
         ...state,
-        lists: [...state.lists, action.payload],
+        Procedures: [...state.procedures, action.payload],
       };
     case UPDATE_PROCEDURE:
-      let update = state.lists.map((list) =>
-        list.id === action.payload.id ? action.payload : list
+      let update = state.Procedures.Procedures.map((procedure) =>
+        procedure.id === action.payload.id ? action.payload : procedure
       );
       return {
         ...state,
-        lists: update,
+        Procedures: update,
       };
     case DELETE_PROCEDURE:
-      let filtered = state.lists.filter(({ id, ...rest }) => id !== action.payload.id);
+      let filtered = state.procedures.filter(({ id, ...rest }) => id !== action.payload.id);
       return {
         ...state,
-        lists: filtered,
+        Procedures: filtered,
       };
 
     default:

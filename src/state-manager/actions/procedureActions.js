@@ -5,13 +5,13 @@ import {
   DELETE_PROCEDURE,
 } from "../../shared/types";
 
-//import Procedures from "../../assets/mock-data/proceduresMain.json";
+import Procedures from "../../assets/mock-data/proceduresMain.json";
 import { listArray } from "../../shared/data";
 
 export const getItems = () => {
   return {
     type: LIST_PROCEDURES,
-    payload: listArray,
+    payload: Procedures,
   };
 };
 export const addItem = (item) => {
