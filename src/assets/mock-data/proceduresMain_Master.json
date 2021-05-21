@@ -21,7 +21,15 @@
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "4646464646",
-        "ScheduleID": "NULL"
+        "ProceduresSchedules": {
+          "RecurrenceType": 3,
+          "StartDate": "2021-05-19",
+          "EndDate": "2021-12-01",
+          "StartTime": "01:30:00",
+          "EndTime": "02:30:27",
+          "RecurrenceValues": "0,1,2,3,4,5,6",
+          "Duration": "01:00:27.0000000"
+        }
       },
       "ProcedureSteps": [
         {
@@ -107,7 +115,15 @@
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
-        "ScheduleID": "NULL"
+        "ProceduresSchedules": {
+          "RecurrenceType": 3,
+          "StartDate": "2021-05-19",
+          "EndDate": "2021-12-01",
+          "StartTime": "01:30:00",
+          "EndTime": "02:30:27",
+          "RecurrenceValues": "0,1,2,3,4,5,6",
+          "Duration": "01:00:27.0000000"
+        }
       },
       "ProcedureSteps": [
         {
@@ -193,7 +209,15 @@
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
-        "ScheduleID": "NULL"
+        "ProceduresSchedules": {
+          "RecurrenceType": 3,
+          "StartDate": "2021-05-19",
+          "EndDate": "2021-12-01",
+          "StartTime": "01:30:00",
+          "EndTime": "02:30:27",
+          "RecurrenceValues": "0,1,2,3,4,5,6",
+          "Duration": "01:00:27.0000000"
+        }
       },
       "ProcedureSteps": [
         {
@@ -279,7 +303,15 @@
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
-        "ScheduleID": "NULL"
+        "ProceduresSchedules": {
+          "RecurrenceType": 3,
+          "StartDate": "2021-05-19",
+          "EndDate": "2021-12-01",
+          "StartTime": "01:30:00",
+          "EndTime": "02:30:27",
+          "RecurrenceValues": "0,1,2,3,4,5,6",
+          "Duration": "01:00:27.0000000"
+        }
       },
       "ProcedureSteps": [
         {
@@ -365,7 +397,15 @@
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
-        "ScheduleID": "NULL"
+        "ProceduresSchedules": {
+          "RecurrenceType": 3,
+          "StartDate": "2021-05-19",
+          "EndDate": "2021-12-01",
+          "StartTime": "01:30:00",
+          "EndTime": "02:30:27",
+          "RecurrenceValues": "0,1,2,3,4,5,6",
+          "Duration": "01:00:27.0000000"
+        }
       },
       "ProcedureSteps": [
         {
@@ -451,7 +491,15 @@
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
-        "ScheduleID": "NULL"
+        "ProceduresSchedules": {
+          "RecurrenceType": 3,
+          "StartDate": "2021-05-19",
+          "EndDate": "2021-12-01",
+          "StartTime": "01:30:00",
+          "EndTime": "02:30:27",
+          "RecurrenceValues": "0,1,2,3,4,5,6",
+          "Duration": "01:00:27.0000000"
+        }
       },
       "ProcedureSteps": [
         {
@@ -537,7 +585,15 @@
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
-        "ScheduleID": "NULL"
+        "ProceduresSchedules": {
+          "RecurrenceType": 3,
+          "StartDate": "2021-05-19",
+          "EndDate": "2021-12-01",
+          "StartTime": "01:30:00",
+          "EndTime": "02:30:27",
+          "RecurrenceValues": "0,1,2,3,4,5,6",
+          "Duration": "01:00:27.0000000"
+        }
       },
       "ProcedureSteps": [
         {
@@ -623,7 +679,15 @@
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
-        "ScheduleID": "NULL"
+        "ProceduresSchedules": {
+          "RecurrenceType": 3,
+          "StartDate": "2021-05-19",
+          "EndDate": "2021-12-01",
+          "StartTime": "01:30:00",
+          "EndTime": "02:30:27",
+          "RecurrenceValues": "0,1,2,3,4,5,6",
+          "Duration": "01:00:27.0000000"
+        }
       },
       "ProcedureSteps": [
         {
@@ -709,7 +773,15 @@
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
-        "ScheduleID": "NULL"
+        "ProceduresSchedules": {
+          "RecurrenceType": 3,
+          "StartDate": "2021-05-19",
+          "EndDate": "2021-12-01",
+          "StartTime": "01:30:00",
+          "EndTime": "02:30:27",
+          "RecurrenceValues": "0,1,2,3,4,5,6",
+          "Duration": "01:00:27.0000000"
+        }
       },
       "ProcedureSteps": [
         {
@@ -795,7 +867,15 @@
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
-        "ScheduleID": "NULL"
+        "ProceduresSchedules": {
+          "RecurrenceType": 3,
+          "StartDate": "2021-05-19",
+          "EndDate": "2021-12-01",
+          "StartTime": "01:30:00",
+          "EndTime": "02:30:27",
+          "RecurrenceValues": "0,1,2,3,4,5,6",
+          "Duration": "01:00:27.0000000"
+        }
       },
       "ProcedureSteps": [
         {

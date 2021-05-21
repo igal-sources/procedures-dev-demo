@@ -1,0 +1,48 @@
+@import "../../../shared/css/main.scss";
+
+.ProceduresRecurringEditor-container {
+  background: #283758;
+  color: #fff;
+}
+
+// .ProceduresRecurringEditor-modal {
+//   width: 800px;
+// }
+
+.ProceduresRecurringEditor-modal .modal-content {
+  background: #283758;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 4px 2px #888888;
+  height: auto;
+  width: 700px;
+  left: 90px;
+  top: -50px;
+}
+
+.ProceduresRecurringEditor-box {
+  border: 1px solid #fff;
+  margin-left: 10px;
+  margin-right: -20px;
+  padding-left: 5px;
+}
+
+.dx-field {
+  margin: 0 8px 10px;
+}
+
+.daysPatterns-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.ProceduresRecurringEditor-grid .ui-grid > .row {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.ProceduresRecurringEditor-patterns-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

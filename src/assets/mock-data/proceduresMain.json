@@ -5,12 +5,12 @@
       "Name": "Listed in LPR(3) Caution",
       "Description": "Listed in LPR Listed in LPR Caution",
       "CreationDate": "2017-01-01T00:00:00",
-      "ModifyDate": "2017-01-01T00:00:00",
+      "ModifyDate": "2021-05-21T05:51:24.226Z",
       "ValidityDate": "2017-01-01T00:00:00",
       "IsActive": true,
       "IsDeleted": false,
       "CreatingUserId": 1,
-      "ModifyUserId": 0,
+      "ModifyUserId": 1,
       "OrganizationId": -1,
       "IsLocked": false,
       "ProcedureCondition": {
@@ -21,7 +21,15 @@
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "4646464646",
-        "ScheduleID": "NULL"
+        "ProceduresSchedules": {
+          "RecurrenceType": "",
+          "StartDate": "2021-06-26T05:50:40.546Z",
+          "EndDate": "2021-06-27T05:50:40.546Z",
+          "StartTime": "2021-05-20T21:00:00.546Z",
+          "EndTime": "2021-05-20T23:30:00.546Z",
+          "RecurrenceValues": "3,",
+          "Duration": "4444"
+        }
       },
       "ProcedureSteps": [
         {
@@ -107,7 +115,15 @@
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
-        "ScheduleID": "NULL"
+        "ProceduresSchedules": {
+          "RecurrenceType": 3,
+          "StartDate": "2021-05-19",
+          "EndDate": "2021-12-01",
+          "StartTime": "01:30:00",
+          "EndTime": "02:30:27",
+          "RecurrenceValues": "0,1,2,3,4,5,6",
+          "Duration": "01:00:27.0000000"
+        }
       },
       "ProcedureSteps": [
         {
@@ -193,7 +209,15 @@
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
-        "ScheduleID": "NULL"
+        "ProceduresSchedules": {
+          "RecurrenceType": 3,
+          "StartDate": "2021-05-19",
+          "EndDate": "2021-12-01",
+          "StartTime": "01:30:00",
+          "EndTime": "02:30:27",
+          "RecurrenceValues": "0,1,2,3,4,5,6",
+          "Duration": "01:00:27.0000000"
+        }
       },
       "ProcedureSteps": [
         {
@@ -263,12 +287,12 @@
       "Name": "Create Vehicle Detection (143) Caution",
       "Description": "Create Vehicle Detection Creation Precision Vehicle Caution",
       "CreationDate": "2017-01-01T00:00:00",
-      "ModifyDate": "2017-01-01T00:00:00",
+      "ModifyDate": "2021-05-20T14:48:36.055Z",
       "ValidityDate": "2017-01-01T00:00:00",
       "IsActive": true,
       "IsDeleted": false,
       "CreatingUserId": 1,
-      "ModifyUserId": 0,
+      "ModifyUserId": 1,
       "OrganizationId": -1,
       "IsLocked": false,
       "ProcedureCondition": {
@@ -279,7 +303,15 @@
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
-        "ScheduleID": "NULL"
+        "ProceduresSchedules": {
+          "RecurrenceType": 3,
+          "StartDate": "2021-05-19",
+          "EndDate": "2021-12-01",
+          "StartTime": "01:30:00",
+          "EndTime": "02:30:27",
+          "RecurrenceValues": "0,1,2,3,4,5,6",
+          "Duration": "01:00:27.0000000"
+        }
       },
       "ProcedureSteps": [
         {
@@ -349,12 +381,12 @@
       "Name": "Threshold of Account (15) Caution",
       "Description": "Threshold of Account Umbral of Account Caution",
       "CreationDate": "2017-01-01T00:00:00",
-      "ModifyDate": "2021-05-08T16:26:34.212Z",
+      "ModifyDate": "2017-01-01T00:00:00",
       "ValidityDate": "2017-01-01T00:00:00",
       "IsActive": true,
       "IsDeleted": false,
       "CreatingUserId": 1,
-      "ModifyUserId": 1,
+      "ModifyUserId": 0,
       "OrganizationId": -1,
       "IsLocked": false,
       "ProcedureCondition": {
@@ -365,7 +397,15 @@
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
-        "ScheduleID": "NULL"
+        "ProceduresSchedules": {
+          "RecurrenceType": 3,
+          "StartDate": "2021-05-19",
+          "EndDate": "2021-12-01",
+          "StartTime": "01:30:00",
+          "EndTime": "02:30:27",
+          "RecurrenceValues": "0,5,6",
+          "Duration": "01:00:27.0000000"
+        }
       },
       "ProcedureSteps": [
         {
@@ -427,17 +467,6 @@
               "Name": "Not done"
             }
           ]
-        },
-        {
-          "SequenceNumber": 5,
-          "Title": "SQ222",
-          "Instruction": "WQ222",
-          "ProcedureStepResults": [
-            {
-              "SequenceNumber": "1",
-              "Name": "111"
-            }
-          ]
         }
       ]
     },
@@ -446,12 +475,12 @@
       "Name": "Crossing a Restricted Line (19) Caution",
       "Description": "Crossing a Restricted Line (19) Caution",
       "CreationDate": "2017-01-01T00:00:00",
-      "ModifyDate": "2021-05-08T16:24:04.494Z",
+      "ModifyDate": "2017-01-01T00:00:00",
       "ValidityDate": "2017-01-01T00:00:00",
       "IsActive": true,
       "IsDeleted": false,
       "CreatingUserId": 1,
-      "ModifyUserId": 1,
+      "ModifyUserId": 0,
       "OrganizationId": -1,
       "IsLocked": false,
       "ProcedureCondition": {
@@ -462,7 +491,15 @@
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
-        "ScheduleID": "NULL"
+        "ProceduresSchedules": {
+          "RecurrenceType": 3,
+          "StartDate": "2021-05-19",
+          "EndDate": "2021-12-01",
+          "StartTime": "01:30:00",
+          "EndTime": "02:30:27",
+          "RecurrenceValues": "0,1,2,3,4,5,6",
+          "Duration": "01:00:27.0000000"
+        }
       },
       "ProcedureSteps": [
         {
@@ -524,43 +561,6 @@
               "Name": "Not done"
             }
           ]
-        },
-        {
-          "SequenceNumber": 5,
-          "Title": "SDD99999",
-          "Instruction": "RWWW22255555",
-          "ProcedureStepResults": [
-            {
-              "SequenceNumber": "1",
-              "Name": "11111"
-            }
-          ]
-        },
-        {
-          "SequenceNumber": 6,
-          "Title": "SAA555",
-          "Instruction": "R555",
-          "ProcedureStepResults": [
-            {
-              "SequenceNumber": "1",
-              "Name": "55555"
-            }
-          ]
-        },
-        {
-          "SequenceNumber": 7,
-          "Title": "SA1222",
-          "Instruction": "RR444",
-          "ProcedureStepResults": [
-            {
-              "SequenceNumber": "1",
-              "Name": "AAAAA"
-            },
-            {
-              "SequenceNumber": "2",
-              "Name": "BBBBB"
-            }
-          ]
         }
       ]
     },
@@ -585,7 +585,15 @@
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
-        "ScheduleID": "NULL"
+        "ProceduresSchedules": {
+          "RecurrenceType": 3,
+          "StartDate": "2021-05-19",
+          "EndDate": "2021-12-01",
+          "StartTime": "01:30:00",
+          "EndTime": "02:30:27",
+          "RecurrenceValues": "0,1,2,3,4,5,6",
+          "Duration": "01:00:27.0000000"
+        }
       },
       "ProcedureSteps": [
         {
@@ -671,7 +679,15 @@
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
-        "ScheduleID": "NULL"
+        "ProceduresSchedules": {
+          "RecurrenceType": 3,
+          "StartDate": "2021-05-19",
+          "EndDate": "2021-12-01",
+          "StartTime": "01:30:00",
+          "EndTime": "02:30:27",
+          "RecurrenceValues": "0,1,2,3,4,5,6",
+          "Duration": "01:00:27.0000000"
+        }
       },
       "ProcedureSteps": [
         {
@@ -757,7 +773,15 @@
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
-        "ScheduleID": "NULL"
+        "ProceduresSchedules": {
+          "RecurrenceType": 3,
+          "StartDate": "2021-05-19",
+          "EndDate": "2021-12-01",
+          "StartTime": "01:30:00",
+          "EndTime": "02:30:27",
+          "RecurrenceValues": "0,1,2,3,4,5,6",
+          "Duration": "01:00:27.0000000"
+        }
       },
       "ProcedureSteps": [
         {
@@ -843,7 +867,15 @@
         "StartAt": "00:00:00.0000000",
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
-        "ScheduleID": "NULL"
+        "ProceduresSchedules": {
+          "RecurrenceType": 3,
+          "StartDate": "2021-05-19",
+          "EndDate": "2021-12-01",
+          "StartTime": "01:30:00",
+          "EndTime": "02:30:27",
+          "RecurrenceValues": "0,1,2,3,4,5,6",
+          "Duration": "01:00:27.0000000"
+        }
       },
       "ProcedureSteps": [
         {
@@ -903,48 +935,6 @@
             {
               "SequenceNumber": 2,
               "Name": "Not done"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "a7db25ae-512f-4763-9336-b03f93306be7",
-      "Name": "Proc 606060",
-      "Description": "1111",
-      "CreationDate": "2021-05-06T10:55:32.233Z",
-      "ModifyDate": "2021-05-18T16:36:10.251Z",
-      "ValidityDate": "2021-05-06T10:55:32.233Z",
-      "IsActive": true,
-      "IsDeleted": false,
-      "CreatingUserId": 1,
-      "ModifyUserId": 1,
-      "OrganizationId": 1,
-      "IsLocked": false,
-      "ProcedureCondition": {
-        "EventTypeID": 70,
-        "Severity": 3,
-        "Priority": "NULL",
-        "StartAt": "",
-        "EndAt": "",
-        "GeoAreaID": "NULL11",
-        "ScheduleID": -1,
-        "EventSubTypeID": 73,
-        "Recurring": "11"
-      },
-      "ProcedureSteps": [
-        {
-          "SequenceNumber": 1,
-          "Title": "S11",
-          "Instruction": "I11",
-          "ProcedureStepResults": [
-            {
-              "SequenceNumber": "1",
-              "Name": "2222"
-            },
-            {
-              "SequenceNumber": "2",
-              "Name": "aaaa"
             }
           ]
         }

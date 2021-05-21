@@ -43,11 +43,7 @@ const ProceduresMain = () => {
   return (
     <div className="ProceduresMain-container">
       <div className="App-header">
-        <Header
-          handleAdd={() => fetchData()}
-          handleEdit={() => fetchData()}
-          handleRemove={() => fetchData()}
-        />
+        <Header />
       </div>
       <Grid>
         <Grid.Column className="ProceduresMain-ProceduresList" width={9}>

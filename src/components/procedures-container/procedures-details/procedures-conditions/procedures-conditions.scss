@@ -1,7 +1,7 @@
 .ProceduresConditions-container {
   margin-right: 20px;
   .form.ui.form input[type="text"] {
-    color:var(--main-foreground-color) !important;
+    color: var(--main-foreground-color) !important;
     height: 23px;
   }
 
@@ -26,4 +26,21 @@
 
 #form {
   color: var(--main-foreground-color);
+}
+
+.recurringControl-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.recurringControl-buttons {
+  margin-left: 55px;
+}
+
+.recurringControl-button {
+  background-color: #312a2a;
+}
+
+.recurringControl-checkBox {
+  margin-left: 55px;
 }

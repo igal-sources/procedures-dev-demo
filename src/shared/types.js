@@ -18,6 +18,46 @@ export const actions = {
   ARROW_DOWN: 6,
 };
 
+export const recurrencePatterns = ["Weekly", "Monthly", "Yearly"];
+
+export const daysPattern = [
+  {
+    id: 0,
+    day: "Sunday",
+    active: false,
+  },
+  {
+    id: 1,
+    day: "Monday",
+    active: false,
+  },
+  {
+    id: 2,
+    day: "Tuesday",
+    active: false,
+  },
+  {
+    id: 3,
+    day: "Wednesday",
+    active: false,
+  },
+  {
+    id: 4,
+    day: "Thursday",
+    active: false,
+  },
+  {
+    id: 5,
+    day: "Friday",
+    active: false,
+  },
+  {
+    id: 6,
+    day: "Saturday",
+    active: false,
+  },
+];
+
 export const initializeProcedure = {
   id: "",
   Name: "",
@@ -38,7 +78,15 @@ export const initializeProcedure = {
     StartAt: "",
     EndAt: "",
     GeoAreaID: "NULL",
-    ScheduleID: -1,
+    ProceduresSchedules: {
+      RecurrenceType: 0,
+      StartDate: "",
+      EndDate: "",
+      StartTime: "",
+      EndTime: "",
+      RecurrenceValues: "",
+      Duration: "",
+    },
   },
   ProcedureSteps: [],
 };

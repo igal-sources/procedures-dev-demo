@@ -51,6 +51,7 @@ const Header = () => {
 
   const onConfirm = () => {
     setIsOpen(false);
+    refreshPage();
   };
 
   return (
