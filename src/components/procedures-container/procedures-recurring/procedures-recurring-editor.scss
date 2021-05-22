@@ -21,7 +21,7 @@
 }
 
 .ProceduresRecurringEditor-box {
-  border: 1px solid #fff;
+  border: 1px solid rgb(114, 102, 102);
   margin-left: 10px;
   margin-right: -20px;
   padding-left: 5px;
@@ -36,9 +36,9 @@
   flex-direction: row;
 }
 
-.ProceduresRecurringEditor-grid .ui-grid > .row {
-  padding-top: 5px;
-  padding-bottom: 5px;
+.ProceduresRecurringEditor-grid {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
 }
 
 .ProceduresRecurringEditor-patterns-group {

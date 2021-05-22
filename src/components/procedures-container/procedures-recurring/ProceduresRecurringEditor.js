@@ -117,6 +117,7 @@ const ProceduresRecurringEditor = ({
                         editorType="dxDateBox"
                         editorOptions={{
                           type: "time",
+                          displayFormat: "HH:mm:ss"
                         }}
                       />
                       <SimpleItem
@@ -147,7 +148,7 @@ const ProceduresRecurringEditor = ({
                 </div>
               </Grid.Column>
             </Grid.Row>
-            <Grid.Row>
+            <Grid.Row className="ProceduresRecurringEditor-grid">
               <Grid.Column>
                 <div className="ProceduresRecurringEditor-box">
                   <ComponentTitle title="Range of Recurrence" />
@@ -181,9 +182,9 @@ const ProceduresRecurringEditor = ({
                 </div>
               </Grid.Column>
             </Grid.Row>
-            <Grid.Row columns={1}>
+            <Grid.Row className="ProceduresRecurringEditor-grid">
               <Grid.Column>
-                <div className="ProceduresRecurringEditor-box summary">
+                <div className="ProceduresRecurringEditor-box">
                   <div className="ProceduresRecurringEditor-summary">
                     <TextArea value="hello world" isReadOnly="true" height={90} />
                   </div>
