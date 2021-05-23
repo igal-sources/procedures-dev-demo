@@ -8,7 +8,7 @@ import EventSeverities from "../../../../assets/mock-data/EventSeverities.json";
 import "./procedures-conditions.scss";
 
 const ProceduresConditions = ({ procedure, isReadOnly }) => {
-  console.log("ProceduresConditions-procedure: ", procedure);
+  //console.log("ProceduresConditions-procedure: ", procedure);
   const [isOpen, setIsOpen] = useState(false);
   const [eventSubTypes, setEventSubtypes] = useState([]);
   const [eventParentTypes, setEventParentTypes] = useState([]);
@@ -18,7 +18,7 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
   const onClose = () => setIsOpen(false);
 
   const onConfirm = () => {
-    console.log("ProceduresConditions-onConfirm: ");
+    //console.log("ProceduresConditions-onConfirm: ");
     setIsOpen(false);
   };
 

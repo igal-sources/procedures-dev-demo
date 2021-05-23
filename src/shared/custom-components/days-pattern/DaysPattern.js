@@ -2,27 +2,36 @@ import React, { useState, useEffect } from "react";
 import * as types from "../../../shared/types";
 import "./days-pattern.scss";
 
-const DaysPattern = ({ recurrenceValues, updatedCheckedState = [] }) => {
+const DaysPattern = ({ recurrenceValues, onUpdatedRecurrence = types.EmptyFn }) => {
   //console.log("recurrenceValues: ", recurrenceValues);
   const [checkedState, setCheckedState] = useState(types.daysPattern);
+  const [outCheckedState, setOutCheckedState] = useState();
   //console.log("checkedState: ", checkedState);
 
   const handleOnChange = (position, checked) => {
     const selected = checkedState[position].active;
-    //console.log("selected: ", selected);
-    checkedState[position] = { ...checkedState[position], active: !selected };
 
-    setCheckedState(checkedState);
-    //console.log("updatedCheckedState: ", checkedState);
+    const updatedCheckedState = checkedState.map((item, index) =>
+      index === position ? { ...item, active: !selected } : item
+    );
+    setCheckedState(updatedCheckedState);
+
+    const updated = updatedCheckedState.map((x, index) => {
+      const isChecked = x.active === true ? index : null;
+      return {
+        isChecked,
+      };
+    });
+
+    onUpdatedRecurrence(updated);
+    //console.log('updatedRecurrenceValues: ', updated);
   };
 
   const initData = () => {
     const arrayCheckedValues = types.daysPattern;
-    //console.log("arrayCheckedValues: ", arrayCheckedValues);
 
     if (recurrenceValues) {
       const inputValues = recurrenceValues.split`,`.map((x) => +x);
-      //console.log("inputValues: ", inputValues);
 
       const res = arrayCheckedValues.map((x) => {
         const flag = inputValues.some((y) => y === x.id);
@@ -34,7 +43,6 @@ const DaysPattern = ({ recurrenceValues, updatedCheckedState = [] }) => {
       });
 
       setCheckedState(res);
-      //console.log("res: ", res);
     }
   };
 

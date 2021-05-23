@@ -22,11 +22,11 @@ const ProceduresRecurringEditor = ({
   confirm = types.EmptyFn,
 }) => {
   const [recurrence, setRecurrence] = useState({});
-  console.log("recurrence: ", recurrence);
+  //console.log("recurrence: ", recurrence);
 
   const initData = (action) => {
     const { ProcedureCondition = {} } = procedure;
-    console.log("procedure: ", procedure);
+    //console.log("procedure: ", procedure);
     const { ProceduresSchedules = {} } = ProcedureCondition;
 
     ProceduresSchedules.EndDate =
@@ -37,7 +37,7 @@ const ProceduresRecurringEditor = ({
       ProceduresSchedules.StartDate === "" ? new Date() : ProceduresSchedules.StartDate;
     ProceduresSchedules.StartTime =
       ProceduresSchedules.StartTime === "" ? new Date() : ProceduresSchedules.StartTime;
-    console.log("ProceduresSchedules: ", ProceduresSchedules);
+    //console.log("ProceduresSchedules: ", ProceduresSchedules);
     setRecurrence(ProceduresSchedules);
 
     switch (action) {
@@ -50,18 +50,17 @@ const ProceduresRecurringEditor = ({
     }
   };
 
-  const onValueChanged = (e) => {
-    const value = e.value;
-    console.log("onValueChanged-value: ", value);
+  const handleUpdatedRecurrenceValues = (values) => {
+    console.log("handleUpdatedRecurrenceValues: ", values);
   };
 
   const onDaysPatternValueChanged = (args) => {
     const checkBoxValue = args.value;
-    console.log("checkBoxValue: ", checkBoxValue);
+    //console.log("checkBoxValue: ", checkBoxValue);
   };
 
   const onConfirm = (action) => {
-    console.log("ProceduresRecurringEditor-onConfirm: ", recurrence);
+    //console.log("ProceduresRecurringEditor-onConfirm: ", recurrence);
     switch (action) {
       case types.actions.ADD:
         break;
@@ -117,7 +116,7 @@ const ProceduresRecurringEditor = ({
                         editorType="dxDateBox"
                         editorOptions={{
                           type: "time",
-                          displayFormat: "HH:mm:ss"
+                          displayFormat: "HH:mm:ss",
                         }}
                       />
                       <SimpleItem
@@ -143,7 +142,10 @@ const ProceduresRecurringEditor = ({
                       items={types.recurrencePatterns}
                       defaultValue={types.recurrencePatterns[0]}
                     />
-                    <DaysPattern recurrenceValues={recurrence.RecurrenceValues} />
+                    <DaysPattern
+                      recurrenceValues={recurrence.RecurrenceValues}
+                      onUpdatedRecurrence={(e) => handleUpdatedRecurrenceValues(e)}
+                    />
                   </div>
                 </div>
               </Grid.Column>
