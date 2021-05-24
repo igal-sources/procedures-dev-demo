@@ -381,7 +381,7 @@
       "Name": "Threshold of Account (15) Caution",
       "Description": "Threshold of Account Umbral of Account Caution",
       "CreationDate": "2017-01-01T00:00:00",
-      "ModifyDate": "2021-05-23T05:26:52.295Z",
+      "ModifyDate": "2021-05-24T05:58:36.541Z",
       "ValidityDate": "2017-01-01T00:00:00",
       "IsActive": true,
       "IsDeleted": false,
@@ -398,13 +398,13 @@
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
         "ProceduresSchedules": {
-          "RecurrenceType": 3,
+          "RecurrenceType": 1,
           "StartDate": "2021-05-19",
           "EndDate": "2021-12-01",
           "StartTime": "01:30:00",
           "EndTime": "02:30:27",
           "RecurrenceValues": "0,5,6",
-          "Duration": "01:00:27.0000000"
+          "Duration": "01:00:27.5555555"
         }
       },
       "ProcedureSteps": [

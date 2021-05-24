@@ -22,13 +22,16 @@ const ProceduresRecurringEditor = ({
   confirm = types.EmptyFn,
 }) => {
   const [recurrence, setRecurrence] = useState({});
+  const [selectedRecurrenceType, setSelectedRecurrenceType] = useState();
+  console.log("selectedRecurrenceType: ", selectedRecurrenceType);
   //console.log("recurrence: ", recurrence);
 
   const initData = (action) => {
     const { ProcedureCondition = {} } = procedure;
-    //console.log("procedure: ", procedure);
     const { ProceduresSchedules = {} } = ProcedureCondition;
 
+    setSelectedRecurrenceType(types.recurrencePatterns[ProceduresSchedules.RecurrenceType - 1]);
+    
     ProceduresSchedules.EndDate =
       ProceduresSchedules.EndDate === "" ? new Date() : ProceduresSchedules.EndDate;
     ProceduresSchedules.EndTime =
@@ -37,48 +40,41 @@ const ProceduresRecurringEditor = ({
       ProceduresSchedules.StartDate === "" ? new Date() : ProceduresSchedules.StartDate;
     ProceduresSchedules.StartTime =
       ProceduresSchedules.StartTime === "" ? new Date() : ProceduresSchedules.StartTime;
-    //console.log("ProceduresSchedules: ", ProceduresSchedules);
+
     setRecurrence(ProceduresSchedules);
 
-    switch (action) {
-      case types.actions.ADD:
-        break;
-      case types.actions.EDIT:
-        break;
-      default:
-        break;
-    }
+    console.log(
+      "types.recurrencePatterns: ",
+      types.recurrencePatterns[recurrence.RecurrenceType - 1]
+    );
+    console.log("selectedRecurrenceType11: ", selectedRecurrenceType);
   };
 
   const handleUpdatedRecurrenceValues = (values) => {
-    console.log("handleUpdatedRecurrenceValues: ", values);
+    const updatedRecurrence = { ...recurrence, RecurrenceValues: values };
+    setRecurrence(updatedRecurrence);
+
+    procedure.ProcedureCondition.ProceduresSchedules.RecurrenceValues = values;
   };
 
-  const onDaysPatternValueChanged = (args) => {
-    const checkBoxValue = args.value;
-    //console.log("checkBoxValue: ", checkBoxValue);
+  const onRecurrenceTypeChange = (e) => {
+    const radioValue = e.value;
+
+    setSelectedRecurrenceType(radioValue);
+    const selectedValue = types.recurrencePatterns.findIndex((obj) => obj === radioValue);
+
+    procedure.ProcedureCondition.ProceduresSchedules.RecurrenceType = selectedValue + 1;
+    console.log("procedure: ", procedure);
   };
 
-  const onConfirm = (action) => {
-    //console.log("ProceduresRecurringEditor-onConfirm: ", recurrence);
-    switch (action) {
-      case types.actions.ADD:
-        break;
-      case types.actions.EDIT:
-        break;
-      default:
-        break;
-    }
-
-    confirm();
-  };
+  const onConfirm = () => confirm();
 
   useEffect(() => {
     initData(actionType);
 
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [procedure]);
+  }, [recurrence]);
 
   return (
     <div className="ProceduresRecurringEditor-container">
@@ -140,7 +136,9 @@ const ProceduresRecurringEditor = ({
                   <div className="ProceduresRecurringEditor-patterns-group">
                     <RadioGroup
                       items={types.recurrencePatterns}
-                      defaultValue={types.recurrencePatterns[0]}
+                      value={selectedRecurrenceType}
+                      defaultValue={selectedRecurrenceType}
+                      onValueChanged={(e) => onRecurrenceTypeChange(e)}
                     />
                     <DaysPattern
                       recurrenceValues={recurrence.RecurrenceValues}
@@ -199,7 +197,7 @@ const ProceduresRecurringEditor = ({
           <Button variant="secondary" onClick={close}>
             Close
           </Button>
-          <Button variant="primary" type="submit" onClick={() => onConfirm(actionType)}>
+          <Button variant="primary" type="submit" onClick={() => onConfirm()}>
             Save
           </Button>
         </Modal.Footer>

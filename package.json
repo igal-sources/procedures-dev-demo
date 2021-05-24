@@ -12,6 +12,8 @@
     "classnames": "^2.3.1",
     "devextreme": "^20.2.4",
     "devextreme-react": "20.2.3",
+    "google-protobuf": "^3.17.0",
+    "grpc-web": "^1.2.1",
     "lodash": "^4.17.21",
     "node-sass": "^4.14.1",
     "react": "^17.0.2",
@@ -39,6 +41,9 @@
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "ignorePatterns": [
+      "**/*_pb.js"
     ]
   },
   "browserslist": {

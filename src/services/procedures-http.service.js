@@ -1,7 +1,12 @@
 import http from "../http-common";
+import { getProcedures } from "../http-common";
 
 export const getAllProcedures = () => {
   return http.get("/Procedures");
+};
+
+export const getAllServerProcedures = () => {
+  return getProcedures();
 };
 
 export const getProcedure = (id) => {

@@ -1,6 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Grid } from "semantic-ui-react";
-import { getAllProcedures, getProcedure } from "../../services/procedures-http.service";
+import {
+  getAllProcedures,
+  getProcedure,
+  getAllServerProcedures,
+} from "../../services/procedures-http.service";
 import ProceduresList from "./procedures-list/ProceduresList";
 import ProceduresDetails from "./procedures-details/ProceduresDetails";
 import ProceduresSteps from "./procedures-steps/ProceduresSteps";
@@ -10,11 +14,12 @@ import "./procedures-main.scss";
 const ProceduresMain = () => {
   const isCancelled = useRef(false);
   const [procedures, setProcedures] = useState([]);
-  console.log("ProceduresMain-procedures: ", procedures);
+  //console.log("ProceduresMain-procedures: ", procedures);
   const [selectedProcedure, setSelectedProcedure] = useState({});
 
   const fetchData = () => {
-    console.log("ProceduresMain-fetchData: ");
+    //getAllServerProcedures();
+
     getAllProcedures().then((res) => {
       setProcedures(res.data);
       setSelectedProcedure(res.data[0]);

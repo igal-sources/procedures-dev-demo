@@ -3,10 +3,8 @@ import * as types from "../../../shared/types";
 import "./days-pattern.scss";
 
 const DaysPattern = ({ recurrenceValues, onUpdatedRecurrence = types.EmptyFn }) => {
-  //console.log("recurrenceValues: ", recurrenceValues);
   const [checkedState, setCheckedState] = useState(types.daysPattern);
   const [outCheckedState, setOutCheckedState] = useState();
-  //console.log("checkedState: ", checkedState);
 
   const handleOnChange = (position, checked) => {
     const selected = checkedState[position].active;
@@ -14,17 +12,23 @@ const DaysPattern = ({ recurrenceValues, onUpdatedRecurrence = types.EmptyFn }) 
     const updatedCheckedState = checkedState.map((item, index) =>
       index === position ? { ...item, active: !selected } : item
     );
+
     setCheckedState(updatedCheckedState);
 
-    const updated = updatedCheckedState.map((x, index) => {
-      const isChecked = x.active === true ? index : null;
-      return {
-        isChecked,
-      };
-    });
+    const updated = updatedCheckedState
+      .map((x) => {
+        if (x.active === true) {
+          return x.id;
+        }
+      })
+      .join(",");
 
-    onUpdatedRecurrence(updated);
-    //console.log('updatedRecurrenceValues: ', updated);
+    const updatedResult = updated
+      .split(",")
+      .map((tag) => tag.trim())
+      .filter((tag) => tag.length !== 0).join(",");
+
+    onUpdatedRecurrence(updatedResult);
   };
 
   const initData = () => {
