@@ -4,7 +4,6 @@ import "./days-pattern.scss";
 
 const DaysPattern = ({ recurrenceValues, onUpdatedRecurrence = types.EmptyFn }) => {
   const [checkedState, setCheckedState] = useState(types.daysPattern);
-  const [outCheckedState, setOutCheckedState] = useState();
 
   const handleOnChange = (position, checked) => {
     const selected = checkedState[position].active;
@@ -15,8 +14,7 @@ const DaysPattern = ({ recurrenceValues, onUpdatedRecurrence = types.EmptyFn }) 
 
     setCheckedState(updatedCheckedState);
 
-    const updated = updatedCheckedState
-      .map((x) => {
+    const updated = updatedCheckedState.map((x) => {
         if (x.active === true) {
           return x.id;
         }

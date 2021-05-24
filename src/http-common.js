@@ -19,13 +19,6 @@ export const getProcedures = () => {
 
   var pingRequest = new GetProceduresRequest();
 
-  const headers = {
-    "Content-type": "application/json",
-    "Access-Control-Allow-Methods": "POST",
-    "Access-Control-Allow-Credentials": "true",
-    "Access-Control-Allow-Headers": "Content-Type, Authorization",
-  };
-
   client.getProcedures(pingRequest, null, function (err, response) {
     console.log("err, response: ", err, response);
     if (err !== null) {

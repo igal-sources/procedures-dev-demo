@@ -58,7 +58,7 @@ const ProceduresEditor = ({
 
   useEffect(() => {
     initData(actionType);
-    console.log("useEffect: ", actionType);
+  
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [procedure]);
