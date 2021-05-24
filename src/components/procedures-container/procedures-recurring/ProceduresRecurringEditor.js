@@ -2,15 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { Grid } from "semantic-ui-react";
 import Form, { GroupItem, SimpleItem } from "devextreme-react/form";
-import DateBox from "devextreme-react/date-box";
-import TextBox from "devextreme-react/text-box";
 import TextArea from "devextreme-react/text-area";
-import { CheckBox } from "devextreme-react/check-box";
 import RadioGroup from "devextreme-react/radio-group";
 import ComponentTitle from "../../../shared/custom-components/component-title/ComponentTitle";
 import DaysPattern from "../../../shared/custom-components/days-pattern/DaysPattern";
 import * as types from "../../../shared/types";
-import { scheduleTaskType } from "../../../shared/enums";
 import "./procedures-recurring-editor.scss";
 
 const ProceduresRecurringEditor = ({
@@ -23,7 +19,7 @@ const ProceduresRecurringEditor = ({
 }) => {
   const [recurrence, setRecurrence] = useState({});
   const [selectedRecurrenceType, setSelectedRecurrenceType] = useState();
-  console.log("selectedRecurrenceType: ", selectedRecurrenceType);
+  //console.log("selectedRecurrenceType: ", selectedRecurrenceType);
   //console.log("recurrence: ", recurrence);
 
   const initData = (action) => {
@@ -31,7 +27,7 @@ const ProceduresRecurringEditor = ({
     const { ProceduresSchedules = {} } = ProcedureCondition;
 
     setSelectedRecurrenceType(types.recurrencePatterns[ProceduresSchedules.RecurrenceType - 1]);
-    
+
     ProceduresSchedules.EndDate =
       ProceduresSchedules.EndDate === "" ? new Date() : ProceduresSchedules.EndDate;
     ProceduresSchedules.EndTime =
@@ -42,12 +38,6 @@ const ProceduresRecurringEditor = ({
       ProceduresSchedules.StartTime === "" ? new Date() : ProceduresSchedules.StartTime;
 
     setRecurrence(ProceduresSchedules);
-
-    console.log(
-      "types.recurrencePatterns: ",
-      types.recurrencePatterns[recurrence.RecurrenceType - 1]
-    );
-    console.log("selectedRecurrenceType11: ", selectedRecurrenceType);
   };
 
   const handleUpdatedRecurrenceValues = (values) => {
