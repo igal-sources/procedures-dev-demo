@@ -97,6 +97,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
 
   const handleToolbarActionsClick = (action) => {
     setAction(action);
+    console.log("handleToolbarActionsClick-action: ", action);
 
     switch (action) {
       case types.actions.ADD:
@@ -132,7 +133,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
         isReadOnly={isReadOnly}
       />
       <ComponentTitle title="Steps" />
-      <DataGrid
+      <DataGrid style={{height: '190px'}}
         allowColumnReordering={true}
         selection={{ mode: "single" }}
         columnAutoWidth={true}

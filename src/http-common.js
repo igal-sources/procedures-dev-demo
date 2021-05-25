@@ -3,7 +3,7 @@ import { ProcedureServiceClient } from "../src/proto/procedures_grpc_web_pb";
 import { GetProceduresRequest } from "../src/proto/procedures_pb";
 
 const enableDevTools = window._GRPCWEB_DEVTOOLS_ || (() => {});
-var client = new ProcedureServiceClient("http://192.168.35.135:57715");
+var client = new ProcedureServiceClient("http://192.168.35.135:56942");
 
 enableDevTools([client]);
 

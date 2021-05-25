@@ -97,3 +97,13 @@ export const initializeProcedureStep = {
   Instruction: "",
   ProcedureStepResults: [],
 };
+
+export const emptyRecurrence = {
+  RecurrenceType: 1,
+  StartDate: "",
+  EndDate: "",
+  StartTime: "",
+  EndTime: "",
+  RecurrenceValues: "0",
+  Duration: "",
+};

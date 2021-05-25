@@ -18,38 +18,34 @@ const ProceduresStepsEditor = ({
   const [headerText, setHeaderText] = useState("");
   const [stepResults, setStepResults] = useState([]);
 
+  const textBoxOptions = { width: "500px" };
+
   const initData = (action) => {
     if (selectedStep) {
       const { ProcedureStepResults = [] } = selectedStep;
       setStepResults(ProcedureStepResults);
     }
 
+    console.log("ProceduresStepsEditor-action: ", action);
+
     switch (action) {
       case types.actions.ADD:
         setHeaderText("Add New Step");
+        console.log('setHeaderText("Add New Step"): ', types.actions.ADD);
         break;
       case types.actions.EDIT:
         setHeaderText("Edit Selected Step");
+        console.log('setHeaderText("Edit New Step"): ', types.actions.EDIT);
         break;
       default:
         break;
     }
   };
 
-  const onConfirm = (action) => {
-    switch (action) {
-      case types.actions.ADD:
-        break;
-      case types.actions.EDIT:
-        break;
-      default:
-        break;
-    }
-
-    confirm();
-  };
+  const onConfirm = (action) => confirm();
 
   useEffect(() => {
+    console.log("useEffect: ");
     initData(actionType);
 
     return () => {};
@@ -81,13 +77,13 @@ const ProceduresStepsEditor = ({
                     readOnly={false}
                     showColonAfterLabel={true}
                     labelLocation={"left"}
-                    minColWidth={550}
+                    minColWidth={650}
                     colCount={2}
                     width={650}
                   >
                     <GroupItem>
-                      <SimpleItem dataField="Title" />
-                      <SimpleItem dataField="Instruction" />
+                      <SimpleItem dataField="Title" editorOptions={textBoxOptions} />
+                      <SimpleItem dataField="Instruction" editorOptions={textBoxOptions} />
                     </GroupItem>
                   </Form>
                 </div>

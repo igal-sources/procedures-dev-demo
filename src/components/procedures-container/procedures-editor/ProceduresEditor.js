@@ -81,7 +81,7 @@ const ProceduresEditor = ({
             </Grid.Row>
             <Grid.Row columns={1}>
               <Grid.Column>
-                <ProceduresSteps
+                <ProceduresSteps className="ProceduresEditor-steps-grid" style={{height: '100px'}}
                   procedure={procedure}
                   isReadOnly={isReadOnly}
                   actionType={actionType}

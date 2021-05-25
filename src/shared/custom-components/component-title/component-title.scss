@@ -1,19 +1,21 @@
 .ComponentTitle-header {
-  height: 50px;
+  height: 35px;
   font-style: normal;
   font-weight: bolder;
-  font-size: 20px;  
+  font-size: 17px;
   vertical-align: middle;
-  background: #000000;
+  line-height: 35px;
+  background: linear-gradient(to top, black, gray);
   color: #fbff00;
   border-radius: 0px;
 }
 .ComponentTitle-header-text {
   display: inline-block;
-  padding: 10px;
+  padding-left: 15px;
 }
 
 img.ui.image.ComponentTitle-header-image {
   display: inline-block;
-  vertical-align: middle;
+  //padding: 5px;
+  //vertical-align: middle;
 }

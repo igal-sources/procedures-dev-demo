@@ -287,7 +287,7 @@
       "Name": "Create Vehicle Detection (143) Caution",
       "Description": "Create Vehicle Detection Creation Precision Vehicle Caution",
       "CreationDate": "2017-01-01T00:00:00",
-      "ModifyDate": "2021-05-21T10:40:16.143Z",
+      "ModifyDate": "2021-05-25T06:26:53.350Z",
       "ValidityDate": "2017-01-01T00:00:00",
       "IsActive": true,
       "IsDeleted": false,
@@ -304,7 +304,7 @@
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
         "ProceduresSchedules": {
-          "RecurrenceType": 3,
+          "RecurrenceType": 2,
           "StartDate": "2021-05-19",
           "EndDate": "2021-12-01",
           "StartTime": "01:30:00",
@@ -381,7 +381,7 @@
       "Name": "Threshold of Account (15) Caution",
       "Description": "Threshold of Account Umbral of Account Caution",
       "CreationDate": "2017-01-01T00:00:00",
-      "ModifyDate": "2021-05-24T06:17:46.925Z",
+      "ModifyDate": "2021-05-25T06:55:17.233Z",
       "ValidityDate": "2017-01-01T00:00:00",
       "IsActive": true,
       "IsDeleted": false,
@@ -398,13 +398,13 @@
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "NULL",
         "ProceduresSchedules": {
-          "RecurrenceType": 2,
+          "RecurrenceType": 1,
           "StartDate": "2021-05-19",
           "EndDate": "2021-12-01",
-          "StartTime": "01:30:00",
-          "EndTime": "02:30:27",
-          "RecurrenceValues": "0,5,6",
-          "Duration": "01:00:27.5555555"
+          "StartTime": "00:00:00",
+          "EndTime": "00:00:00",
+          "RecurrenceValues": "0,1,2,3",
+          "Duration": "01:00:27.4444444"
         }
       },
       "ProcedureSteps": [
@@ -465,6 +465,21 @@
             {
               "SequenceNumber": 2,
               "Name": "Not done"
+            }
+          ]
+        },
+        {
+          "SequenceNumber": 5,
+          "Title": "New Step 1",
+          "Instruction": "New Inst 1",
+          "ProcedureStepResults": [
+            {
+              "SequenceNumber": "1",
+              "Name": "SSS"
+            },
+            {
+              "SequenceNumber": "2",
+              "Name": "AAA"
             }
           ]
         }

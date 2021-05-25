@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { Grid } from "semantic-ui-react";
 import Form, { GroupItem, SimpleItem } from "devextreme-react/form";
@@ -17,14 +17,17 @@ const ProceduresRecurringEditor = ({
   close = types.EmptyFn,
   confirm = types.EmptyFn,
 }) => {
+  const isCancelled = useRef(false);
   const [recurrence, setRecurrence] = useState({});
   const [selectedRecurrenceType, setSelectedRecurrenceType] = useState();
-  //console.log("selectedRecurrenceType: ", selectedRecurrenceType);
-  //console.log("recurrence: ", recurrence);
+  console.log("ProceduresRecurringEditor-procedure: ", procedure);
+  console.log("recurrence: ", recurrence);
 
   const initData = (action) => {
+    
     const { ProcedureCondition = {} } = procedure;
     const { ProceduresSchedules = {} } = ProcedureCondition;
+    console.log('initData-ProceduresSchedules: ', ProceduresSchedules);
 
     setSelectedRecurrenceType(types.recurrencePatterns[ProceduresSchedules.RecurrenceType - 1]);
 
@@ -62,9 +65,11 @@ const ProceduresRecurringEditor = ({
   useEffect(() => {
     initData(actionType);
 
-    return () => {};
+    return () => {
+      isCancelled.current = true;
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [recurrence]);
+  }, [procedure]);
 
   return (
     <div className="ProceduresRecurringEditor-container">
@@ -102,7 +107,6 @@ const ProceduresRecurringEditor = ({
                         editorType="dxDateBox"
                         editorOptions={{
                           type: "time",
-                          displayFormat: "HH:mm:ss",
                         }}
                       />
                       <SimpleItem
