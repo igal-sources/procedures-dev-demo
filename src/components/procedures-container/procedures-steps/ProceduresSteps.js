@@ -5,7 +5,7 @@ import ComponentTitle from "../../../shared/custom-components/component-title/Co
 import * as types from "../../../shared/types";
 import "./procedures-steps.scss";
 
-const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
+const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [action, setAction] = useState();
   const [selectedStep, setSelectedStep] = useState({});
@@ -133,7 +133,9 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
         isReadOnly={isReadOnly}
       />
       <ComponentTitle title="Steps" />
-      <DataGrid style={{height: '190px'}}
+      <DataGrid
+        className="ProceduresSteps-grid"
+        style={{ height: heightValue }}
         allowColumnReordering={true}
         selection={{ mode: "single" }}
         columnAutoWidth={true}
@@ -143,13 +145,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType }) => {
         keyExpr=""
         onToolbarPreparing={onToolbarPreparing}
       >
-        <Editing
-          mode="row"
-          // allowAdding={!isReadOnly}
-          // allowDeleting={!isReadOnly}
-          // allowUpdating={!isReadOnly}
-          confirmDelete={true}
-        />
+        <Editing mode="row" confirmDelete={true} />
         <Column dataField="SequenceNumber" caption="#" width={30}></Column>
         <Column dataField="Title" width={320}></Column>
         <Column dataField="Instruction" width={320}></Column>

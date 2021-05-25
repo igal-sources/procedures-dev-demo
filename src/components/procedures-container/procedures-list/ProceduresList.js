@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Checkbox } from "semantic-ui-react";
-import { DataGrid, Column, Lookup, Editing } from "devextreme-react/data-grid";
+import { DataGrid, Column, Lookup, Editing, Pager, Paging } from "devextreme-react/data-grid";
 import * as types from "../../../shared/types";
 import ComponentTitle from "../../../shared/custom-components/component-title/ComponentTitle";
 import EventTypes from "../../../assets/mock-data/EventTypes.json";
@@ -14,9 +14,7 @@ const ProceduresList = ({ procedures, onSelected = types.EmptyFn }) => {
   };
 
   useEffect(() => {
-
-    return () => {
-    };
+    return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [procedures]);
 
@@ -24,6 +22,7 @@ const ProceduresList = ({ procedures, onSelected = types.EmptyFn }) => {
     <div className="ProceduresList-container">
       <ComponentTitle title={"Procedures"} />
       <DataGrid
+        style={{ height: "85vh" }}
         dataSource={procedures}
         repaintChangesOnly={true}
         allowColumnReordering={true}
@@ -37,6 +36,13 @@ const ProceduresList = ({ procedures, onSelected = types.EmptyFn }) => {
         showBorders={true}
         rowAlternationEnabled={true}
       >
+        <Paging defaultPageSize={20} />
+        <Pager
+          showPageSizeSelector={true}
+          visible={true}
+          allowedPageSizes={[5, 10, 20]}
+          showInfo={true}
+        />
         <Editing mode="row" confirmDelete={true} />
         {/* <Column dataField="id" caption="Id" alignment="center"></Column> */}
         <Column type={Checkbox} dataField="IsActive" caption="Active" width={60}></Column>

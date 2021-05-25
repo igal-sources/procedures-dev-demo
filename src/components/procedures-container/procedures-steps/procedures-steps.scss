@@ -1,46 +1,9 @@
 @import "../../../shared/css/main.scss";
 
 .ProceduresSteps-container {
-  .ui.table {
-    margin: 0;
+  //height: 90vh;
+}
 
-    &.single.line {
-      .ProceduresSteps {
-        &-table-header tr th {
-          font-style: normal;
-          font-weight: 700;
-          font-size: 14px;
-          line-height: 16px;
-          align-items: center;
-          letter-spacing: 0.15em;
-          background: #000000;
-          color: var(--main-foreground-color);
-          border-radius: 0px;
-        }
+.ProceduresSteps-grid {
 
-        &-header-rows {
-          height: 22px;
-          background: #000000 !important;
-          color: var(--main-foreground-color) !important;
-          border: none;
-        }
-
-        &-row-item {
-          height: 22px !important;
-          font-style: normal;
-          font-weight: normal;
-          font-size: 14px;
-          align-items: center;
-          background: #110000 !important;
-          color: var(--main-foreground-color) !important;
-          cursor: default;
-        }
-
-        &-row-item.selected {
-          background-color: rgb(8, 8, 8) !important;
-          transition: background-color 400ms ease-in-out;
-        }
-      }
-    }
-  }
 }

@@ -58,8 +58,12 @@ const ProceduresMain = () => {
           />
         </Grid.Column>
         <Grid.Column className="ProceduresMain-ProceduresConditions" width={7}>
-          <ProceduresDetails procedure={selectedProcedure} isReadOnly={true} />
-          <ProceduresSteps procedure={selectedProcedure} isReadOnly={true} />
+          <div className="ProceduresMain-ProceduresDetails">
+            <ProceduresDetails procedure={selectedProcedure} isReadOnly={true} />
+          </div>
+          <div className="ProceduresMain-ProceduresSteps">
+            <ProceduresSteps procedure={selectedProcedure} isReadOnly={true} heightValue="340px" />
+          </div>
         </Grid.Column>
       </Grid>
     </div>

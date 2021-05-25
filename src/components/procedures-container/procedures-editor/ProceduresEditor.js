@@ -58,7 +58,7 @@ const ProceduresEditor = ({
 
   useEffect(() => {
     initData(actionType);
-  
+
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [procedure]);
@@ -81,10 +81,12 @@ const ProceduresEditor = ({
             </Grid.Row>
             <Grid.Row columns={1}>
               <Grid.Column>
-                <ProceduresSteps className="ProceduresEditor-steps-grid" style={{height: '100px'}}
+                <ProceduresSteps
+                  className="ProceduresEditor-steps-grid"
                   procedure={procedure}
                   isReadOnly={isReadOnly}
                   actionType={actionType}
+                  heightValue="190px"
                 />
               </Grid.Column>
             </Grid.Row>
