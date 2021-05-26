@@ -1,5 +1,6 @@
 .ProceduresMain-container {
   margin: 0;
+  padding: 0;
   height: 100%;
   width: 100%;
   background: var(--main-color-background);
@@ -8,6 +9,7 @@
 }
 
 .ProceduresMain-ProceduresList {
+  padding-right: 0 !important;
   height: 100%;
 }
 
@@ -21,4 +23,6 @@
 
 .ProceduresMain-ProceduresConditions {
   height: 100vh;
+  padding-left: 0 !important;
+  border-left: 7px solid rgba(106, 115, 197, 0.333) !important;
 }

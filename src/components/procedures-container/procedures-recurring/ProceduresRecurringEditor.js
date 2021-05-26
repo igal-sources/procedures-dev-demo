@@ -20,14 +20,13 @@ const ProceduresRecurringEditor = ({
   const isCancelled = useRef(false);
   const [recurrence, setRecurrence] = useState({});
   const [selectedRecurrenceType, setSelectedRecurrenceType] = useState();
-  console.log("ProceduresRecurringEditor-procedure: ", procedure);
-  console.log("recurrence: ", recurrence);
+  //console.log("ProceduresRecurringEditor-procedure: ", procedure);
+  //console.log("recurrence: ", recurrence);
 
   const initData = (action) => {
-    
     const { ProcedureCondition = {} } = procedure;
     const { ProceduresSchedules = {} } = ProcedureCondition;
-    console.log('initData-ProceduresSchedules: ', ProceduresSchedules);
+    console.log("initData-ProceduresSchedules: ", ProceduresSchedules);
 
     setSelectedRecurrenceType(types.recurrencePatterns[ProceduresSchedules.RecurrenceType - 1]);
 
@@ -131,7 +130,7 @@ const ProceduresRecurringEditor = ({
                     <RadioGroup
                       items={types.recurrencePatterns}
                       value={selectedRecurrenceType}
-                      defaultValue={selectedRecurrenceType}
+                      //defaultValue={selectedRecurrenceType}
                       onValueChanged={(e) => onRecurrenceTypeChange(e)}
                     />
                     <DaysPattern

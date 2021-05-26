@@ -1,10 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Grid } from "semantic-ui-react";
 import {
+  getAllServerProcedures,
   getAllProcedures,
   getProcedure,
-  getAllServerProcedures,
 } from "../../services/procedures-http.service";
+// import {
+//   getAllProcedures,
+//   getProcedure,
+//   getAllServerProcedures,
+// } from "../../services/procedures-http.service";
 import ProceduresList from "./procedures-list/ProceduresList";
 import ProceduresDetails from "./procedures-details/ProceduresDetails";
 import ProceduresSteps from "./procedures-steps/ProceduresSteps";
@@ -18,7 +23,8 @@ const ProceduresMain = () => {
   const [selectedProcedure, setSelectedProcedure] = useState({});
 
   const fetchData = () => {
-    //getAllServerProcedures();
+    // const result = getAllServerProcedures();
+    // console.log("Main -result: ", result);
 
     getAllProcedures().then((res) => {
       setProcedures(res.data);
@@ -62,7 +68,7 @@ const ProceduresMain = () => {
             <ProceduresDetails procedure={selectedProcedure} isReadOnly={true} />
           </div>
           <div className="ProceduresMain-ProceduresSteps">
-            <ProceduresSteps procedure={selectedProcedure} isReadOnly={true} heightValue="340px" />
+            <ProceduresSteps procedure={selectedProcedure} isReadOnly={true} heightValue="65vh" />
           </div>
         </Grid.Column>
       </Grid>

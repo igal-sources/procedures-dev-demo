@@ -5,7 +5,7 @@
       "Name": "Listed in LPR(3) Caution",
       "Description": "Listed in LPR Listed in LPR Caution",
       "CreationDate": "2017-01-01T00:00:00",
-      "ModifyDate": "2021-05-21T06:16:59.344Z",
+      "ModifyDate": "2021-05-26T05:33:42.438Z",
       "ValidityDate": "2017-01-01T00:00:00",
       "IsActive": true,
       "IsDeleted": false,
@@ -22,12 +22,12 @@
         "EndAt": "23:59:59.0000000",
         "GeoAreaID": "4646464646",
         "ProceduresSchedules": {
-          "RecurrenceType": "",
+          "RecurrenceType": 1,
           "StartDate": "2021-06-26T05:50:40.546Z",
           "EndDate": "2021-06-27T05:50:40.546Z",
-          "StartTime": "2021-05-21T02:00:00.546Z",
-          "EndTime": "2021-05-21T07:00:00.546Z",
-          "RecurrenceValues": "3,",
+          "StartTime": "2021-05-20T21:00:00.546Z",
+          "EndTime": "2021-05-21T10:00:00.546Z",
+          "RecurrenceValues": "0,1,2,3",
           "Duration": "4444"
         }
       },

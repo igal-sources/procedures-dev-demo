@@ -81,6 +81,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
           widget: "dxButton",
           options: {
             icon: "edit",
+            // disabled: selectedStep === null,
             onClick: () => handleToolbarActionsClick(types.actions.EDIT),
           },
         },
@@ -105,8 +106,10 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
         initNewProcedureStep();
         break;
       case types.actions.EDIT:
-        setIsOpen(true);
         setSelectedStep(selectedStep);
+        if (selectedStep !== null) {
+          setIsOpen(true);
+        }
         break;
       case types.actions.REMOVE:
         removeStep();

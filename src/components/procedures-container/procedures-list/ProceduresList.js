@@ -22,7 +22,7 @@ const ProceduresList = ({ procedures, onSelected = types.EmptyFn }) => {
     <div className="ProceduresList-container">
       <ComponentTitle title={"Procedures"} />
       <DataGrid
-        style={{ height: "85vh" }}
+        style={{ height: "87vh" }}
         dataSource={procedures}
         repaintChangesOnly={true}
         allowColumnReordering={true}

@@ -1,45 +1,43 @@
 @import "../../../shared/css/main.scss";
 
 .ProceduresList-container {
+  margin: 0;
   .dx-datagrid dx-gridbase-container {
-    margin: 0;
-
     .dx-datagrid-headers.ProceduresList {
-        &-table-header tr th {
-          font-style: normal;
-          font-weight: 700;
-          font-size: 19px;
-          line-height: 16px;
-          align-items: center;
-          letter-spacing: 0.15em;
-          background: #978c8c;
-          color: var(--main-foreground-color);
-          border-radius: 0px;
-    }
-    
-
-        &-header-rows {
-          height: 22px;
-          background: #000000 !important;
-          color: var(--main-foreground-color) !important;
-          border: none;
-        }
-
-        &-row-item {
-          height: 22px !important;
-          font-style: normal;
-          font-weight: normal;
-          font-size: 14px;
-          align-items: center;
-          background: #110000 !important;
-          color: var(--main-foreground-color) !important;
-          cursor: pointer;
-        }
-
-        &-row-item.selected {
-          background-color: rgb(87, 206, 93) !important;
-          transition: background-color 400ms ease-in-out;
-        }
+      &-table-header tr th {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 19px;
+        line-height: 16px;
+        align-items: center;
+        letter-spacing: 0.15em;
+        background: #978c8c;
+        color: var(--main-foreground-color);
+        border-radius: 0px;
       }
+
+      &-header-rows {
+        height: 22px;
+        background: #000000 !important;
+        color: var(--main-foreground-color) !important;
+        border: none;
+      }
+
+      &-row-item {
+        height: 22px !important;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        align-items: center;
+        background: #110000 !important;
+        color: var(--main-foreground-color) !important;
+        cursor: pointer;
+      }
+
+      &-row-item.selected {
+        background-color: rgb(87, 206, 93) !important;
+        transition: background-color 400ms ease-in-out;
+      }
+    }
   }
 }

@@ -118,7 +118,7 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
         labelLocation={"left"}
         minColWidth={550}
         colCount={2}
-        width={650}
+        width={700}
       >
         <GroupItem caption="Conditions">
           <SimpleItem
