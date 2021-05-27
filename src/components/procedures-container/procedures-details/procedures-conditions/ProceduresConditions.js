@@ -13,9 +13,12 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [eventSubTypes, setEventSubtypes] = useState([]);
   const [eventParentTypes, setEventParentTypes] = useState([]);
-  const [condition, setCondition] = useState({});
+  const [conditionObj, setCondition] = useState({});
   const [hasRecurring, setHasRecurring] = useState(false);
   const [selectedProcedure, setSelectedProcedure] = useState([]);
+
+  // console.log("eventParentTypes: ", eventParentTypes);
+  // console.log("eventSubTypes: ", eventSubTypes);
 
   const onClose = () => setIsOpen(false);
 
@@ -25,19 +28,20 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
 
   const initData = () => {
     setSelectedProcedure(procedure);
-    const { ProcedureCondition = {} } = procedure;
-    setCondition(ProcedureCondition);
-    const { ProceduresSchedules } = ProcedureCondition;
-    setHasRecurring(ProceduresSchedules !== null);
+    const { condition = {} } = procedure;
+    console.log("ProceduresConditions-condition: ", condition);
+    setCondition(condition);
+    const { schedule } = condition;
+    setHasRecurring(schedule !== null);
     setEventParentTypes(EventTypes.filter((e) => e.ParentId === -1));
-    isReadOnly ? setEventSubtypes(EventTypes) : getEventSubTypes(ProcedureCondition.EventTypeID);
+    isReadOnly ? setEventSubtypes(EventTypes) : getEventSubTypes(condition.eventtypeid);
   };
 
   const removeRecurringValues = () => {
     const updateProcedure = Object.assign({}, procedure, {
-      ProcedureCondition: {
-        ...procedure.ProcedureCondition,
-        ProceduresSchedules: types.emptyRecurrence,
+      condition: {
+        ...procedure.condition,
+        schedule: types.emptyRecurrence,
       },
     });
 
@@ -50,6 +54,7 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
 
   const eventTypeValueChanged = ({ component }) => {
     const selectedItem = component.option("selectedItem");
+    console.log("eventTypeValueChanged-selectedItem: ", selectedItem);
     if (selectedItem !== null) {
       const { EventTypeId = {} } = selectedItem && selectedItem;
       getEventSubTypes(EventTypeId);
@@ -99,7 +104,7 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
       isCancelled.current = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [procedure]);
+  }, [procedure.condition]);
 
   return (
     <div className="ProceduresConditions-container">
@@ -112,7 +117,7 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
       />
       <Form
         id="form"
-        formData={condition}
+        formData={conditionObj}
         readOnly={isReadOnly}
         showColonAfterLabel={true}
         labelLocation={"left"}
@@ -124,39 +129,39 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
           <SimpleItem
             id="eventType"
             isRequired={true}
-            dataField="EventTypeID"
+            dataField="eventtypeid"
             editorType="dxSelectBox"
             editorOptions={{
               items: eventParentTypes,
               valueExpr: "EventTypeId",
               displayExpr: "EventTypeName",
               onValueChanged: eventTypeValueChanged,
-              value: condition.EventTypeID,
+              value: conditionObj.eventtypeid,
             }}
           >
             <Label visible={true} text={"Event Type"} />
           </SimpleItem>
           <SimpleItem
-            dataField="EventSubTypeID"
+            dataField="eventsubtypeid"
             isRequired={true}
             editorType="dxSelectBox"
             editorOptions={{
               items: eventSubTypes,
               valueExpr: "EventTypeId",
               displayExpr: "EventTypeName",
-              value: condition.EventSubTypeID,
+              value: conditionObj.eventsubtypeid,
             }}
           >
             <Label visible={true} text={"Event SubType"} />
           </SimpleItem>
           <SimpleItem
-            dataField="Severity"
+            dataField="severity"
             editorType="dxSelectBox"
             editorOptions={{
               items: EventSeverities,
               valueExpr: "EventSeverityID",
               displayExpr: "EventSeverityName",
-              value: condition.Severity,
+              value: conditionObj.severity,
             }}
           />
           <SimpleItem dataField="GeoAreaID">

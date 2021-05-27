@@ -12,17 +12,17 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
   const [procedureSteps, setProcedureSteps] = useState({});
 
   const initData = () => {
-    const { ProcedureSteps = [] } = procedure;
-    setProcedureSteps(ProcedureSteps);
+    const { stepsList = [] } = procedure;
+    setProcedureSteps(stepsList);
   };
 
   const initNewProcedureStep = () => {
     const newStep = types.initializeProcedureStep;
 
     if (procedureSteps.length === 0) {
-      newStep.SequenceNumber = 1;
+      newStep.sequencenumber = 1;
     } else {
-      newStep.SequenceNumber = procedureSteps[procedureSteps.length - 1].SequenceNumber + 1;
+      newStep.sequencenumber = procedureSteps[procedureSteps.length - 1].sequencenumber + 1;
     }
 
     setSelectedStep(newStep);
@@ -30,15 +30,15 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
 
   const removeStep = () => {
     const newSteps = procedureSteps.filter(
-      (item) => item.SequenceNumber !== selectedStep.SequenceNumber
+      (item) => item.sequencenumber !== selectedStep.sequencenumber
     );
 
-    procedure.ProcedureSteps = newSteps;
-    setProcedureSteps(procedure.ProcedureSteps);
+    procedure.stepsList = newSteps;
+    setProcedureSteps(procedure.stepsList);
   };
 
   const cellRenderResults = (data) => {
-    const res = data && data.value.map((v) => Object.values(v.Name).join("")).join(", ");
+    const res = data.value && data.value.map((v) => Object.values(v.name).join("")).join(", ");
     return res;
   };
 
@@ -49,7 +49,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
 
     switch (action) {
       case types.actions.ADD:
-        procedure.ProcedureSteps = [...procedure.ProcedureSteps, selectedStep];
+        procedure.stepsList = [...procedure.stepsList, selectedStep];
         break;
       case types.actions.EDIT:
         break;
@@ -123,7 +123,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
     initData();
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [procedure.ProcedureSteps]);
+  }, [procedure.stepsList]);
 
   return (
     <div className="ProceduresSteps-container">
@@ -141,7 +141,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
         style={{ height: heightValue }}
         allowColumnReordering={true}
         selection={{ mode: "single" }}
-        columnAutoWidth={true}
+        //columnAutoWidth={true}
         hoverStateEnabled={true}
         dataSource={procedureSteps}
         onSelectionChanged={handleSelected}
@@ -149,11 +149,12 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
         onToolbarPreparing={onToolbarPreparing}
       >
         <Editing mode="row" confirmDelete={true} />
-        <Column dataField="SequenceNumber" caption="#" width={30}></Column>
-        <Column dataField="Title" width={320}></Column>
-        <Column dataField="Instruction" width={320}></Column>
+        <Column dataField="sequencenumber" caption="#" width={30}></Column>
+        <Column dataField="title" width={320}></Column>
+        <Column dataField="intruction" width={320}></Column>
         <Column
-          dataField="ProcedureStepResults"
+          dataField="possibleresultsList"
+          width={150}
           caption="Results"
           cellRender={cellRenderResults}
         ></Column>

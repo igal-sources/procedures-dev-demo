@@ -22,20 +22,17 @@ const ProceduresStepsEditor = ({
 
   const initData = (action) => {
     if (selectedStep) {
-      const { ProcedureStepResults = [] } = selectedStep;
-      setStepResults(ProcedureStepResults);
+      const { possibleresultsList = [] } = selectedStep;
+      setStepResults(possibleresultsList);
+      console.log('possibleresultsList: ', possibleresultsList);
     }
-
-    console.log("ProceduresStepsEditor-action: ", action);
 
     switch (action) {
       case types.actions.ADD:
         setHeaderText("Add New Step");
-        console.log('setHeaderText("Add New Step"): ', types.actions.ADD);
         break;
       case types.actions.EDIT:
         setHeaderText("Edit Selected Step");
-        console.log('setHeaderText("Edit New Step"): ', types.actions.EDIT);
         break;
       default:
         break;
@@ -82,8 +79,8 @@ const ProceduresStepsEditor = ({
                     width={650}
                   >
                     <GroupItem>
-                      <SimpleItem dataField="Title" editorOptions={textBoxOptions} />
-                      <SimpleItem dataField="Instruction" editorOptions={textBoxOptions} />
+                      <SimpleItem dataField="title" editorOptions={textBoxOptions} />
+                      <SimpleItem dataField="intruction" editorOptions={textBoxOptions} />
                     </GroupItem>
                   </Form>
                 </div>
@@ -99,7 +96,7 @@ const ProceduresStepsEditor = ({
                     columnAutoWidth={true}
                     hoverStateEnabled={true}
                     dataSource={stepResults}
-                    keyExpr="SequenceNumber"
+                    keyExpr="sequencenumber"
                   >
                     <Editing
                       mode="cell"
@@ -108,8 +105,8 @@ const ProceduresStepsEditor = ({
                       allowUpdating={!isReadOnly}
                       confirmDelete={true}
                     />
-                    <Column dataField="SequenceNumber" caption="#" width={30}></Column>
-                    <Column dataField="Name"></Column>
+                    <Column dataField="sequencenumber" caption="#" width={30}></Column>
+                    <Column dataField="name"></Column>
                   </DataGrid>
                 </div>
               </Grid.Column>

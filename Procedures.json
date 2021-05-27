@@ -1,0 +1,2451 @@
+[
+  {
+    "procedureid": "60d86d58-1eea-4b37-a74c-8d9e5ecb9f99",
+    "name": "ACCIDENTE ACUATICO CON LESIONADOS(10101) Precauci",
+    "description": "ACCIDENTE ACUATICO CON LESIONADOS ACCIDENTE ACUATICO CON LESIONADOS Precaución",
+    "creationdate": {
+      "seconds": 1622039449,
+      "nanos": 707223500
+    },
+    "modifydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "validitydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "creatinguserid": "2dff9ad5-c7af-4056-99f5-d06e367ebf1b",
+    "modifyuserid": "",
+    "isactive": true,
+    "isdeleted": false,
+    "condition": {
+      "eventtypeid": 10101,
+      "eventsubtypeid": 10101,
+      "severity": 0,
+      "priority": 0,
+      "endat": {
+        "seconds": -62135596800,
+        "nanos": 0
+      },
+      "schedule": {
+        "recurrencetype": 0,
+        "recurrencevalues": "",
+        "duration": 0
+      }
+    },
+    "geoarea": "",
+    "permissions": {
+      "owner": "10c34264-f73d-436b-ba14-e3af8a9dab1a",
+      "editorsList": [],
+      "viewersList": []
+    },
+    "islocked": false,
+    "lockedbyuserid": "",
+    "stepsList": [
+      {
+        "sequencenumber": 1,
+        "title": "informar asistencia médica",
+        "intruction": "informar asistencia médica",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 2,
+        "title": "informar servicios de rescate marítimos",
+        "intruction": "informar servicios de rescate marítimos",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 3,
+        "title": "depachar patruya policial (apuntar codigo)",
+        "intruction": "depachar patruya policial (apuntar codigo)",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 4,
+        "title": "informar policía de tráfico",
+        "intruction": "informar policía de tráfico",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 5,
+        "title": "enviar alerta al hospital más próximo/relevante",
+        "intruction": "enviar alerta al hospital más próximo/relevante",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 6,
+        "title": "preparar reporte",
+        "intruction": "preparar reporte",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 7,
+        "title": "investigación necesaria",
+        "intruction": "investigación necesaria",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 8,
+        "title": "Tiempo Llegada De Unidad",
+        "intruction": "Tiempo Llegada De Unidad",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Se acudió y se verificó que el servicio fue positivo."
+          },
+          {
+            "sequencenumber": 2,
+            "name": "Se acudió y se verificó la existencia de un incidente, pero diferente al reportado."
+          },
+          {
+            "sequencenumber": 3,
+            "name": "Se acudió y no se pudo verificar la existencia del incidente (sin novedad)."
+          },
+          {
+            "sequencenumber": 4,
+            "name": "Se acudió y se verificó que se trató de un servicio falso."
+          },
+          {
+            "sequencenumber": 5,
+            "name": "No se acudió porque atiende otra corporación."
+          },
+          {
+            "sequencenumber": 6,
+            "name": "No se acudió por tratarse de un servicio repetido ya atendido."
+          },
+          {
+            "sequencenumber": 7,
+            "name": "No se acudió porque se le dieron pasos a seguir al usuario vía telefónica."
+          },
+          {
+            "sequencenumber": 8,
+            "name": "No se acudió por tratarse de un servicio extemporáneo."
+          },
+          {
+            "sequencenumber": 9,
+            "name": "No se acudió por tratarse de un operativo controlado."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "procedureid": "7d6918a5-026a-4ab7-bd19-4a56d69b92e1",
+    "name": "ACCIDENTE DE AERONAVE CON LESIONAD(10102) Precauc",
+    "description": "ACCIDENTE DE AERONAVE CON LESIONADOS ACCIDENTE DE AERONAVE CON LESIONADOS Precaución",
+    "creationdate": {
+      "seconds": 1622039449,
+      "nanos": 974894100
+    },
+    "modifydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "validitydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "creatinguserid": "267d7707-8122-41e4-bebb-22b50ce26aa0",
+    "modifyuserid": "",
+    "isactive": true,
+    "isdeleted": false,
+    "condition": {
+      "eventtypeid": 10102,
+      "eventsubtypeid": 10102,
+      "severity": 0,
+      "priority": 0,
+      "endat": {
+        "seconds": -62135596800,
+        "nanos": 0
+      },
+      "schedule": {
+        "recurrencetype": 0,
+        "recurrencevalues": "",
+        "duration": 0
+      }
+    },
+    "geoarea": "",
+    "permissions": {
+      "owner": "268b57b8-0a58-4f87-aefe-1b4dc192e173",
+      "editorsList": [],
+      "viewersList": []
+    },
+    "islocked": false,
+    "lockedbyuserid": "",
+    "stepsList": [
+      {
+        "sequencenumber": 1,
+        "title": "informar asistencia médica",
+        "intruction": "informar asistencia médica",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 2,
+        "title": "informar aviación civil /militar",
+        "intruction": "informar aviación civil /militar",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 3,
+        "title": "informar a policía vial",
+        "intruction": "informar a policía vial",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 4,
+        "title": "depachar patruya policial (apuntar codigo)",
+        "intruction": "depachar patruya policial (apuntar codigo)",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 5,
+        "title": "alerta a hospitales y declarar evento de múltiples",
+        "intruction": "alerta a hospitales y declarar evento de múltiples",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 6,
+        "title": "preparar reporte",
+        "intruction": "preparar reporte",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 7,
+        "title": "investigación necesaria",
+        "intruction": "investigación necesaria",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 8,
+        "title": "Tiempo Llegada De Unidad",
+        "intruction": "Tiempo Llegada De Unidad",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Se acudió y se verificó que el servicio fue positivo."
+          },
+          {
+            "sequencenumber": 2,
+            "name": "Se acudió y se verificó la existencia de un incidente, pero diferente al reportado."
+          },
+          {
+            "sequencenumber": 3,
+            "name": "Se acudió y no se pudo verificar la existencia del incidente (sin novedad)."
+          },
+          {
+            "sequencenumber": 4,
+            "name": "Se acudió y se verificó que se trató de un servicio falso."
+          },
+          {
+            "sequencenumber": 5,
+            "name": "No se acudió porque atiende otra corporación."
+          },
+          {
+            "sequencenumber": 6,
+            "name": "No se acudió por tratarse de un servicio repetido ya atendido."
+          },
+          {
+            "sequencenumber": 7,
+            "name": "No se acudió porque se le dieron pasos a seguir al usuario vía telefónica."
+          },
+          {
+            "sequencenumber": 8,
+            "name": "No se acudió por tratarse de un servicio extemporáneo."
+          },
+          {
+            "sequencenumber": 9,
+            "name": "No se acudió por tratarse de un operativo controlado."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "procedureid": "d2f06fdb-8a1d-467a-b9da-415cc8c4a77f",
+    "name": "ACCIDENTE DE MOTOCICLETA CON LESIO(10103) Precauc",
+    "description": "ACCIDENTE DE MOTOCICLETA CON LESIONADOS ACCIDENTE DE MOTOCICLETA CON LESIONADOS Precaución",
+    "creationdate": {
+      "seconds": 1622039449,
+      "nanos": 981119600
+    },
+    "modifydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "validitydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "creatinguserid": "e14e7db0-0878-426b-82be-98d44ccfca5f",
+    "modifyuserid": "",
+    "isactive": true,
+    "isdeleted": false,
+    "condition": {
+      "eventtypeid": 10103,
+      "eventsubtypeid": 10103,
+      "severity": 0,
+      "priority": 0,
+      "endat": {
+        "seconds": -62135596800,
+        "nanos": 0
+      },
+      "schedule": {
+        "recurrencetype": 0,
+        "recurrencevalues": "",
+        "duration": 0
+      }
+    },
+    "geoarea": "",
+    "permissions": {
+      "owner": "83c6edb7-4116-4c2d-8404-f6ff69ca45b9",
+      "editorsList": [],
+      "viewersList": []
+    },
+    "islocked": false,
+    "lockedbyuserid": "",
+    "stepsList": [
+      {
+        "sequencenumber": 1,
+        "title": "informar asistencia médica",
+        "intruction": "informar asistencia médica",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 2,
+        "title": "depachar patruya policial (apuntar codigo)",
+        "intruction": "depachar patruya policial (apuntar codigo)",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 3,
+        "title": "informar a policía vial",
+        "intruction": "informar a policía vial",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 4,
+        "title": "enviar alerta al hospital más próximo/relevante",
+        "intruction": "enviar alerta al hospital más próximo/relevante",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 5,
+        "title": "preparar reporte",
+        "intruction": "preparar reporte",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 6,
+        "title": "investigación necesaria",
+        "intruction": "investigación necesaria",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 7,
+        "title": "Tiempo Llegada De Unidad",
+        "intruction": "Tiempo Llegada De Unidad",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Se acudió y se verificó que el servicio fue positivo."
+          },
+          {
+            "sequencenumber": 2,
+            "name": "Se acudió y se verificó la existencia de un incidente, pero diferente al reportado."
+          },
+          {
+            "sequencenumber": 3,
+            "name": "Se acudió y no se pudo verificar la existencia del incidente (sin novedad)."
+          },
+          {
+            "sequencenumber": 4,
+            "name": "Se acudió y se verificó que se trató de un servicio falso."
+          },
+          {
+            "sequencenumber": 5,
+            "name": "No se acudió porque atiende otra corporación."
+          },
+          {
+            "sequencenumber": 6,
+            "name": "No se acudió por tratarse de un servicio repetido ya atendido."
+          },
+          {
+            "sequencenumber": 7,
+            "name": "No se acudió porque se le dieron pasos a seguir al usuario vía telefónica."
+          },
+          {
+            "sequencenumber": 8,
+            "name": "No se acudió por tratarse de un servicio extemporáneo."
+          },
+          {
+            "sequencenumber": 9,
+            "name": "No se acudió por tratarse de un operativo controlado."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "procedureid": "8c3a9512-15fb-4405-aaf1-c7cd2c3d80ec",
+    "name": "ACCIDENTE DE VEHICULO AUTOMOTOR CO(10104) Precauc",
+    "description": "ACCIDENTE DE VEHICULO AUTOMOTOR CON LESIONADOS ACCIDENTE DE VEHICULO AUTOMOTOR CON LESIONADOS Precaución",
+    "creationdate": {
+      "seconds": 1622039449,
+      "nanos": 987331500
+    },
+    "modifydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "validitydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "creatinguserid": "164b65a7-d936-4183-8d9a-fdaeecbc0327",
+    "modifyuserid": "",
+    "isactive": true,
+    "isdeleted": false,
+    "condition": {
+      "eventtypeid": 10104,
+      "eventsubtypeid": 10104,
+      "severity": 0,
+      "priority": 0,
+      "endat": {
+        "seconds": -62135596800,
+        "nanos": 0
+      },
+      "schedule": {
+        "recurrencetype": 0,
+        "recurrencevalues": "",
+        "duration": 0
+      }
+    },
+    "geoarea": "",
+    "permissions": {
+      "owner": "606a3172-c35b-473a-aefa-6e12972c3493",
+      "editorsList": [],
+      "viewersList": []
+    },
+    "islocked": false,
+    "lockedbyuserid": "",
+    "stepsList": [
+      {
+        "sequencenumber": 1,
+        "title": "informar asistencia médica",
+        "intruction": "informar asistencia médica",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 2,
+        "title": "depachar patruya policial (apuntar codigo)",
+        "intruction": "depachar patruya policial (apuntar codigo)",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 3,
+        "title": "informar a policía vial",
+        "intruction": "informar a policía vial",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 4,
+        "title": "enviar alerta al hospital más próximo/relevante",
+        "intruction": "enviar alerta al hospital más próximo/relevante",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 5,
+        "title": "preparar reporte",
+        "intruction": "preparar reporte",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 6,
+        "title": "investigación necesaria",
+        "intruction": "investigación necesaria",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 7,
+        "title": "Tiempo Llegada De Unidad",
+        "intruction": "Tiempo Llegada De Unidad",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Se acudió y se verificó que el servicio fue positivo."
+          },
+          {
+            "sequencenumber": 2,
+            "name": "Se acudió y se verificó la existencia de un incidente, pero diferente al reportado."
+          },
+          {
+            "sequencenumber": 3,
+            "name": "Se acudió y no se pudo verificar la existencia del incidente (sin novedad)."
+          },
+          {
+            "sequencenumber": 4,
+            "name": "Se acudió y se verificó que se trató de un servicio falso."
+          },
+          {
+            "sequencenumber": 5,
+            "name": "No se acudió porque atiende otra corporación."
+          },
+          {
+            "sequencenumber": 6,
+            "name": "No se acudió por tratarse de un servicio repetido ya atendido."
+          },
+          {
+            "sequencenumber": 7,
+            "name": "No se acudió porque se le dieron pasos a seguir al usuario vía telefónica."
+          },
+          {
+            "sequencenumber": 8,
+            "name": "No se acudió por tratarse de un servicio extemporáneo."
+          },
+          {
+            "sequencenumber": 9,
+            "name": "No se acudió por tratarse de un operativo controlado."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "procedureid": "a8fc1b8d-9b3b-4600-8738-810c38f43f03",
+    "name": "ACCIDENTE FERROVIARIO CON LESIONAD(10105) Precauc",
+    "description": "ACCIDENTE FERROVIARIO CON LESIONADOS ACCIDENTE FERROVIARIO CON LESIONADOS Precaución",
+    "creationdate": {
+      "seconds": 1622039449,
+      "nanos": 993238100
+    },
+    "modifydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "validitydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "creatinguserid": "96cd5097-46c1-4270-a73b-00ad74e25e5c",
+    "modifyuserid": "",
+    "isactive": true,
+    "isdeleted": false,
+    "condition": {
+      "eventtypeid": 10105,
+      "eventsubtypeid": 10105,
+      "severity": 0,
+      "priority": 0,
+      "endat": {
+        "seconds": -62135596800,
+        "nanos": 0
+      },
+      "schedule": {
+        "recurrencetype": 0,
+        "recurrencevalues": "",
+        "duration": 0
+      }
+    },
+    "geoarea": "",
+    "permissions": {
+      "owner": "2a11968e-5dc0-4f29-8414-84671da9229a",
+      "editorsList": [],
+      "viewersList": []
+    },
+    "islocked": false,
+    "lockedbyuserid": "",
+    "stepsList": [
+      {
+        "sequencenumber": 1,
+        "title": "informar asistencia médica",
+        "intruction": "informar asistencia médica",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 2,
+        "title": "informar autoridades ferroviarias",
+        "intruction": "informar autoridades ferroviarias",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 3,
+        "title": "informar policía local",
+        "intruction": "informar policía local",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 4,
+        "title": "depachar patruya policial (apuntar codigo)",
+        "intruction": "depachar patruya policial (apuntar codigo)",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 5,
+        "title": "alerta a hospitales y declarar evento de múltiples",
+        "intruction": "alerta a hospitales y declarar evento de múltiples",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 6,
+        "title": "preparar reporte",
+        "intruction": "preparar reporte",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 7,
+        "title": "investigación necesaria",
+        "intruction": "investigación necesaria",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 8,
+        "title": "Tiempo Llegada De Unidad",
+        "intruction": "Tiempo Llegada De Unidad",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Se acudió y se verificó que el servicio fue positivo."
+          },
+          {
+            "sequencenumber": 2,
+            "name": "Se acudió y se verificó la existencia de un incidente, pero diferente al reportado."
+          },
+          {
+            "sequencenumber": 3,
+            "name": "Se acudió y no se pudo verificar la existencia del incidente (sin novedad)."
+          },
+          {
+            "sequencenumber": 4,
+            "name": "Se acudió y se verificó que se trató de un servicio falso."
+          },
+          {
+            "sequencenumber": 5,
+            "name": "No se acudió porque atiende otra corporación."
+          },
+          {
+            "sequencenumber": 6,
+            "name": "No se acudió por tratarse de un servicio repetido ya atendido."
+          },
+          {
+            "sequencenumber": 7,
+            "name": "No se acudió porque se le dieron pasos a seguir al usuario vía telefónica."
+          },
+          {
+            "sequencenumber": 8,
+            "name": "No se acudió por tratarse de un servicio extemporáneo."
+          },
+          {
+            "sequencenumber": 9,
+            "name": "No se acudió por tratarse de un operativo controlado."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "procedureid": "40553e5c-65a6-4294-9416-c43778d3d15a",
+    "name": "ACCIDENTE FERROVIARIO CON FALLECID(10106) Precauc",
+    "description": "ACCIDENTE FERROVIARIO CON FALLECIDO ACCIDENTE FERROVIARIO CON FALLECIDO Precaución",
+    "creationdate": {
+      "seconds": 1622039449,
+      "nanos": 997521000
+    },
+    "modifydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "validitydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "creatinguserid": "b05c2c89-c90d-4bcd-b210-559f8b0ce771",
+    "modifyuserid": "",
+    "isactive": true,
+    "isdeleted": false,
+    "condition": {
+      "eventtypeid": 10106,
+      "eventsubtypeid": 10106,
+      "severity": 0,
+      "priority": 0,
+      "endat": {
+        "seconds": -62135596800,
+        "nanos": 0
+      },
+      "schedule": {
+        "recurrencetype": 0,
+        "recurrencevalues": "",
+        "duration": 0
+      }
+    },
+    "geoarea": "",
+    "permissions": {
+      "owner": "fc2b6739-e5dd-40d2-978d-00943cfb3469",
+      "editorsList": [],
+      "viewersList": []
+    },
+    "islocked": false,
+    "lockedbyuserid": "",
+    "stepsList": [
+      {
+        "sequencenumber": 1,
+        "title": "informar asistencia médica",
+        "intruction": "informar asistencia médica",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 2,
+        "title": "informar autoridades ferroviarias",
+        "intruction": "informar autoridades ferroviarias",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 3,
+        "title": "informar policía local",
+        "intruction": "informar policía local",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 4,
+        "title": "depachar patruya policial (apuntar codigo)",
+        "intruction": "depachar patruya policial (apuntar codigo)",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 5,
+        "title": "alerta a hospitales y declarar evento de múltiples",
+        "intruction": "alerta a hospitales y declarar evento de múltiples",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 6,
+        "title": "preparar reporte",
+        "intruction": "preparar reporte",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 7,
+        "title": "investigación necesaria",
+        "intruction": "investigación necesaria",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 8,
+        "title": "Tiempo Llegada De Unidad",
+        "intruction": "Tiempo Llegada De Unidad",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Se acudió y se verificó que el servicio fue positivo."
+          },
+          {
+            "sequencenumber": 2,
+            "name": "Se acudió y se verificó la existencia de un incidente, pero diferente al reportado."
+          },
+          {
+            "sequencenumber": 3,
+            "name": "Se acudió y no se pudo verificar la existencia del incidente (sin novedad)."
+          },
+          {
+            "sequencenumber": 4,
+            "name": "Se acudió y se verificó que se trató de un servicio falso."
+          },
+          {
+            "sequencenumber": 5,
+            "name": "No se acudió porque atiende otra corporación."
+          },
+          {
+            "sequencenumber": 6,
+            "name": "No se acudió por tratarse de un servicio repetido ya atendido."
+          },
+          {
+            "sequencenumber": 7,
+            "name": "No se acudió porque se le dieron pasos a seguir al usuario vía telefónica."
+          },
+          {
+            "sequencenumber": 8,
+            "name": "No se acudió por tratarse de un servicio extemporáneo."
+          },
+          {
+            "sequencenumber": 9,
+            "name": "No se acudió por tratarse de un operativo controlado."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "procedureid": "aac05279-53c0-43f4-82af-ae858fcd5026",
+    "name": "ACCIDENTE MULTIPLE CON LESIONADOS(10107) Precauci",
+    "description": "ACCIDENTE MULTIPLE CON LESIONADOS ACCIDENTE MULTIPLE CON LESIONADOS Precaución",
+    "creationdate": {
+      "seconds": 1622039450,
+      "nanos": 1389300
+    },
+    "modifydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "validitydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "creatinguserid": "dbe957cc-72ce-4aea-99d4-1477b3300c2e",
+    "modifyuserid": "",
+    "isactive": true,
+    "isdeleted": false,
+    "condition": {
+      "eventtypeid": 10107,
+      "eventsubtypeid": 10107,
+      "severity": 0,
+      "priority": 0,
+      "endat": {
+        "seconds": -62135596800,
+        "nanos": 0
+      },
+      "schedule": {
+        "recurrencetype": 0,
+        "recurrencevalues": "",
+        "duration": 0
+      }
+    },
+    "geoarea": "",
+    "permissions": {
+      "owner": "f65212fa-f0f4-4486-b399-7f1ca625b41f",
+      "editorsList": [],
+      "viewersList": []
+    },
+    "islocked": false,
+    "lockedbyuserid": "",
+    "stepsList": [
+      {
+        "sequencenumber": 1,
+        "title": "informar asistencia médica",
+        "intruction": "informar asistencia médica",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 2,
+        "title": "depachar patruya policial (apuntar codigo)",
+        "intruction": "depachar patruya policial (apuntar codigo)",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 3,
+        "title": "informar a policía vial",
+        "intruction": "informar a policía vial",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 4,
+        "title": "enviar alerta al hospital más próximo/relevante",
+        "intruction": "enviar alerta al hospital más próximo/relevante",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 5,
+        "title": "preparar reporte",
+        "intruction": "preparar reporte",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 6,
+        "title": "investigación necesaria",
+        "intruction": "investigación necesaria",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 7,
+        "title": "Tiempo Llegada De Unidad",
+        "intruction": "Tiempo Llegada De Unidad",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Se acudió y se verificó que el servicio fue positivo."
+          },
+          {
+            "sequencenumber": 2,
+            "name": "Se acudió y se verificó la existencia de un incidente, pero diferente al reportado."
+          },
+          {
+            "sequencenumber": 3,
+            "name": "Se acudió y no se pudo verificar la existencia del incidente (sin novedad)."
+          },
+          {
+            "sequencenumber": 4,
+            "name": "Se acudió y se verificó que se trató de un servicio falso."
+          },
+          {
+            "sequencenumber": 5,
+            "name": "No se acudió porque atiende otra corporación."
+          },
+          {
+            "sequencenumber": 6,
+            "name": "No se acudió por tratarse de un servicio repetido ya atendido."
+          },
+          {
+            "sequencenumber": 7,
+            "name": "No se acudió porque se le dieron pasos a seguir al usuario vía telefónica."
+          },
+          {
+            "sequencenumber": 8,
+            "name": "No se acudió por tratarse de un servicio extemporáneo."
+          },
+          {
+            "sequencenumber": 9,
+            "name": "No se acudió por tratarse de un operativo controlado."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "procedureid": "5f4ce6b2-4408-493d-9499-27cf12abfb82",
+    "name": "AHOGAMIENTO(10201) Precaución",
+    "description": "AHOGAMIENTO AHOGAMIENTO Precaución",
+    "creationdate": {
+      "seconds": 1622039450,
+      "nanos": 5206000
+    },
+    "modifydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "validitydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "creatinguserid": "d000f0be-e352-4a9c-9bb7-2b53a82ea19b",
+    "modifyuserid": "",
+    "isactive": true,
+    "isdeleted": false,
+    "condition": {
+      "eventtypeid": 10201,
+      "eventsubtypeid": 10201,
+      "severity": 0,
+      "priority": 0,
+      "endat": {
+        "seconds": -62135596800,
+        "nanos": 0
+      },
+      "schedule": {
+        "recurrencetype": 0,
+        "recurrencevalues": "",
+        "duration": 0
+      }
+    },
+    "geoarea": "",
+    "permissions": {
+      "owner": "6121f57e-7f39-4d10-b5ca-352ccf9bbc86",
+      "editorsList": [],
+      "viewersList": []
+    },
+    "islocked": false,
+    "lockedbyuserid": "",
+    "stepsList": [
+      {
+        "sequencenumber": 1,
+        "title": "informar asistencia médica",
+        "intruction": "informar asistencia médica",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 2,
+        "title": "depachar patruya policial (apuntar codigo)",
+        "intruction": "depachar patruya policial (apuntar codigo)",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 3,
+        "title": "preparar reporte",
+        "intruction": "preparar reporte",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 4,
+        "title": "Tiempo Llegada De Unidad",
+        "intruction": "Tiempo Llegada De Unidad",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Se acudió y se verificó que el servicio fue positivo."
+          },
+          {
+            "sequencenumber": 2,
+            "name": "Se acudió y se verificó la existencia de un incidente, pero diferente al reportado."
+          },
+          {
+            "sequencenumber": 3,
+            "name": "Se acudió y no se pudo verificar la existencia del incidente (sin novedad)."
+          },
+          {
+            "sequencenumber": 4,
+            "name": "Se acudió y se verificó que se trató de un servicio falso."
+          },
+          {
+            "sequencenumber": 5,
+            "name": "No se acudió porque atiende otra corporación."
+          },
+          {
+            "sequencenumber": 6,
+            "name": "No se acudió por tratarse de un servicio repetido ya atendido."
+          },
+          {
+            "sequencenumber": 7,
+            "name": "No se acudió porque se le dieron pasos a seguir al usuario vía telefónica."
+          },
+          {
+            "sequencenumber": 8,
+            "name": "No se acudió por tratarse de un servicio extemporáneo."
+          },
+          {
+            "sequencenumber": 9,
+            "name": "No se acudió por tratarse de un operativo controlado."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "procedureid": "ca10e660-7818-443a-a45b-14688b62e9ba",
+    "name": "AMPUTACION(10202) Precaución",
+    "description": "AMPUTACION AMPUTACION Precaución",
+    "creationdate": {
+      "seconds": 1622039450,
+      "nanos": 8825200
+    },
+    "modifydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "validitydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "creatinguserid": "69875e3d-324b-4748-be57-0ae93b4142ee",
+    "modifyuserid": "",
+    "isactive": true,
+    "isdeleted": false,
+    "condition": {
+      "eventtypeid": 10202,
+      "eventsubtypeid": 10202,
+      "severity": 0,
+      "priority": 0,
+      "endat": {
+        "seconds": -62135596800,
+        "nanos": 0
+      },
+      "schedule": {
+        "recurrencetype": 0,
+        "recurrencevalues": "",
+        "duration": 0
+      }
+    },
+    "geoarea": "",
+    "permissions": {
+      "owner": "4f417c7c-5d98-4599-b41e-569d1040a582",
+      "editorsList": [],
+      "viewersList": []
+    },
+    "islocked": false,
+    "lockedbyuserid": "",
+    "stepsList": [
+      {
+        "sequencenumber": 1,
+        "title": "informar asistencia médica",
+        "intruction": "informar asistencia médica",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 2,
+        "title": "preparar reporte",
+        "intruction": "preparar reporte",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "procedureid": "efe58405-cf7d-4290-8d5f-82b0bad64b87",
+    "name": "ASFIXIA(10203) Precaución",
+    "description": "ASFIXIA ASFIXIA Precaución",
+    "creationdate": {
+      "seconds": 1622039450,
+      "nanos": 12041600
+    },
+    "modifydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "validitydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "creatinguserid": "ab2378fe-bf8a-43a1-879e-cd9432e78512",
+    "modifyuserid": "",
+    "isactive": true,
+    "isdeleted": false,
+    "condition": {
+      "eventtypeid": 10203,
+      "eventsubtypeid": 10203,
+      "severity": 0,
+      "priority": 0,
+      "endat": {
+        "seconds": -62135596800,
+        "nanos": 0
+      },
+      "schedule": {
+        "recurrencetype": 0,
+        "recurrencevalues": "",
+        "duration": 0
+      }
+    },
+    "geoarea": "",
+    "permissions": {
+      "owner": "ae886db4-5d9f-40f5-abac-005810ac003a",
+      "editorsList": [],
+      "viewersList": []
+    },
+    "islocked": false,
+    "lockedbyuserid": "",
+    "stepsList": [
+      {
+        "sequencenumber": 1,
+        "title": "depachar patruya policial (apuntar codigo)",
+        "intruction": "depachar patruya policial (apuntar codigo)",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 2,
+        "title": "informar brigadas de rescate",
+        "intruction": "informar brigadas de rescate",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 3,
+        "title": "preparar reporte",
+        "intruction": "preparar reporte",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 4,
+        "title": "investigación necesaria",
+        "intruction": "investigación necesaria",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 5,
+        "title": "Tiempo Llegada De Unidad",
+        "intruction": "Tiempo Llegada De Unidad",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Se acudió y se verificó que el servicio fue positivo."
+          },
+          {
+            "sequencenumber": 2,
+            "name": "Se acudió y se verificó la existencia de un incidente, pero diferente al reportado."
+          },
+          {
+            "sequencenumber": 3,
+            "name": "Se acudió y no se pudo verificar la existencia del incidente (sin novedad)."
+          },
+          {
+            "sequencenumber": 4,
+            "name": "Se acudió y se verificó que se trató de un servicio falso."
+          },
+          {
+            "sequencenumber": 5,
+            "name": "No se acudió porque atiende otra corporación."
+          },
+          {
+            "sequencenumber": 6,
+            "name": "No se acudió por tratarse de un servicio repetido ya atendido."
+          },
+          {
+            "sequencenumber": 7,
+            "name": "No se acudió porque se le dieron pasos a seguir al usuario vía telefónica."
+          },
+          {
+            "sequencenumber": 8,
+            "name": "No se acudió por tratarse de un servicio extemporáneo."
+          },
+          {
+            "sequencenumber": 9,
+            "name": "No se acudió por tratarse de un operativo controlado."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "procedureid": "9a5d945d-00b8-4b47-a921-7e61811e4351",
+    "name": "TRANSFERENCIA DE LLAMADA(70105) Precaución",
+    "description": "TRANSFERENCIA DE LLAMADA TRANSFERENCIA DE LLAMADA Precaución",
+    "creationdate": {
+      "seconds": 1622039451,
+      "nanos": 235616300
+    },
+    "modifydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "validitydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "creatinguserid": "8c984574-6c76-46c6-983d-7d52d873107f",
+    "modifyuserid": "",
+    "isactive": true,
+    "isdeleted": false,
+    "condition": {
+      "eventtypeid": 70105,
+      "eventsubtypeid": 70105,
+      "severity": 0,
+      "priority": 0,
+      "endat": {
+        "seconds": -62135596800,
+        "nanos": 0
+      },
+      "schedule": {
+        "recurrencetype": 0,
+        "recurrencevalues": "",
+        "duration": 0
+      }
+    },
+    "geoarea": "",
+    "permissions": {
+      "owner": "61d25f19-f8b1-4429-977f-3474d2816fc4",
+      "editorsList": [],
+      "viewersList": []
+    },
+    "islocked": false,
+    "lockedbyuserid": "",
+    "stepsList": [
+      {
+        "sequencenumber": 1,
+        "title": "informar policia local",
+        "intruction": "informar policia local",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "procedureid": "5fd21d88-3241-4721-97e2-04ce21f6f86a",
+    "name": "ACCIDENTE MULTIPLE CON FALLECIDO(10108) Precaució",
+    "description": "ACCIDENTE MULTIPLE CON FALLECIDO ACCIDENTE MULTIPLE CON FALLECIDO Precaución",
+    "creationdate": {
+      "seconds": 1622039450,
+      "nanos": 16149000
+    },
+    "modifydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "validitydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "creatinguserid": "98d963e0-25d8-4be3-ad12-fe57e9467e4d",
+    "modifyuserid": "",
+    "isactive": true,
+    "isdeleted": false,
+    "condition": {
+      "eventtypeid": 10108,
+      "eventsubtypeid": 10108,
+      "severity": 0,
+      "priority": 0,
+      "endat": {
+        "seconds": -62135596800,
+        "nanos": 0
+      },
+      "schedule": {
+        "recurrencetype": 0,
+        "recurrencevalues": "",
+        "duration": 0
+      }
+    },
+    "geoarea": "",
+    "permissions": {
+      "owner": "321e056b-7b0b-4d62-9b55-9b9c3c434aa4",
+      "editorsList": [],
+      "viewersList": []
+    },
+    "islocked": false,
+    "lockedbyuserid": "",
+    "stepsList": [
+      {
+        "sequencenumber": 1,
+        "title": "informar asistencia médica",
+        "intruction": "informar asistencia médica",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 2,
+        "title": "depachar patruya policial (apuntar codigo)",
+        "intruction": "depachar patruya policial (apuntar codigo)",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 3,
+        "title": "informar a policía vial",
+        "intruction": "informar a policía vial",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 4,
+        "title": "enviar alerta al hospital más próximo/relevante",
+        "intruction": "enviar alerta al hospital más próximo/relevante",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 5,
+        "title": "preparar reporte",
+        "intruction": "preparar reporte",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 6,
+        "title": "investigación necesaria",
+        "intruction": "investigación necesaria",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 7,
+        "title": "Tiempo Llegada De Unidad",
+        "intruction": "Tiempo Llegada De Unidad",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Se acudió y se verificó que el servicio fue positivo."
+          },
+          {
+            "sequencenumber": 2,
+            "name": "Se acudió y se verificó la existencia de un incidente, pero diferente al reportado."
+          },
+          {
+            "sequencenumber": 3,
+            "name": "Se acudió y no se pudo verificar la existencia del incidente (sin novedad)."
+          },
+          {
+            "sequencenumber": 4,
+            "name": "Se acudió y se verificó que se trató de un servicio falso."
+          },
+          {
+            "sequencenumber": 5,
+            "name": "No se acudió porque atiende otra corporación."
+          },
+          {
+            "sequencenumber": 6,
+            "name": "No se acudió por tratarse de un servicio repetido ya atendido."
+          },
+          {
+            "sequencenumber": 7,
+            "name": "No se acudió porque se le dieron pasos a seguir al usuario vía telefónica."
+          },
+          {
+            "sequencenumber": 8,
+            "name": "No se acudió por tratarse de un servicio extemporáneo."
+          },
+          {
+            "sequencenumber": 9,
+            "name": "No se acudió por tratarse de un operativo controlado."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "procedureid": "695d5283-82f5-49c9-9271-859ef356aa98",
+    "name": "ACCIDENTE DE VEHICULO DE PASAJEROS(10109) Precauc",
+    "description": "ACCIDENTE DE VEHICULO DE PASAJEROS CON LESIONADOS ACCIDENTE DE VEHICULO DE PASAJEROS CON LESIONADOS Precaución",
+    "creationdate": {
+      "seconds": 1622039450,
+      "nanos": 21966700
+    },
+    "modifydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "validitydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "creatinguserid": "97bd6b2f-6c66-45fa-93ec-48b87c713f42",
+    "modifyuserid": "",
+    "isactive": true,
+    "isdeleted": false,
+    "condition": {
+      "eventtypeid": 10109,
+      "eventsubtypeid": 10109,
+      "severity": 0,
+      "priority": 0,
+      "endat": {
+        "seconds": -62135596800,
+        "nanos": 0
+      },
+      "schedule": {
+        "recurrencetype": 0,
+        "recurrencevalues": "",
+        "duration": 0
+      }
+    },
+    "geoarea": "",
+    "permissions": {
+      "owner": "b8566f1c-e075-4e60-ac09-07a4c1d642dc",
+      "editorsList": [],
+      "viewersList": []
+    },
+    "islocked": false,
+    "lockedbyuserid": "",
+    "stepsList": [
+      {
+        "sequencenumber": 1,
+        "title": "informar asistencia médica",
+        "intruction": "informar asistencia médica",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 2,
+        "title": "depachar patruya policial (apuntar codigo)",
+        "intruction": "depachar patruya policial (apuntar codigo)",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 3,
+        "title": "informar a policía vial",
+        "intruction": "informar a policía vial",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 4,
+        "title": "enviar alerta al hospital más próximo/relevante",
+        "intruction": "enviar alerta al hospital más próximo/relevante",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 5,
+        "title": "preparar reporte",
+        "intruction": "preparar reporte",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 6,
+        "title": "investigación necesaria",
+        "intruction": "investigación necesaria",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 7,
+        "title": "Tiempo Llegada De Unidad",
+        "intruction": "Tiempo Llegada De Unidad",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Se acudió y se verificó que el servicio fue positivo."
+          },
+          {
+            "sequencenumber": 2,
+            "name": "Se acudió y se verificó la existencia de un incidente, pero diferente al reportado."
+          },
+          {
+            "sequencenumber": 3,
+            "name": "Se acudió y no se pudo verificar la existencia del incidente (sin novedad)."
+          },
+          {
+            "sequencenumber": 4,
+            "name": "Se acudió y se verificó que se trató de un servicio falso."
+          },
+          {
+            "sequencenumber": 5,
+            "name": "No se acudió porque atiende otra corporación."
+          },
+          {
+            "sequencenumber": 6,
+            "name": "No se acudió por tratarse de un servicio repetido ya atendido."
+          },
+          {
+            "sequencenumber": 7,
+            "name": "No se acudió porque se le dieron pasos a seguir al usuario vía telefónica."
+          },
+          {
+            "sequencenumber": 8,
+            "name": "No se acudió por tratarse de un servicio extemporáneo."
+          },
+          {
+            "sequencenumber": 9,
+            "name": "No se acudió por tratarse de un operativo controlado."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "procedureid": "a5170d70-a083-4995-8ebc-0d4d2e795abf",
+    "name": "ACCIDENTE DE VEHICULO DE PASAJEROS(10110) Precauc",
+    "description": "ACCIDENTE DE VEHICULO DE PASAJEROS CON FALLECIDO ACCIDENTE DE VEHICULO DE PASAJEROS CON FALLECIDO Precaución",
+    "creationdate": {
+      "seconds": 1622039450,
+      "nanos": 25354400
+    },
+    "modifydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "validitydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "creatinguserid": "6cd4d439-7a99-421a-b613-dd3f9d0c16ad",
+    "modifyuserid": "",
+    "isactive": true,
+    "isdeleted": false,
+    "condition": {
+      "eventtypeid": 10110,
+      "eventsubtypeid": 10110,
+      "severity": 0,
+      "priority": 0,
+      "endat": {
+        "seconds": -62135596800,
+        "nanos": 0
+      },
+      "schedule": {
+        "recurrencetype": 0,
+        "recurrencevalues": "",
+        "duration": 0
+      }
+    },
+    "geoarea": "",
+    "permissions": {
+      "owner": "dd4155d5-a8b1-4901-af48-435bd4401214",
+      "editorsList": [],
+      "viewersList": []
+    },
+    "islocked": false,
+    "lockedbyuserid": "",
+    "stepsList": [
+      {
+        "sequencenumber": 1,
+        "title": "informar asistencia médica",
+        "intruction": "informar asistencia médica",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 2,
+        "title": "depachar patruya policial (apuntar codigo)",
+        "intruction": "depachar patruya policial (apuntar codigo)",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 3,
+        "title": "informar a policía vial",
+        "intruction": "informar a policía vial",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 4,
+        "title": "enviar alerta al hospital más próximo/relevante",
+        "intruction": "enviar alerta al hospital más próximo/relevante",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 5,
+        "title": "preparar reporte",
+        "intruction": "preparar reporte",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 6,
+        "title": "investigación necesaria",
+        "intruction": "investigación necesaria",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 7,
+        "title": "Tiempo Llegada De Unidad",
+        "intruction": "Tiempo Llegada De Unidad",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Se acudió y se verificó que el servicio fue positivo."
+          },
+          {
+            "sequencenumber": 2,
+            "name": "Se acudió y se verificó la existencia de un incidente, pero diferente al reportado."
+          },
+          {
+            "sequencenumber": 3,
+            "name": "Se acudió y no se pudo verificar la existencia del incidente (sin novedad)."
+          },
+          {
+            "sequencenumber": 4,
+            "name": "Se acudió y se verificó que se trató de un servicio falso."
+          },
+          {
+            "sequencenumber": 5,
+            "name": "No se acudió porque atiende otra corporación."
+          },
+          {
+            "sequencenumber": 6,
+            "name": "No se acudió por tratarse de un servicio repetido ya atendido."
+          },
+          {
+            "sequencenumber": 7,
+            "name": "No se acudió porque se le dieron pasos a seguir al usuario vía telefónica."
+          },
+          {
+            "sequencenumber": 8,
+            "name": "No se acudió por tratarse de un servicio extemporáneo."
+          },
+          {
+            "sequencenumber": 9,
+            "name": "No se acudió por tratarse de un operativo controlado."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "procedureid": "cece8f10-5713-47a9-ad73-f3f63b9d283f",
+    "name": "ACCIDENTE DE MOTOCICLETA CON FALLE(10111) Precauc",
+    "description": "ACCIDENTE DE MOTOCICLETA CON FALLECIDO ACCIDENTE DE MOTOCICLETA CON FALLECIDO Precaución",
+    "creationdate": {
+      "seconds": 1622039450,
+      "nanos": 28606800
+    },
+    "modifydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "validitydate": {
+      "seconds": 1483221600,
+      "nanos": 0
+    },
+    "creatinguserid": "479bfa6f-037d-4627-be02-579a38f85809",
+    "modifyuserid": "",
+    "isactive": true,
+    "isdeleted": false,
+    "condition": {
+      "eventtypeid": 10111,
+      "eventsubtypeid": 10111,
+      "severity": 0,
+      "priority": 0,
+      "endat": {
+        "seconds": -62135596800,
+        "nanos": 0
+      },
+      "schedule": {
+        "recurrencetype": 0,
+        "recurrencevalues": "",
+        "duration": 0
+      }
+    },
+    "geoarea": "",
+    "permissions": {
+      "owner": "e218520f-9a02-4442-8f0f-bdc36b8ca660",
+      "editorsList": [],
+      "viewersList": []
+    },
+    "islocked": false,
+    "lockedbyuserid": "",
+    "stepsList": [
+      {
+        "sequencenumber": 1,
+        "title": "informar asistencia médica",
+        "intruction": "informar asistencia médica",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 2,
+        "title": "depachar patruya policial (apuntar codigo)",
+        "intruction": "depachar patruya policial (apuntar codigo)",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 3,
+        "title": "informar a policía vial",
+        "intruction": "informar a policía vial",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 4,
+        "title": "enviar alerta al hospital más próximo/relevante",
+        "intruction": "enviar alerta al hospital más próximo/relevante",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 5,
+        "title": "preparar reporte",
+        "intruction": "preparar reporte",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 6,
+        "title": "investigación necesaria",
+        "intruction": "investigación necesaria",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Hecho"
+          },
+          {
+            "sequencenumber": 2,
+            "name": "No Hecho"
+          }
+        ]
+      },
+      {
+        "sequencenumber": 7,
+        "title": "Tiempo Llegada De Unidad",
+        "intruction": "Tiempo Llegada De Unidad",
+        "possibleresultsList": [
+          {
+            "sequencenumber": 1,
+            "name": "Se acudió y se verificó que el servicio fue positivo."
+          },
+          {
+            "sequencenumber": 2,
+            "name": "Se acudió y se verificó la existencia de un incidente, pero diferente al reportado."
+          },
+          {
+            "sequencenumber": 3,
+            "name": "Se acudió y no se pudo verificar la existencia del incidente (sin novedad)."
+          },
+          {
+            "sequencenumber": 4,
+            "name": "Se acudió y se verificó que se trató de un servicio falso."
+          },
+          {
+            "sequencenumber": 5,
+            "name": "No se acudió porque atiende otra corporación."
+          },
+          {
+            "sequencenumber": 6,
+            "name": "No se acudió por tratarse de un servicio repetido ya atendido."
+          },
+          {
+            "sequencenumber": 7,
+            "name": "No se acudió porque se le dieron pasos a seguir al usuario vía telefónica."
+          },
+          {
+            "sequencenumber": 8,
+            "name": "No se acudió por tratarse de un servicio extemporáneo."
+          },
+          {
+            "sequencenumber": 9,
+            "name": "No se acudió por tratarse de un operativo controlado."
+          }
+        ]
+      }
+    ]
+  }
+]

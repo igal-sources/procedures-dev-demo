@@ -1,45 +1,56 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Grid } from "semantic-ui-react";
-import {
-  getAllServerProcedures,
-  getAllProcedures,
-  getProcedure,
-} from "../../services/procedures-http.service";
-// import {
-//   getAllProcedures,
-//   getProcedure,
-//   getAllServerProcedures,
-// } from "../../services/procedures-http.service";
+import { getAllServerProcedures } from "../../services/procedures-http.service";
 import ProceduresList from "./procedures-list/ProceduresList";
 import ProceduresDetails from "./procedures-details/ProceduresDetails";
 import ProceduresSteps from "./procedures-steps/ProceduresSteps";
 import Header from "../main-container/header/Header";
+import moment from "moment";
 import "./procedures-main.scss";
 
 const ProceduresMain = () => {
   const isCancelled = useRef(false);
   const [procedures, setProcedures] = useState([]);
-  //console.log("ProceduresMain-procedures: ", procedures);
+  console.log("ProceduresMain-useState-procedures: ", procedures);
   const [selectedProcedure, setSelectedProcedure] = useState({});
 
   const fetchData = () => {
-    // const result = getAllServerProcedures();
-    // console.log("Main -result: ", result);
-
-    getAllProcedures().then((res) => {
-      setProcedures(res.data);
-      setSelectedProcedure(res.data[0]);
-      localStorage.setItem("procedureId", selectedProcedure.id);
+    getAllServerProcedures((procResponse) => {
+      const { proceduresList = [] } = procResponse;
+      console.log("ProceduresMain-Procedures From Server :", proceduresList);
+      setProcedures(proceduresList);
     });
+
+    var dt = getDate();
+    var date = new Date(dt.toDate());
+    console.log("dt: ", moment(date).format("HH:mm YYYY-DD-MM"));
+  };
+
+  const getDate = () => {
+    if (window.proto) {
+      const proto = window.proto;
+      const timestamp = new proto.google.protobuf.Timestamp();
+      const timeMS = Date.now();
+      timestamp.setSeconds(timeMS / 1000);
+      timestamp.setNanos((timeMS % 1000) * 1e6);
+
+      return timestamp;
+    }
   };
 
   const handleSelectedProcedure = (id) => {
+    console.log("ProcedureId: ", id);
     localStorage.setItem("procedureId", id);
 
-    getProcedure(id).then((res) => {
-      setSelectedProcedure(res.data);
-      localStorage.setItem("selectedProcedure", JSON.stringify(res.data));
-    });
+    const selectedProc = procedures.find((obj) => obj.procedureid === id);
+    setSelectedProcedure(selectedProc);
+    localStorage.setItem("selectedProcedure", JSON.stringify(selectedProc));
+    console.log("selectedProc: ", selectedProc);
+
+    // getProcedure(id).then((res) => {
+    //   setSelectedProcedure(res.data);
+    //   localStorage.setItem("selectedProcedure", JSON.stringify(res.data));
+    // });
   };
 
   useEffect(() => {
@@ -49,7 +60,7 @@ const ProceduresMain = () => {
       isCancelled.current = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [procedures]);
+  }, []);
 
   return (
     <div className="ProceduresMain-container">

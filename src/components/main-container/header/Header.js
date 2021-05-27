@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Menu, Image } from "semantic-ui-react";
 import ProceduresEditor from "../../procedures-container/procedures-editor/ProceduresEditor";
-import { removeProcedure } from "../../../services/procedures-http.service";
+import { deleteProcedure } from "../../../services/procedures-http.service";
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import new_procedure from "../../../images/32_new_procedure.png";
 import view_procedure from "../../../images/32_view_procedure.png";
@@ -40,13 +40,13 @@ const Header = () => {
   const removeProc = () => {
     var procedureId = localStorage.getItem("procedureId");
     console.log("REMOVE - procedureId: ", procedureId);
-    procedureId && removeProcedure(procedureId);
+    procedureId && deleteProcedure(procedureId);
   };
 
   const refreshPage = () => {
-    setTimeout(() => {
-      window.location.reload();
-    }, 500);
+    // setTimeout(() => {
+    //   window.location.reload();
+    // }, 500);
   };
 
   const onConfirm = () => {
