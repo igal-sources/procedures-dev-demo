@@ -60,7 +60,7 @@ export const daysPattern = [
 
 export const initializeProcedure = {
   procedureid: "",
-  mame: "",
+  name: "",
   description: "",
   creationdate: "",
   modifydate: "",
@@ -69,7 +69,7 @@ export const initializeProcedure = {
   isdeleted: false,
   creatinguserid: "",
   modifyuserid: "",
-  OrganizationId: "",
+  organizationid: "",
   IsLocked: false,
   condition: {
     eventtypeid: -1,
@@ -93,9 +93,9 @@ export const initializeProcedure = {
 };
 
 export const initializeProcedureStep = {
-  SequenceNumber: "",
-  Title: "",
-  Instruction: "",
+  sequencenumber: "",
+  title: "",
+  instruction: "",
   possibleresultsList: [],
 };
 

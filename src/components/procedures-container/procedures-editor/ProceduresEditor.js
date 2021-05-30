@@ -6,6 +6,7 @@ import * as types from "../../../shared/types";
 import ProceduresConditions from "../procedures-details/procedures-conditions/ProceduresConditions";
 import ProceduresFrom from "../procedures-details/procedures-from/ProceduresFrom";
 import ProceduresSteps from "../procedures-steps/ProceduresSteps";
+import { toProtoFromDate } from "../../../shared/dates-helper";
 import { createProcedure, updateProcedure } from "../../../services/procedures-http.service";
 import "./procedures-editor.scss";
 
@@ -19,20 +20,33 @@ const ProceduresEditor = ({
 }) => {
   const initData = (action) => {
     let today = new Date();
+    const protoTimestamp = toProtoFromDate(today);
+    console.log("protoTimestamp: ", protoTimestamp);
+    const protoTimestampNanos = protoTimestamp.getNanos();
+    const protoTimestampSeconds = protoTimestamp.getSeconds();
 
     switch (action) {
       case types.actions.ADD:
-        procedure.id = uuidv4();
-        procedure.OrganizationId = 1; //TODO: from outside
-        procedure.CreatingUserId = 1; //TODO: from outside
-        procedure.ModifyUserId = 1; //TODO: from outside
-        procedure.CreationDate = today.toISOString();
-        procedure.ModifyDate = today.toISOString();
-        procedure.ValidityDate = new Date().toISOString();
+        procedure.procedureid = uuidv4();
+        procedure.organizationid = 1; //TODO: from outside
+        procedure.creatinguserid = 1; //TODO: from outside
+        procedure.modifyuserid = 1; //TODO: from outside
+        procedure.creationdate = {
+          nanos: protoTimestampNanos,
+          seconds: protoTimestampSeconds,
+        };
+        procedure.modifydate = {
+          nanos: protoTimestampNanos,
+          seconds: protoTimestampSeconds,
+        };
+        procedure.validitydate = {
+          nanos: protoTimestampNanos,
+          seconds: protoTimestampSeconds,
+        };
         break;
       case types.actions.EDIT:
-        procedure.ModifyDate = today.toISOString();
-        procedure.ModifyUserId = 1; //TODO: from outside
+        procedure.modifydate = protoTimestamp;
+        procedure.modifyuserid = 1; //TODO: from outside
         break;
       default:
         break;
@@ -43,10 +57,12 @@ const ProceduresEditor = ({
     console.log("onConfirm - procedure, action: ", procedure, action);
     switch (action) {
       case types.actions.ADD:
-        createProcedure(procedure);
+        //createProcedure(procedure);
+        console.log("createProcedure-procedure: ", procedure);
         break;
       case types.actions.EDIT:
-        updateProcedure(procedure.id, procedure);
+        updateProcedure(procedure);
+        console.log("updateProcedure-procedure: ", procedure);
         break;
       default:
         break;

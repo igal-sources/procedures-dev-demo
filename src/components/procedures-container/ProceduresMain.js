@@ -5,7 +5,6 @@ import ProceduresList from "./procedures-list/ProceduresList";
 import ProceduresDetails from "./procedures-details/ProceduresDetails";
 import ProceduresSteps from "./procedures-steps/ProceduresSteps";
 import Header from "../main-container/header/Header";
-import moment from "moment";
 import "./procedures-main.scss";
 
 const ProceduresMain = () => {
@@ -15,24 +14,14 @@ const ProceduresMain = () => {
   const [selectedProcedure, setSelectedProcedure] = useState({});
 
   const fetchData = () => {
-    console.log("ProceduresMain-fetchData: ");
+    //var userId = localStorage.getItem("userId");
+    //var OrganizationId = localStorage.getItem("OrganizationId");
+
     getAllServerProcedures((procResponse) => {
       const { proceduresList = [] } = procResponse;
       console.log("ProceduresMain-Procedures From Server :", proceduresList);
       setProcedures(proceduresList);
     });
-  };
-
-  const getDate = () => {
-    if (window.proto) {
-      const proto = window.proto;
-      const timestamp = new proto.google.protobuf.Timestamp();
-      const timeMS = Date.now();
-      timestamp.setSeconds(timeMS / 1000);
-      timestamp.setNanos((timeMS % 1000) * 1e6);
-
-      return timestamp;
-    }
   };
 
   const handleSelectedProcedure = (id) => {

@@ -9,6 +9,7 @@ import {
 
 const enableDevTools = window.__GRPCWEB_DEVTOOLS__ || (() => {});
 var client = new ProcedureServiceClient("http://192.168.35.135:9999");
+// var client = new ProcedureServiceClient("http://192.168.35.135:54745");
 
 enableDevTools([client]);
 
@@ -64,7 +65,7 @@ export const createServerProcedure = async (data) => {
 };
 
 export const updateServerProcedure = (data) => {
-  console.log("Update existing Server Procedure");
+  console.log("Update existing Server Procedure: ", data);
 
   var pingRequest = new UpdateProcedureRequest();
   pingRequest.setProcedureTemplate = data;

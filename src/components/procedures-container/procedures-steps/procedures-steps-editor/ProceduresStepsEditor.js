@@ -47,7 +47,7 @@ const ProceduresStepsEditor = ({
 
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedStep]);
+  }, [selectedStep, actionType]);
 
   return (
     <div className="ProceduresStepsEditor-container">
@@ -80,7 +80,7 @@ const ProceduresStepsEditor = ({
                   >
                     <GroupItem>
                       <SimpleItem dataField="title" editorOptions={textBoxOptions} />
-                      <SimpleItem dataField="intruction" editorOptions={textBoxOptions} />
+                      <SimpleItem dataField="instruction" editorOptions={textBoxOptions} />
                     </GroupItem>
                   </Form>
                 </div>

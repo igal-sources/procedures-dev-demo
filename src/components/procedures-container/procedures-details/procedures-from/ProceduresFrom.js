@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import Form, { GroupItem, SimpleItem, Label, RequiredRule } from "devextreme-react/form";
-import moment from "moment";
 import { fromProtoToDate } from "../../../../shared/dates-helper";
 import "devextreme-react/text-area";
 import "./procedures-from.scss";
@@ -24,7 +23,7 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
   const populateCreationDate = () => {
     const { creationdate: { nanos = "", seconds = "" } = {} } = procedure;
     const finalDate = fromProtoToDate(seconds, nanos);
-    setCreationDate(finalDate);
+    setCreationDate(finalDate);    
   };
 
   const populateModifyDate = () => {
@@ -40,6 +39,7 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
     return () => {
       isCancelled.current = true;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [procedure.procedureid]);
 
   return (
@@ -71,7 +71,8 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
             editorType="dxDateBox"
             editorOptions={{
               readOnly: true,
-              type: "date",
+              displayFormat:"dd/MM/yyyy HH:mm",
+              // type: "date",
               value: creationDate,
             }}
           >
@@ -97,6 +98,7 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
             editorType="dxDateBox"
             editorOptions={{
               readOnly: true,
+              displayFormat:"dd/MM/yyyy HH:mm",
               value: modifyDate,
             }}
           >
