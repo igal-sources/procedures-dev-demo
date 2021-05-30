@@ -15,15 +15,12 @@ const ProceduresMain = () => {
   const [selectedProcedure, setSelectedProcedure] = useState({});
 
   const fetchData = () => {
+    console.log("ProceduresMain-fetchData: ");
     getAllServerProcedures((procResponse) => {
       const { proceduresList = [] } = procResponse;
       console.log("ProceduresMain-Procedures From Server :", proceduresList);
       setProcedures(proceduresList);
     });
-
-    var dt = getDate();
-    var date = new Date(dt.toDate());
-    console.log("dt: ", moment(date).format("HH:mm YYYY-DD-MM"));
   };
 
   const getDate = () => {
@@ -39,28 +36,24 @@ const ProceduresMain = () => {
   };
 
   const handleSelectedProcedure = (id) => {
-    console.log("ProcedureId: ", id);
+    console.log("handleSelectedProcedure-ProcedureId: ", id);
     localStorage.setItem("procedureId", id);
 
     const selectedProc = procedures.find((obj) => obj.procedureid === id);
     setSelectedProcedure(selectedProc);
     localStorage.setItem("selectedProcedure", JSON.stringify(selectedProc));
     console.log("selectedProc: ", selectedProc);
-
-    // getProcedure(id).then((res) => {
-    //   setSelectedProcedure(res.data);
-    //   localStorage.setItem("selectedProcedure", JSON.stringify(res.data));
-    // });
   };
 
   useEffect(() => {
+    console.log("ProceduresMain-useEffect: ");
     !isCancelled.current && fetchData();
-
+    //fetchData();
     return () => {
       isCancelled.current = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [selectedProcedure.procedureid]);
 
   return (
     <div className="ProceduresMain-container">

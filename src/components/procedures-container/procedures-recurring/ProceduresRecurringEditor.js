@@ -26,7 +26,7 @@ const ProceduresRecurringEditor = ({
   const initData = (action) => {
     const { ProcedureCondition = {} } = procedure;
     const { ProceduresSchedules = {} } = ProcedureCondition;
-    console.log("initData-ProceduresSchedules: ", ProceduresSchedules);
+    //console.log("initData-ProceduresSchedules: ", ProceduresSchedules);
 
     setSelectedRecurrenceType(types.recurrencePatterns[ProceduresSchedules.RecurrenceType - 1]);
 
@@ -56,7 +56,7 @@ const ProceduresRecurringEditor = ({
     const selectedValue = types.recurrencePatterns.findIndex((obj) => obj === radioValue);
 
     procedure.ProcedureCondition.ProceduresSchedules.RecurrenceType = selectedValue + 1;
-    console.log("procedure: ", procedure);
+    //console.log("procedure: ", procedure);
   };
 
   const onConfirm = () => confirm();

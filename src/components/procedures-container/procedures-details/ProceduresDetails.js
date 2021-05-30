@@ -10,8 +10,8 @@ const ProceduresDetails = ({ procedure, isReadOnly }) => {
   const [procedureName, setProcedureName] = useState("");
 
   useEffect(() => {
-    const { Name = "" } = procedure;
-    setProcedureName(Name);
+    const { name = "" } = procedure;
+    setProcedureName(name);
   }, [procedure]);
 
   return (

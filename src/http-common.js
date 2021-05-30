@@ -24,7 +24,7 @@ export const getServerProcedures = async (id, callback) => {
 
   var pingRequest = new GetProceduresRequest();
   pingRequest.setSkip(0);
-  pingRequest.setTake(15);
+  pingRequest.setTake(10);
 
   if (id !== null) {
     pingRequest.setFilterbyidsList = [id];

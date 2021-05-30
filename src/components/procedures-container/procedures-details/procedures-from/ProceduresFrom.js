@@ -1,49 +1,46 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Form, { GroupItem, SimpleItem, Label, RequiredRule } from "devextreme-react/form";
 import moment from "moment";
+import { fromProtoToDate } from "../../../../shared/dates-helper";
 import "devextreme-react/text-area";
 import "./procedures-from.scss";
 
 const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
+  console.log("ProceduresFrom-procedure: ", procedure);
+  const isCancelled = useRef(false);
   const [creationDate, setCreationDate] = useState();
-  console.log('creationDate: ', creationDate);
+  const [modifyDate, setModifyDate] = useState();
   //console.log("ProceduresFrom: ", procedure);
 
-  const convertFromProto = () => {
-    const protoDate = getDate();
-    console.log("getDate().toDate(): ", getDate().toDate());
-    var date = new Date(protoDate.toDate());
-
-    const finalDate = moment(date).format("YYYY-MM-DD");
-    console.log("finalDate: ", finalDate);
-    setCreationDate(finalDate);
-    //return finalDate;
-  };
-
-  const getDate = () => {
-    if (window.proto) {
-      const proto = window.proto;
-      const timestamp = new proto.google.protobuf.Timestamp();
-      const timeMS = Date.now();
-      timestamp.setSeconds(timeMS / 1000);
-      timestamp.setNanos((timeMS % 1000) * 1e6);
-
-      return timestamp;
+  const initData = () => {
+    if (Object.keys(procedure).length === 0) {
+      return;
     }
+
+    populateCreationDate();
+    populateModifyDate();
   };
 
-  const onDateValueChanged = (e) => {
-    console.log("onDateValueChanged", e.value);
+  const populateCreationDate = () => {
+    const { creationdate: { nanos = "", seconds = "" } = {} } = procedure;
+    const finalDate = fromProtoToDate(seconds, nanos);
+    setCreationDate(finalDate);
+  };
+
+  const populateModifyDate = () => {
+    const { modifydate: { nanos = "", seconds = "" } = {} } = procedure;
+    const finalDate = fromProtoToDate(seconds, nanos);
+    setModifyDate(finalDate);
   };
 
   useEffect(() => {
-    convertFromProto();
+    // !isCancelled.current && initData();
+    initData();
 
     return () => {
-      // isCancelled.current = true;
+      isCancelled.current = true;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [procedure.procedureid]);
 
   return (
     <div className="ProceduresFrom-container">
@@ -72,10 +69,10 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
           <SimpleItem
             //dataField="creationdate"
             editorType="dxDateBox"
-            defaultValue={creationDate}
-            //onValueChanged={(d) => onDateValueChanged}
             editorOptions={{
               readOnly: true,
+              type: "date",
+              value: creationDate,
             }}
           >
             <Label
@@ -100,6 +97,7 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
             editorType="dxDateBox"
             editorOptions={{
               readOnly: true,
+              value: modifyDate,
             }}
           >
             <Label visible={true} text={"Last Modification Date"} />

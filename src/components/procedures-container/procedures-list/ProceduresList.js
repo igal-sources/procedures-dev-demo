@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Checkbox } from "semantic-ui-react";
 import { DataGrid, Column, Lookup, Editing, Pager, Paging } from "devextreme-react/data-grid";
 import * as types from "../../../shared/types";
@@ -9,15 +9,23 @@ import "./procedures-list.scss";
 
 const ProceduresList = ({ procedures, onSelected = types.EmptyFn }) => {
   console.log("ProceduresList-procedures: ", procedures);
+  //const isCancelled = useRef(false);
+  //const [proceduresList, setProceduresList] = useState();
+
   const handleSelected = ({ selectedRowsData }) => {
-    const { procedureid } = selectedRowsData[0];
+    const data = selectedRowsData[0];
+
+    const { procedureid } = data && data;
     onSelected(procedureid);
   };
 
   // useEffect(() => {
-  //   return () => {};
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [procedures]);
+  //   console.log("ProceduresList-useEffect: ");
+  //   !isCancelled.current && setProceduresList([...procedures]);
+  //   return () => {
+  //     isCancelled.current = true;
+  //   };
+  // });
 
   return (
     <div className="ProceduresList-container">
