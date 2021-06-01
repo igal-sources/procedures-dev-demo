@@ -151,7 +151,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
         <Editing mode="row" confirmDelete={true} />
         <Column dataField="sequencenumber" caption="#" width={30}></Column>
         <Column dataField="title" width={320}></Column>
-        <Column dataField="intruction" width={320}></Column>
+        <Column dataField="instruction" width={320}></Column>
         <Column
           dataField="possibleresultsList"
           width={150}

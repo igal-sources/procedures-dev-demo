@@ -17,16 +17,14 @@ export const fromProtoToDate = (seconds, nanos) => {
 };
 
 export const toProtoFromDate = (date) => {
-  console.log("date: ", date);
+  //console.log("date: ", date);
   if (window.proto) {
     const proto = window.proto;
 
-    console.log("after window.proto-date: ", date);
     // Create timestamp
     //const timeMS = Date.now();
     let newDate = new Date(date.toString());
     var milliseconds = newDate.getTime();
-    console.log("milliseconds: ", milliseconds);
 
     const timestamp = new proto.google.protobuf.Timestamp();
     timestamp.setSeconds(milliseconds / 1000);

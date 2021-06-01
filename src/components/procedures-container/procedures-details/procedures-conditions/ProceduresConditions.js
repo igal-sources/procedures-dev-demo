@@ -45,8 +45,6 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
       },
     });
 
-    //procedure.ProcedureCondition.ProceduresSchedules = types.emptyRecurrence;
-
     setSelectedProcedure(updateProcedure);
     console.log("Selected procedure: ", procedure);
     setHasRecurring(false);
@@ -54,7 +52,7 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
 
   const eventTypeValueChanged = ({ component }) => {
     const selectedItem = component.option("selectedItem");
-    console.log("eventTypeValueChanged-selectedItem: ", selectedItem);
+    //console.log("eventTypeValueChanged-selectedItem: ", selectedItem);
     if (selectedItem !== null) {
       const { EventTypeId = {} } = selectedItem && selectedItem;
       getEventSubTypes(EventTypeId);
@@ -164,7 +162,7 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
               value: conditionObj.severity,
             }}
           />
-          <SimpleItem dataField="GeoAreaID">
+          <SimpleItem dataField="geoarea">
             <Label visible={true} text={"Location"} />
           </SimpleItem>
         </GroupItem>

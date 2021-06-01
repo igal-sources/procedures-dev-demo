@@ -21,9 +21,9 @@ const ProceduresEditor = ({
   const initData = (action) => {
     let today = new Date();
     const protoTimestamp = toProtoFromDate(today);
-    console.log("protoTimestamp: ", protoTimestamp);
-    const protoTimestampNanos = protoTimestamp.getNanos();
-    const protoTimestampSeconds = protoTimestamp.getSeconds();
+    // console.log("protoTimestamp: ", protoTimestamp);
+    const protoNanos = protoTimestamp.getNanos();
+    const protoSeconds = protoTimestamp.getSeconds();
 
     switch (action) {
       case types.actions.ADD:
@@ -32,20 +32,23 @@ const ProceduresEditor = ({
         procedure.creatinguserid = 1; //TODO: from outside
         procedure.modifyuserid = 1; //TODO: from outside
         procedure.creationdate = {
-          nanos: protoTimestampNanos,
-          seconds: protoTimestampSeconds,
+          seconds: protoSeconds,
+          nanos: protoNanos,
         };
         procedure.modifydate = {
-          nanos: protoTimestampNanos,
-          seconds: protoTimestampSeconds,
+          seconds: protoSeconds,
+          nanos: protoNanos,
         };
         procedure.validitydate = {
-          nanos: protoTimestampNanos,
-          seconds: protoTimestampSeconds,
+          seconds: protoSeconds,
+          nanos: protoNanos,
         };
         break;
       case types.actions.EDIT:
-        procedure.modifydate = protoTimestamp;
+        procedure.modifydate = {
+          seconds: protoSeconds,
+          nanos: protoNanos,
+        };
         procedure.modifyuserid = 1; //TODO: from outside
         break;
       default:
@@ -57,12 +60,12 @@ const ProceduresEditor = ({
     console.log("onConfirm - procedure, action: ", procedure, action);
     switch (action) {
       case types.actions.ADD:
-        //createProcedure(procedure);
         console.log("createProcedure-procedure: ", procedure);
+        createProcedure(procedure);
         break;
       case types.actions.EDIT:
-        updateProcedure(procedure);
         console.log("updateProcedure-procedure: ", procedure);
+        updateProcedure(procedure);
         break;
       default:
         break;

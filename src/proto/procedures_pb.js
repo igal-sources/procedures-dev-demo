@@ -491,7 +491,7 @@ proto.v1.ProcedureStep.toObject = function(includeInstance, msg) {
   var f, obj = {
     sequencenumber: jspb.Message.getFieldWithDefault(msg, 1, 0),
     title: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    intruction: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    instruction: jspb.Message.getFieldWithDefault(msg, 3, ""),
     possibleresultsList: jspb.Message.toObjectList(msg.getPossibleresultsList(),
     proto.v1.ProcedureStepResult.toObject, includeInstance)
   };
@@ -540,7 +540,7 @@ proto.v1.ProcedureStep.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setIntruction(value);
+      msg.setInstruction(value);
       break;
     case 4:
       var value = new proto.v1.ProcedureStepResult;
@@ -590,7 +590,7 @@ proto.v1.ProcedureStep.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getIntruction();
+  f = message.getInstruction();
   if (f.length > 0) {
     writer.writeString(
       3,
@@ -639,16 +639,16 @@ proto.v1.ProcedureStep.prototype.setTitle = function(value) {
 
 
 /**
- * optional string intruction = 3;
+ * optional string instruction = 3;
  * @return {string}
  */
-proto.v1.ProcedureStep.prototype.getIntruction = function() {
+proto.v1.ProcedureStep.prototype.getInstruction = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /** @param {string} value */
-proto.v1.ProcedureStep.prototype.setIntruction = function(value) {
+proto.v1.ProcedureStep.prototype.setInstruction = function(value) {
   jspb.Message.setProto3StringField(this, 3, value);
 };
 
@@ -2034,7 +2034,7 @@ proto.v1.CreateProcedureRequest.prototype.toObject = function(opt_includeInstanc
  */
 proto.v1.CreateProcedureRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    proceduretemplate: (f = msg.getProceduretemplate()) && proto.v1.ProcedureTemplate.toObject(includeInstance, f)
+    procedure: (f = msg.getProcedure()) && proto.v1.ProcedureTemplate.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2074,7 +2074,7 @@ proto.v1.CreateProcedureRequest.deserializeBinaryFromReader = function(msg, read
     case 1:
       var value = new proto.v1.ProcedureTemplate;
       reader.readMessage(value,proto.v1.ProcedureTemplate.deserializeBinaryFromReader);
-      msg.setProceduretemplate(value);
+      msg.setProcedure(value);
       break;
     default:
       reader.skipField();
@@ -2105,7 +2105,7 @@ proto.v1.CreateProcedureRequest.prototype.serializeBinary = function() {
  */
 proto.v1.CreateProcedureRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getProceduretemplate();
+  f = message.getProcedure();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -2117,23 +2117,23 @@ proto.v1.CreateProcedureRequest.serializeBinaryToWriter = function(message, writ
 
 
 /**
- * optional ProcedureTemplate procedureTemplate = 1;
+ * optional ProcedureTemplate procedure = 1;
  * @return {?proto.v1.ProcedureTemplate}
  */
-proto.v1.CreateProcedureRequest.prototype.getProceduretemplate = function() {
+proto.v1.CreateProcedureRequest.prototype.getProcedure = function() {
   return /** @type{?proto.v1.ProcedureTemplate} */ (
     jspb.Message.getWrapperField(this, proto.v1.ProcedureTemplate, 1));
 };
 
 
 /** @param {?proto.v1.ProcedureTemplate|undefined} value */
-proto.v1.CreateProcedureRequest.prototype.setProceduretemplate = function(value) {
+proto.v1.CreateProcedureRequest.prototype.setProcedure = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
 
 
-proto.v1.CreateProcedureRequest.prototype.clearProceduretemplate = function() {
-  this.setProceduretemplate(undefined);
+proto.v1.CreateProcedureRequest.prototype.clearProcedure = function() {
+  this.setProcedure(undefined);
 };
 
 
@@ -2141,7 +2141,7 @@ proto.v1.CreateProcedureRequest.prototype.clearProceduretemplate = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.v1.CreateProcedureRequest.prototype.hasProceduretemplate = function() {
+proto.v1.CreateProcedureRequest.prototype.hasProcedure = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
@@ -2309,7 +2309,7 @@ proto.v1.UpdateProcedureRequest.prototype.toObject = function(opt_includeInstanc
  */
 proto.v1.UpdateProcedureRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    proceduretemplate: (f = msg.getProceduretemplate()) && proto.v1.ProcedureTemplate.toObject(includeInstance, f)
+    procedure: (f = msg.getProcedure()) && proto.v1.ProcedureTemplate.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2349,7 +2349,7 @@ proto.v1.UpdateProcedureRequest.deserializeBinaryFromReader = function(msg, read
     case 1:
       var value = new proto.v1.ProcedureTemplate;
       reader.readMessage(value,proto.v1.ProcedureTemplate.deserializeBinaryFromReader);
-      msg.setProceduretemplate(value);
+      msg.setProcedure(value);
       break;
     default:
       reader.skipField();
@@ -2380,7 +2380,7 @@ proto.v1.UpdateProcedureRequest.prototype.serializeBinary = function() {
  */
 proto.v1.UpdateProcedureRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getProceduretemplate();
+  f = message.getProcedure();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -2392,23 +2392,23 @@ proto.v1.UpdateProcedureRequest.serializeBinaryToWriter = function(message, writ
 
 
 /**
- * optional ProcedureTemplate procedureTemplate = 1;
+ * optional ProcedureTemplate procedure = 1;
  * @return {?proto.v1.ProcedureTemplate}
  */
-proto.v1.UpdateProcedureRequest.prototype.getProceduretemplate = function() {
+proto.v1.UpdateProcedureRequest.prototype.getProcedure = function() {
   return /** @type{?proto.v1.ProcedureTemplate} */ (
     jspb.Message.getWrapperField(this, proto.v1.ProcedureTemplate, 1));
 };
 
 
 /** @param {?proto.v1.ProcedureTemplate|undefined} value */
-proto.v1.UpdateProcedureRequest.prototype.setProceduretemplate = function(value) {
+proto.v1.UpdateProcedureRequest.prototype.setProcedure = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
 
 
-proto.v1.UpdateProcedureRequest.prototype.clearProceduretemplate = function() {
-  this.setProceduretemplate(undefined);
+proto.v1.UpdateProcedureRequest.prototype.clearProcedure = function() {
+  this.setProcedure(undefined);
 };
 
 
@@ -2416,7 +2416,7 @@ proto.v1.UpdateProcedureRequest.prototype.clearProceduretemplate = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.v1.UpdateProcedureRequest.prototype.hasProceduretemplate = function() {
+proto.v1.UpdateProcedureRequest.prototype.hasProcedure = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 

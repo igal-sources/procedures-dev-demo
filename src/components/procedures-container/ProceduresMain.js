@@ -1,17 +1,18 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Grid } from "semantic-ui-react";
-import { getAllServerProcedures } from "../../services/procedures-http.service";
+import { getAllServerProcedures, updateProcedure } from "../../services/procedures-http.service";
 import ProceduresList from "./procedures-list/ProceduresList";
 import ProceduresDetails from "./procedures-details/ProceduresDetails";
 import ProceduresSteps from "./procedures-steps/ProceduresSteps";
 import Header from "../main-container/header/Header";
+import { struct, list } from "pb-util";
 import "./procedures-main.scss";
 
 const ProceduresMain = () => {
   const isCancelled = useRef(false);
   const [procedures, setProcedures] = useState([]);
-  console.log("ProceduresMain-useState-procedures: ", procedures);
   const [selectedProcedure, setSelectedProcedure] = useState({});
+  //console.log("ProceduresMain-useState-procedures: ", procedures);
 
   const fetchData = () => {
     //var userId = localStorage.getItem("userId");
@@ -19,25 +20,35 @@ const ProceduresMain = () => {
 
     getAllServerProcedures((procResponse) => {
       const { proceduresList = [] } = procResponse;
-      console.log("ProceduresMain-Procedures From Server :", proceduresList);
+      console.log("ProceduresMain-Procedures From Server :", procResponse);
       setProcedures(proceduresList);
+
+      // let updatedProcedure = proceduresList[0];      
+      // updatedProcedure.name = "Best of Igal6 !!";
+      // console.log("updatedProcedure: ", updatedProcedure);
+
+      // const encoded = struct.encode(updatedProcedure);
+      // console.log('encoded: ', encoded);
+
+      // updateProcedure(encoded);
     });
   };
 
   const handleSelectedProcedure = (id) => {
-    console.log("handleSelectedProcedure-ProcedureId: ", id);
+    console.log("SelectedProcedure-ProcedureId: ", id);
     localStorage.setItem("procedureId", id);
 
     const selectedProc = procedures.find((obj) => obj.procedureid === id);
     setSelectedProcedure(selectedProc);
     localStorage.setItem("selectedProcedure", JSON.stringify(selectedProc));
-    console.log("selectedProc: ", selectedProc);
+    console.log("Selected Procedure: ", selectedProc);
   };
 
   useEffect(() => {
     console.log("ProceduresMain-useEffect: ");
     !isCancelled.current && fetchData();
     //fetchData();
+
     return () => {
       isCancelled.current = true;
     };

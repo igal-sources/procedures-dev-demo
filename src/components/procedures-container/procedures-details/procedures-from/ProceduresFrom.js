@@ -5,7 +5,7 @@ import "devextreme-react/text-area";
 import "./procedures-from.scss";
 
 const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
-  console.log("ProceduresFrom-procedure: ", procedure);
+  //console.log("ProceduresFrom-procedure: ", procedure);
   const isCancelled = useRef(false);
   const [creationDate, setCreationDate] = useState();
   const [modifyDate, setModifyDate] = useState();

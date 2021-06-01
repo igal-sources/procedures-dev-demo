@@ -7,6 +7,8 @@ import {
   DeleteProcedureRequest,
 } from "../src/proto/procedures_pb";
 
+import { struct, list } from "pb-util";
+
 const enableDevTools = window.__GRPCWEB_DEVTOOLS__ || (() => {});
 var client = new ProcedureServiceClient("http://192.168.35.135:9999");
 // var client = new ProcedureServiceClient("http://192.168.35.135:54745");
@@ -27,20 +29,28 @@ export const getServerProcedures = async (id, callback) => {
   pingRequest.setSkip(0);
   pingRequest.setTake(10);
 
-  if (id !== null) {
-    pingRequest.setFilterbyidsList = [id];
-  }
-
   await client.getProcedures(pingRequest, null, (err, response) => {
     //console.log("err, response: ", err, response);
 
     if (err !== null) {
-      console.log("err: ", err);
+      console.log("getProcedures error code:", err.code);
+      console.log("getProcedures error message:", err.message);
       return;
     }
 
     const result = response.toObject();
-    //console.log("response: ", result);
+    console.log('response111: ', response);
+    console.log("response: ", result);
+
+     const listValue = list.encode(response.getProceduresList());
+     console.log("listValue: ", listValue);
+    // var res = response.getProceduresList();
+    // var procToUpdate = res[0];
+    // procToUpdate.setName("Best of Igal9 !!");
+    // procToUpdate.setIsactive(true);
+    // procToUpdate.setModifyuserid("Best user");
+    // updateServerProcedure(procToUpdate);
+
     callback(result);
   });
 };
@@ -49,7 +59,7 @@ export const createServerProcedure = async (data) => {
   console.log("Create new Server Procedure");
 
   var pingRequest = new CreateProcedureRequest();
-  pingRequest.setProcedureTemplate = data;
+  pingRequest.setProcedure(data);
 
   await client.createProcedure(pingRequest, null, (err, response) => {
     //console.log("err, response: ", err, response);
@@ -68,18 +78,21 @@ export const updateServerProcedure = (data) => {
   console.log("Update existing Server Procedure: ", data);
 
   var pingRequest = new UpdateProcedureRequest();
-  pingRequest.setProcedureTemplate = data;
+
+  pingRequest.setProcedure(data);
 
   client.updateProcedure(pingRequest, null, (err, response) => {
     //console.log("err, response: ", err, response);
 
     if (err !== null) {
-      console.log("err: ", err);
+      console.log(err.code);
+      console.log(err.message);
       return;
     }
 
-    const result = response.toObject(); //.getProceduresList();
-    console.log("response: ", result);
+    //pingRequest.setIsActive(false)
+    //const result = response.toObject(); //.getProceduresList();
+    //console.log("response: ", result);
   });
 };
 

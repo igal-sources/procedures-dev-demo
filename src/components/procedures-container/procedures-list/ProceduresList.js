@@ -8,7 +8,7 @@ import EventSeverities from "../../../assets/mock-data/EventSeverities.json";
 import "./procedures-list.scss";
 
 const ProceduresList = ({ procedures, onSelected = types.EmptyFn }) => {
-  console.log("ProceduresList-procedures: ", procedures);
+  //console.log("ProceduresList-procedures: ", procedures);
   //const isCancelled = useRef(false);
   //const [proceduresList, setProceduresList] = useState();
 
