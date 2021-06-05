@@ -115,6 +115,7 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
       />
       <Form
         id="form"
+        className="ProceduresConditions-Form"
         formData={conditionObj}
         readOnly={isReadOnly}
         showColonAfterLabel={true}

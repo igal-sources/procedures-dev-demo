@@ -6,6 +6,7 @@ import ProceduresDetails from "./procedures-details/ProceduresDetails";
 import ProceduresSteps from "./procedures-steps/ProceduresSteps";
 import Header from "../main-container/header/Header";
 import { struct, list } from "pb-util";
+import webProto from "../../proto/procedures_pb";
 import "./procedures-main.scss";
 
 const ProceduresMain = () => {
@@ -14,32 +15,46 @@ const ProceduresMain = () => {
   const [selectedProcedure, setSelectedProcedure] = useState({});
   //console.log("ProceduresMain-useState-procedures: ", procedures);
 
+  const getAllFunctions = () => {
+    var myFunctions = [];
+    for (var l in webProto) {
+      if (
+        webProto.hasOwnProperty(l) &&
+        webProto[l] instanceof Function &&
+        !/myFunctions/i.test(l)
+      ) {
+        myFunctions.push(webProto[l]);
+      }
+    }
+
+    console.log("myFunctions: ", myFunctions);
+  };
+
   const fetchData = () => {
     //var userId = localStorage.getItem("userId");
     //var OrganizationId = localStorage.getItem("OrganizationId");
 
+    //getAllFunctions();
+
     getAllServerProcedures((procResponse) => {
-      const { proceduresList = [] } = procResponse;
-      console.log("ProceduresMain-Procedures From Server :", procResponse);
+      const { proceduresList = [] } = procResponse.toObject();
+      console.log("ProceduresMain-Procedures From Server :", proceduresList);
       setProcedures(proceduresList);
-
-      // let updatedProcedure = proceduresList[0];      
-      // updatedProcedure.name = "Best of Igal6 !!";
-      // console.log("updatedProcedure: ", updatedProcedure);
-
-      // const encoded = struct.encode(updatedProcedure);
-      // console.log('encoded: ', encoded);
-
-      // updateProcedure(encoded);
     });
   };
 
   const handleSelectedProcedure = (id) => {
-    console.log("SelectedProcedure-ProcedureId: ", id);
+    console.log("SelectedProcedureId: ", id);
     localStorage.setItem("procedureId", id);
+
+    const serverProcedures = localStorage.getItem("serverProcedures");
 
     const selectedProc = procedures.find((obj) => obj.procedureid === id);
     setSelectedProcedure(selectedProc);
+
+    const selectedProcIndex = procedures.findIndex((obj) => obj.procedureid === id);    
+    localStorage.setItem("selectedIndexServerProcedure", selectedProcIndex);
+
     localStorage.setItem("selectedProcedure", JSON.stringify(selectedProc));
     console.log("Selected Procedure: ", selectedProc);
   };

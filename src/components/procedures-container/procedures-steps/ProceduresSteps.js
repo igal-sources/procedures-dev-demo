@@ -141,7 +141,6 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
         style={{ height: heightValue }}
         allowColumnReordering={true}
         selection={{ mode: "single" }}
-        //columnAutoWidth={true}
         hoverStateEnabled={true}
         dataSource={procedureSteps}
         onSelectionChanged={handleSelected}

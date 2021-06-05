@@ -23,7 +23,7 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
   const populateCreationDate = () => {
     const { creationdate: { nanos = "", seconds = "" } = {} } = procedure;
     const finalDate = fromProtoToDate(seconds, nanos);
-    setCreationDate(finalDate);    
+    setCreationDate(finalDate);
   };
 
   const populateModifyDate = () => {
@@ -46,6 +46,7 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
     <div className="ProceduresFrom-container">
       <Form
         id="From"
+        className="ProceduresFrom-Form"
         formData={procedure}
         readOnly={isReadOnly}
         showColonAfterLabel={true}
@@ -71,7 +72,7 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
             editorType="dxDateBox"
             editorOptions={{
               readOnly: true,
-              displayFormat:"dd/MM/yyyy HH:mm",
+              displayFormat: "dd/MM/yyyy HH:mm",
               // type: "date",
               value: creationDate,
             }}
@@ -98,7 +99,7 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
             editorType="dxDateBox"
             editorOptions={{
               readOnly: true,
-              displayFormat:"dd/MM/yyyy HH:mm",
+              displayFormat: "dd/MM/yyyy HH:mm",
               value: modifyDate,
             }}
           >

@@ -31,7 +31,7 @@ const ProceduresList = ({ procedures, onSelected = types.EmptyFn }) => {
     <div className="ProceduresList-container">
       <ComponentTitle title={"Procedures"} />
       <DataGrid
-        style={{ height: "87vh" }}
+        style={{ height: "90vh", width: "100%" }}
         dataSource={procedures}
         repaintChangesOnly={true}
         allowColumnReordering={true}

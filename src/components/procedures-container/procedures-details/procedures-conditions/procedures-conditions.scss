@@ -1,5 +1,5 @@
 .ProceduresConditions-container {
-  margin-right: 20px;
+  //margin-right: 20px;
   .form.ui.form input[type="text"] {
     color: var(--main-foreground-color) !important;
     height: 23px;
@@ -7,6 +7,7 @@
 
   .ProceduresConditions-Form {
     margin-top: 10px;
+    padding-left: 10px;
   }
   .ProceduresConditions-header {
     height: 50px;
@@ -31,6 +32,7 @@
 .recurringControl-container {
   display: flex;
   flex-direction: row;
+  padding-left: 10px;
 }
 
 .recurringControl-buttons {

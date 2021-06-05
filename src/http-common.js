@@ -6,7 +6,7 @@ import {
   UpdateProcedureRequest,
   DeleteProcedureRequest,
 } from "../src/proto/procedures_pb";
-
+import { procedureMapToProto } from "../src/services/adapters/proceduresAdapter";
 import { struct, list } from "pb-util";
 
 const enableDevTools = window.__GRPCWEB_DEVTOOLS__ || (() => {});
@@ -26,7 +26,7 @@ export const getServerProcedures = async (id, callback) => {
   console.log("Get Procedures from server");
 
   var pingRequest = new GetProceduresRequest();
-  pingRequest.setSkip(0);
+  pingRequest.setSkip(10);
   pingRequest.setTake(10);
 
   await client.getProcedures(pingRequest, null, (err, response) => {
@@ -38,18 +38,15 @@ export const getServerProcedures = async (id, callback) => {
       return;
     }
 
-    const result = response.toObject();
-    console.log('response111: ', response);
-    console.log("response: ", result);
+    const result = response; //.toObject();
+    //console.log("response: ", result);
 
-     const listValue = list.encode(response.getProceduresList());
-     console.log("listValue: ", listValue);
-    // var res = response.getProceduresList();
-    // var procToUpdate = res[0];
+    //var res = response.getProceduresList();
+    //var procToUpdate = res[0];
     // procToUpdate.setName("Best of Igal9 !!");
     // procToUpdate.setIsactive(true);
     // procToUpdate.setModifyuserid("Best user");
-    // updateServerProcedure(procToUpdate);
+    //updateServerProcedure(procToUpdate);
 
     callback(result);
   });
@@ -79,20 +76,26 @@ export const updateServerProcedure = (data) => {
 
   var pingRequest = new UpdateProcedureRequest();
 
-  pingRequest.setProcedure(data);
+  // pingRequest.setProcedure(data);
+  // client.updateProcedure(pingRequest, null, (err, response) => {
+  //   if (err !== null) {
+  //     console.log("updateProcedure: err.code", err.code);
+  //     console.log("updateProcedure: err.message", err.message);
+  //     return;
+  //   }
+  // });
 
-  client.updateProcedure(pingRequest, null, (err, response) => {
-    //console.log("err, response: ", err, response);
+  procedureMapToProto(data, (res) => {
+    console.log("protoProcedure: ", res);
+    pingRequest.setProcedure(res);
 
-    if (err !== null) {
-      console.log(err.code);
-      console.log(err.message);
-      return;
-    }
-
-    //pingRequest.setIsActive(false)
-    //const result = response.toObject(); //.getProceduresList();
-    //console.log("response: ", result);
+    client.updateProcedure(pingRequest, null, (err, response) => {
+      if (err !== null) {
+        console.log("updateProcedure: err.code", err.code);
+        console.log("updateProcedure: err.message", err.message);
+        return;
+      }
+    });
   });
 };
 

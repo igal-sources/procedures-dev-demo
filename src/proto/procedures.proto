@@ -1,0 +1,183 @@
+syntax = "proto3";
+
+package v1;
+
+option go_package = ".;v1";
+
+import "google/protobuf/timestamp.proto";
+
+message PermissionSet
+{
+    string owner = 1;
+    repeated string editors = 2;
+    repeated string viewers = 3;
+}
+
+message ProcedureStepResult
+{
+    int32 sequenceNumber = 1;
+    string name = 2;
+}
+
+enum ScheduleType
+{
+    Undefined = 0;
+    OneTime = 1;
+    Daily = 2;
+    Weekly = 3;
+    Monthly = 4;
+    Yearly = 5;
+    All = 6;
+}
+
+message ProcedureStep 
+{
+    int32 sequenceNumber = 1;
+    string title = 2;
+    string instruction = 3;
+    repeated ProcedureStepResult possibleResults = 4;
+}
+
+message ProcedureCondition
+{
+    int32 eventTypeId = 1;
+    int32 eventSubTypeId = 2;
+    int32 severity = 3;
+    int32 priority = 4;
+    google.protobuf.Timestamp startAt = 5;
+    google.protobuf.Timestamp endAt = 6; 
+    ProcedureSchedule schedule = 7;
+}
+
+message ProcedureSchedule 
+{
+    ScheduleType recurrenceType = 1;
+    google.protobuf.Timestamp startAt = 2;
+    google.protobuf.Timestamp endAt = 3;
+    string recurrenceValues = 4;
+    int64 duration = 5;
+}
+
+message ProcedureTemplate
+{
+    string procedureId = 1;
+    string name = 2;
+    string description = 3;
+    google.protobuf.Timestamp creationDate = 4;
+    google.protobuf.Timestamp modifyDate = 5;
+    google.protobuf.Timestamp validityDate = 6;
+    string creatingUserId = 7;
+    string modifyUserId = 8;
+    bool isActive = 9;
+    bool isDeleted = 10;
+    ProcedureCondition condition = 11;
+    string geoArea = 12;
+    PermissionSet permissions = 13;
+    bool isLocked = 14;
+    string lockedByUserId = 15;
+    repeated ProcedureStep steps = 16;  }
+
+message CreateProcedureRequest
+{
+    ProcedureTemplate procedure = 1;
+}
+
+message CreateProcedureResponse
+{
+
+}
+
+message UpdateProcedureRequest
+{
+    ProcedureTemplate procedure = 1;
+}
+
+message UpdateProcedureResponse
+{
+
+}
+
+message DeleteProcedureRequest
+{
+    string procedureId = 1;
+}
+
+message DeleteProcedureResponse
+{
+
+}
+
+message LockProcedureRequest
+{
+    string procedureId = 1;
+    string userId = 2;
+    bool isLocked = 3;
+}
+
+message LockProcedureResponse
+{
+
+}
+
+message GetProceduresRequest
+{
+    int32 skip = 1;
+    int32 take = 2;
+    repeated string filterByIds = 3;
+}
+
+message GetProceduresResponse
+{
+    repeated ProcedureTemplate procedures = 1;
+}
+ 
+service ProcedureService
+{
+    rpc GetProcedures(GetProceduresRequest) returns (GetProceduresResponse);
+    rpc CreateProcedure(CreateProcedureRequest) returns (CreateProcedureResponse);
+    rpc UpdateProcedure(UpdateProcedureRequest) returns (UpdateProcedureResponse);
+    rpc DeleteProcedure(DeleteProcedureRequest) returns (DeleteProcedureResponse);
+    rpc LockProcedure(LockProcedureRequest) returns (LockProcedureResponse);
+}
+
+enum NotificationType 
+{
+    Created = 0;
+    Updated = 1;
+    Deleted = 2;
+}
+
+message Notification 
+{
+    string entityType = 1;
+    NotificationType type = 2;
+    google.protobuf.Timestamp publishedAt = 3;
+    oneof message {
+        ProcedureAdded added = 4;
+        ProcedureUpdated updated = 5;
+        ProcedureDeleted deleted = 6;
+        ProcedureLocked locked = 7;
+    } 
+}
+
+message ProcedureAdded
+{
+    ProcedureTemplate procedureTemplate = 1;
+}
+
+message ProcedureUpdated
+{
+    ProcedureTemplate procedureTemplate = 1;
+}
+
+message ProcedureDeleted
+{
+    string procedureId = 1;
+}
+
+message ProcedureLocked
+{
+    string procedureId = 1;
+    string userId = 2;
+    bool isLocked = 3;
+}

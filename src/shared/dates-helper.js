@@ -1,4 +1,5 @@
 import moment from "moment";
+import * as timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 
 export const fromProtoToDate = (seconds, nanos) => {
   if (window.proto) {
@@ -14,6 +15,13 @@ export const fromProtoToDate = (seconds, nanos) => {
     const finalDate = moment(date).format("YYYY-MM-DDTHH:mm");
     return finalDate;
   }
+};
+
+export const toProtoTimestamp = (fieldValue) => {
+  const timestamp = new timestamp_pb.Timestamp();
+  timestamp.setSeconds(fieldValue.seconds);
+  timestamp.setNanos(fieldValue.nanos);
+  return timestamp;
 };
 
 export const toProtoFromDate = (date) => {
