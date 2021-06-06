@@ -8,24 +8,12 @@ import EventSeverities from "../../../assets/mock-data/EventSeverities.json";
 import "./procedures-list.scss";
 
 const ProceduresList = ({ procedures, onSelected = types.EmptyFn }) => {
-  //console.log("ProceduresList-procedures: ", procedures);
-  //const isCancelled = useRef(false);
-  //const [proceduresList, setProceduresList] = useState();
-
   const handleSelected = ({ selectedRowsData }) => {
     const data = selectedRowsData[0];
 
     const { procedureid } = data && data;
     onSelected(procedureid);
   };
-
-  // useEffect(() => {
-  //   console.log("ProceduresList-useEffect: ");
-  //   !isCancelled.current && setProceduresList([...procedures]);
-  //   return () => {
-  //     isCancelled.current = true;
-  //   };
-  // });
 
   return (
     <div className="ProceduresList-container">

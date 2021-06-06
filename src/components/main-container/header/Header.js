@@ -38,7 +38,7 @@ const Header = () => {
   };
 
   const removeProc = () => {
-    var procedureId = localStorage.getItem("procedureId");
+    var procedureId = localStorage.getItem("selectedProcedureId");
     console.log("REMOVE - procedureId: ", procedureId);
     procedureId && deleteProcedure(procedureId);
   };

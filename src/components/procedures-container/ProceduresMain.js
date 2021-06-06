@@ -12,6 +12,7 @@ import "./procedures-main.scss";
 const ProceduresMain = () => {
   const isCancelled = useRef(false);
   const [procedures, setProcedures] = useState([]);
+  const [proceduresProto, setProceduresProto] = useState();
   const [selectedProcedure, setSelectedProcedure] = useState({});
   //console.log("ProceduresMain-useState-procedures: ", procedures);
 
@@ -39,22 +40,22 @@ const ProceduresMain = () => {
     getAllServerProcedures((procResponse) => {
       const { proceduresList = [] } = procResponse.toObject();
       console.log("ProceduresMain-Procedures From Server :", proceduresList);
+      setProceduresProto(procResponse);
       setProcedures(proceduresList);
     });
   };
 
   const handleSelectedProcedure = (id) => {
-    console.log("SelectedProcedureId: ", id);
-    localStorage.setItem("procedureId", id);
-
-    const serverProcedures = localStorage.getItem("serverProcedures");
-
+    console.log("selectedProcedureId: ", id);
+    localStorage.setItem("selectedProcedureId", id);
+    
     const selectedProc = procedures.find((obj) => obj.procedureid === id);
     setSelectedProcedure(selectedProc);
 
     const selectedProcIndex = procedures.findIndex((obj) => obj.procedureid === id);    
     localStorage.setItem("selectedIndexServerProcedure", selectedProcIndex);
 
+    localStorage.setItem("selectedProtoProcedure", proceduresProto[selectedProcIndex]);
     localStorage.setItem("selectedProcedure", JSON.stringify(selectedProc));
     console.log("Selected Procedure: ", selectedProc);
   };

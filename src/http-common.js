@@ -27,7 +27,7 @@ export const getServerProcedures = async (id, callback) => {
 
   var pingRequest = new GetProceduresRequest();
   pingRequest.setSkip(10);
-  pingRequest.setTake(10);
+  pingRequest.setTake(15);
 
   await client.getProcedures(pingRequest, null, (err, response) => {
     //console.log("err, response: ", err, response);
