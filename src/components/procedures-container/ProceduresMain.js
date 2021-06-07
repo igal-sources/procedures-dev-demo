@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Grid } from "semantic-ui-react";
-import { getAllServerProcedures, updateProcedure } from "../../services/procedures-http.service";
+import { getAllServerProcedures } from "../../services/procedures-http.service";
 import ProceduresList from "./procedures-list/ProceduresList";
 import ProceduresDetails from "./procedures-details/ProceduresDetails";
 import ProceduresSteps from "./procedures-steps/ProceduresSteps";
 import Header from "../main-container/header/Header";
-import { struct, list } from "pb-util";
 import webProto from "../../proto/procedures_pb";
 import "./procedures-main.scss";
 
@@ -16,26 +15,14 @@ const ProceduresMain = () => {
   const [selectedProcedure, setSelectedProcedure] = useState({});
   //console.log("ProceduresMain-useState-procedures: ", procedures);
 
-  const getAllFunctions = () => {
-    var myFunctions = [];
-    for (var l in webProto) {
-      if (
-        webProto.hasOwnProperty(l) &&
-        webProto[l] instanceof Function &&
-        !/myFunctions/i.test(l)
-      ) {
-        myFunctions.push(webProto[l]);
-      }
-    }
-
-    console.log("myFunctions: ", myFunctions);
-  };
-
   const fetchData = () => {
-    //var userId = localStorage.getItem("userId");
-    //var OrganizationId = localStorage.getItem("OrganizationId");
+    var userId = localStorage.getItem("userId");
+    var userName = localStorage.getItem("userName");
+    var OrganizationId = localStorage.getItem("organizationId");
 
-    //getAllFunctions();
+    localStorage.setItem("userId", userId === null ? "555" : userId);
+    localStorage.setItem("userName", userName === null ? "Demo User" : userName);
+    localStorage.setItem("organizationId", OrganizationId === null ? "1" : OrganizationId);
 
     getAllServerProcedures((procResponse) => {
       const { proceduresList = [] } = procResponse.toObject();
@@ -48,11 +35,11 @@ const ProceduresMain = () => {
   const handleSelectedProcedure = (id) => {
     console.log("selectedProcedureId: ", id);
     localStorage.setItem("selectedProcedureId", id);
-    
+
     const selectedProc = procedures.find((obj) => obj.procedureid === id);
     setSelectedProcedure(selectedProc);
 
-    const selectedProcIndex = procedures.findIndex((obj) => obj.procedureid === id);    
+    const selectedProcIndex = procedures.findIndex((obj) => obj.procedureid === id);
     localStorage.setItem("selectedIndexServerProcedure", selectedProcIndex);
 
     localStorage.setItem("selectedProtoProcedure", proceduresProto[selectedProcIndex]);
@@ -61,7 +48,7 @@ const ProceduresMain = () => {
   };
 
   useEffect(() => {
-    console.log("ProceduresMain-useEffect: ");
+    // console.log("ProceduresMain-useEffect: ");
     !isCancelled.current && fetchData();
     //fetchData();
 

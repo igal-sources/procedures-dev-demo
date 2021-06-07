@@ -75,10 +75,10 @@ export const initializeProcedure = {
     eventtypeid: -1,
     eventsubtypeid: -1,
     severity: -1,
-    priority: "NULL",
+    priority: "",
     startat: "",
     endat: "",
-    geoarea: "NULL",
+    geoarea: "",
     schedule: {
       recurrencetype: 0,
       startdate: "",

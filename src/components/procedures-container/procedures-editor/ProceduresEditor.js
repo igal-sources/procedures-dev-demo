@@ -28,9 +28,9 @@ const ProceduresEditor = ({
     switch (action) {
       case types.actions.ADD:
         procedure.procedureid = uuidv4();
-        procedure.organizationid = 1; //TODO: from outside
-        procedure.creatinguserid = 1; //TODO: from outside
-        procedure.modifyuserid = 1; //TODO: from outside
+        procedure.organizationid = localStorage.getItem("organizationId");
+        procedure.creatinguserid = localStorage.getItem("userId"); 
+        procedure.modifyuserid = "1";
         procedure.creationdate = {
           seconds: protoSeconds,
           nanos: protoNanos,
@@ -49,11 +49,14 @@ const ProceduresEditor = ({
           seconds: protoSeconds,
           nanos: protoNanos,
         };
-        procedure.modifyuserid = 1; //TODO: from outside
+        procedure.modifyuserid = localStorage.getItem("userId");
+
         break;
       default:
         break;
     }
+
+    console.log("ProceduresEditor-procedure: ", procedure);
   };
 
   const onConfirm = (action) => {

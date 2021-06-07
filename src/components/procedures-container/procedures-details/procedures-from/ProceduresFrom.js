@@ -85,14 +85,13 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
               }}
             />
           </SimpleItem>
-          <SimpleItem dataField="modifyuserid">
-            <Label
-              visible={true}
-              text={"Last Modification User"}
-              editorOptions={{
-                readOnly: true,
-              }}
-            />
+          <SimpleItem
+            dataField="modifyuserid"
+            editorOptions={{
+              readOnly: true,
+            }}
+          >
+            <Label visible={true} text={"Last Modification User"} />
           </SimpleItem>
           <SimpleItem
             //dataField="modifydate"

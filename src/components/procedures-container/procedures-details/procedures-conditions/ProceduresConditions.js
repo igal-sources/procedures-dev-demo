@@ -163,7 +163,12 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
               value: conditionObj.severity,
             }}
           />
-          <SimpleItem dataField="geoarea">
+          <SimpleItem
+            dataField="geoarea"
+            editorOptions={{
+              readOnly: true,
+            }}
+          >
             <Label visible={true} text={"Location"} />
           </SimpleItem>
         </GroupItem>

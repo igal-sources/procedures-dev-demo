@@ -24,29 +24,25 @@ const ProceduresRecurringEditor = ({
   //console.log("recurrence: ", recurrence);
 
   const initData = (action) => {
-    const { ProcedureCondition = {} } = procedure;
-    const { ProceduresSchedules = {} } = ProcedureCondition;
-    //console.log("initData-ProceduresSchedules: ", ProceduresSchedules);
+    const { condition = {} } = procedure;
+    //console.log("ProceduresRecurring-condition: ", condition);
+    const { schedule = {} } = condition;
+    //console.log("ProceduresRecurring-schedule: ", schedule);
+    //console.log("initData-ProceduresSchedules: ", schedule);
 
-    setSelectedRecurrenceType(types.recurrencePatterns[ProceduresSchedules.RecurrenceType - 1]);
+    setSelectedRecurrenceType(types.recurrencePatterns[schedule.recurrencetype - 1]);
 
-    ProceduresSchedules.EndDate =
-      ProceduresSchedules.EndDate === "" ? new Date() : ProceduresSchedules.EndDate;
-    ProceduresSchedules.EndTime =
-      ProceduresSchedules.EndTime === "" ? new Date() : ProceduresSchedules.EndTime;
-    ProceduresSchedules.StartDate =
-      ProceduresSchedules.StartDate === "" ? new Date() : ProceduresSchedules.StartDate;
-    ProceduresSchedules.StartTime =
-      ProceduresSchedules.StartTime === "" ? new Date() : ProceduresSchedules.StartTime;
+    schedule.endat = schedule.endat === "" ? new Date() : schedule.endat;
+    schedule.startat = schedule.startat === "" ? new Date() : schedule.startat;
 
-    setRecurrence(ProceduresSchedules);
+    setRecurrence(schedule);
   };
 
   const handleUpdatedRecurrenceValues = (values) => {
-    const updatedRecurrence = { ...recurrence, RecurrenceValues: values };
+    const updatedRecurrence = { ...recurrence, recurrencevalues: values };
     setRecurrence(updatedRecurrence);
 
-    procedure.ProcedureCondition.ProceduresSchedules.RecurrenceValues = values;
+    //procedure.condition.schedule.recurrencevalues = values;
   };
 
   const onRecurrenceTypeChange = (e) => {
@@ -55,7 +51,7 @@ const ProceduresRecurringEditor = ({
     setSelectedRecurrenceType(radioValue);
     const selectedValue = types.recurrencePatterns.findIndex((obj) => obj === radioValue);
 
-    procedure.ProcedureCondition.ProceduresSchedules.RecurrenceType = selectedValue + 1;
+    //procedure.condition.schedule.recurrencetype = selectedValue + 1;
     //console.log("procedure: ", procedure);
   };
 
@@ -102,20 +98,20 @@ const ProceduresRecurringEditor = ({
                   >
                     <GroupItem>
                       <SimpleItem
-                        dataField="StartTime"
+                        dataField="startat"
                         editorType="dxDateBox"
                         editorOptions={{
                           type: "time",
                         }}
                       />
                       <SimpleItem
-                        dataField="EndTime"
+                        dataField="endat"
                         editorType="dxDateBox"
                         editorOptions={{
                           type: "time",
                         }}
                       />
-                      <SimpleItem dataField="Duration" />
+                      <SimpleItem dataField="duration" />
                     </GroupItem>
                   </Form>
                 </div>
@@ -134,7 +130,7 @@ const ProceduresRecurringEditor = ({
                       onValueChanged={(e) => onRecurrenceTypeChange(e)}
                     />
                     <DaysPattern
-                      recurrenceValues={recurrence.RecurrenceValues}
+                      recurrenceValues={recurrence.recurrencevalues}
                       onUpdatedRecurrence={(e) => handleUpdatedRecurrenceValues(e)}
                     />
                   </div>
@@ -157,14 +153,14 @@ const ProceduresRecurringEditor = ({
                   >
                     <GroupItem>
                       <SimpleItem
-                        dataField="StartDate"
+                        dataField="startat"
                         editorType="dxDateBox"
                         editorOptions={{
                           type: "date",
                         }}
                       />
                       <SimpleItem
-                        dataField="EndDate"
+                        dataField="endat"
                         editorType="dxDateBox"
                         editorOptions={{
                           type: "date",

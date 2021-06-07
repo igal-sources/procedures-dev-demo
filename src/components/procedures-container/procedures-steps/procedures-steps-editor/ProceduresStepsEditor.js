@@ -42,7 +42,6 @@ const ProceduresStepsEditor = ({
   const onConfirm = (action) => confirm();
 
   useEffect(() => {
-    console.log("useEffect: ");
     initData(actionType);
 
     return () => {};

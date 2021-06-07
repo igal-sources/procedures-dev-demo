@@ -98,7 +98,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
 
   const handleToolbarActionsClick = (action) => {
     setAction(action);
-    console.log("handleToolbarActionsClick-action: ", action);
+    //console.log("handleToolbarActionsClick-action: ", action);
 
     switch (action) {
       case types.actions.ADD:
