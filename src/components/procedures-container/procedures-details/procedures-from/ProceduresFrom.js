@@ -32,6 +32,17 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
     setModifyDate(finalDate);
   };
 
+  const customizeItem = (item) => {
+    if (item.dataField === "name") {
+      item.validationRules = [
+        {
+          type: "required",
+          message: "The value is required",
+        },
+      ];
+    }
+  };
+
   useEffect(() => {
     // !isCancelled.current && initData();
     initData();
@@ -49,6 +60,8 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
         className="ProceduresFrom-Form"
         formData={procedure}
         readOnly={isReadOnly}
+        customizeItem={customizeItem}
+        showValidationSummary={true}
         showColonAfterLabel={true}
         labelLocation={"left"}
         minColWidth={500}

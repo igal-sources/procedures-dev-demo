@@ -41,6 +41,7 @@ const Header = () => {
     var procedureId = localStorage.getItem("selectedProcedureId");
     console.log("REMOVE - procedureId: ", procedureId);
     procedureId && deleteProcedure(procedureId);
+    refreshPage();
   };
 
   const refreshPage = () => {
@@ -71,13 +72,19 @@ const Header = () => {
             <span className="Header-title">New</span>
           </div>
         </Menu.Item>
-        <Menu.Item onClick={() => openEdit()}>
+        <Menu.Item
+          onClick={() => openEdit()}
+          disabled={localStorage.getItem("selectedProcedureId") === null}
+        >
           <div>
             <Image src={view_procedure} />
             <span className="Header-title">Edit</span>
           </div>
         </Menu.Item>
-        <Menu.Item onClick={confirmRemove}>
+        <Menu.Item
+          onClick={confirmRemove}
+          disabled={localStorage.getItem("selectedProcedureId") === null}
+        >
           <div>
             <Image src={delete_procedure} />
             <span className="Header-title">Delete</span>

@@ -24,7 +24,7 @@ const ProceduresStepsEditor = ({
     if (selectedStep) {
       const { possibleresultsList = [] } = selectedStep;
       setStepResults(possibleresultsList);
-      console.log('possibleresultsList: ', possibleresultsList);
+      console.log("possibleresultsList: ", possibleresultsList);
     }
 
     switch (action) {
@@ -40,6 +40,17 @@ const ProceduresStepsEditor = ({
   };
 
   const onConfirm = (action) => confirm();
+
+  const customizeItem = (item) => {
+    if (item.dataField === "title" || item.dataField === "instruction") {
+      item.validationRules = [
+        {
+          type: "required",
+          message: "The value is required",
+        },
+      ];
+    }
+  };
 
   useEffect(() => {
     initData(actionType);
@@ -72,6 +83,8 @@ const ProceduresStepsEditor = ({
                     formData={selectedStep}
                     readOnly={false}
                     showColonAfterLabel={true}
+                    customizeItem={customizeItem}
+                    showValidationSummary={true}
                     labelLocation={"left"}
                     minColWidth={650}
                     colCount={2}

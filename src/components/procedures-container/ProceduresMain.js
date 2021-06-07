@@ -13,14 +13,19 @@ const ProceduresMain = () => {
   const [procedures, setProcedures] = useState([]);
   const [proceduresProto, setProceduresProto] = useState();
   const [selectedProcedure, setSelectedProcedure] = useState({});
-  //console.log("ProceduresMain-useState-procedures: ", procedures);
 
   const fetchData = () => {
+    //localStorage.clear();
+    localStorage.removeItem("selectedProcedureId");
+    localStorage.removeItem("selectedIndexServerProcedure");
+    localStorage.removeItem("selectedProtoProcedure");
+    localStorage.removeItem("selectedProcedure");
+    
     var userId = localStorage.getItem("userId");
     var userName = localStorage.getItem("userName");
     var OrganizationId = localStorage.getItem("organizationId");
 
-    localStorage.setItem("userId", userId === null ? "555" : userId);
+    localStorage.setItem("userId", userId === null ? "Demo User" : userId);
     localStorage.setItem("userName", userName === null ? "Demo User" : userName);
     localStorage.setItem("organizationId", OrganizationId === null ? "1" : OrganizationId);
 

@@ -29,8 +29,8 @@ const ProceduresEditor = ({
       case types.actions.ADD:
         procedure.procedureid = uuidv4();
         procedure.organizationid = localStorage.getItem("organizationId");
-        procedure.creatinguserid = localStorage.getItem("userId"); 
-        procedure.modifyuserid = "1";
+        procedure.creatinguserid = localStorage.getItem("userId");
+        procedure.modifyuserid = localStorage.getItem("userId");
         procedure.creationdate = {
           seconds: protoSeconds,
           nanos: protoNanos,
