@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Menu, Image } from "semantic-ui-react";
+import { Modal, Button } from "react-bootstrap";
 import ProceduresEditor from "../../procedures-container/procedures-editor/ProceduresEditor";
 import { deleteProcedure } from "../../../services/procedures-http.service";
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
@@ -16,8 +17,15 @@ const Header = () => {
   const [action, setAction] = useState();
   const [isReadOnly, setIsReadOnly] = useState(false);
   const [selectedProcedure, setSelectedProcedure] = useState({});
+  const [show, setShow] = useState(false);
 
   const onClose = () => setIsOpen(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => {
+    console.log("setShow: ", show);
+    setShow(true);
+  };
 
   const openNew = () => {
     setAction(types.actions.ADD);
@@ -33,14 +41,11 @@ const Header = () => {
     setSelectedProcedure(JSON.parse(localStorage.getItem("selectedProcedure")));
   };
 
-  const confirmRemove = () => {
-    ConfirmDialog("Remove Procedure", "Are you sure you wish to delete?", removeProc);
-  };
-
   const removeProc = () => {
     var procedureId = localStorage.getItem("selectedProcedureId");
     console.log("REMOVE - procedureId: ", procedureId);
     procedureId && deleteProcedure(procedureId);
+    setShow(false);
     refreshPage();
   };
 
@@ -56,7 +61,28 @@ const Header = () => {
   };
 
   return (
-    <>
+    <div>
+      <Modal
+        size="md"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        show={show}
+        onHide={handleClose}
+        animation={false}
+      >
+        <Modal.Header>
+          <Modal.Title>Delete Procedure</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure you wish to delete?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={removeProc}>
+            OK
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <Menu className="Header-mainMenu">
         <ProceduresEditor
           show={isOpen}
@@ -82,7 +108,7 @@ const Header = () => {
           </div>
         </Menu.Item>
         <Menu.Item
-          onClick={confirmRemove}
+          onClick={handleShow}
           disabled={localStorage.getItem("selectedProcedureId") === null}
         >
           <div>
@@ -97,7 +123,7 @@ const Header = () => {
           </div>
         </Menu.Item>
       </Menu>
-    </>
+    </div>
   );
 };
 
