@@ -20,14 +20,14 @@ const ProceduresMain = () => {
     localStorage.removeItem("selectedIndexServerProcedure");
     localStorage.removeItem("selectedProtoProcedure");
     localStorage.removeItem("selectedProcedure");
-    
+
     var userId = localStorage.getItem("userId");
     var userName = localStorage.getItem("userName");
-    var OrganizationId = localStorage.getItem("organizationId");
+    var organizationId = localStorage.getItem("organizationId");
 
     localStorage.setItem("userId", userId === null ? "Demo User" : userId);
     localStorage.setItem("userName", userName === null ? "Demo User" : userName);
-    localStorage.setItem("organizationId", OrganizationId === null ? "1" : OrganizationId);
+    localStorage.setItem("organizationId", organizationId === null ? "1" : organizationId);
 
     getAllServerProcedures((procResponse) => {
       const { proceduresList = [] } = procResponse.toObject();
