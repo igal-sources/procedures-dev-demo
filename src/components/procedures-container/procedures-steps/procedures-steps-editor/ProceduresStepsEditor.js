@@ -24,7 +24,7 @@ const ProceduresStepsEditor = ({
     if (selectedStep) {
       const { possibleresultsList = [] } = selectedStep;
       setStepResults(possibleresultsList);
-      console.log("possibleresultsList: ", possibleresultsList);
+      //console.log("possibleresultsList: ", possibleresultsList);
     }
 
     switch (action) {

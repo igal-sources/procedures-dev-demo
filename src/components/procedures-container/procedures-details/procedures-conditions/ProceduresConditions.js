@@ -17,9 +17,6 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
   const [hasRecurring, setHasRecurring] = useState(false);
   const [selectedProcedure, setSelectedProcedure] = useState([]);
 
-  // console.log("eventParentTypes: ", eventParentTypes);
-  // console.log("eventSubTypes: ", eventSubTypes);
-
   const onClose = () => setIsOpen(false);
 
   const onConfirm = () => setIsOpen(false);
@@ -29,7 +26,7 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
   const initData = () => {
     setSelectedProcedure(procedure);
     const { condition = {} } = procedure;
-    console.log("ProceduresConditions-condition: ", condition);
+    //console.log("ProceduresConditions-condition: ", condition);
     setCondition(condition);
     const { schedule } = condition;
     setHasRecurring(schedule !== null);
@@ -38,16 +35,15 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
   };
 
   const removeRecurringValues = () => {
-    const updateProcedure = Object.assign({}, procedure, {
-      condition: {
-        ...procedure.condition,
-        schedule: types.emptyRecurrence,
-      },
-    });
-
-    setSelectedProcedure(updateProcedure);
-    console.log("Selected procedure: ", procedure);
-    setHasRecurring(false);
+    // const updateProcedure = Object.assign({}, procedure, {
+    //   condition: {
+    //     ...procedure.condition,
+    //     schedule: types.emptyRecurrence,
+    //   },
+    // });
+    // setSelectedProcedure(updateProcedure);
+    // console.log("Selected procedure: ", procedure);
+    // setHasRecurring(false);
   };
 
   const eventTypeValueChanged = ({ component }) => {
@@ -69,7 +65,7 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
               Select
             </Button>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <Button className="recurringControl-button" onClick={removeRecurringValues}>
+            <Button disabled={true} className="recurringControl-button" onClick={removeRecurringValues}>
               Delete
             </Button>
           </div>

@@ -3,7 +3,6 @@ import { DataGrid, Column, Editing } from "devextreme-react/data-grid";
 import { Modal, Button } from "react-bootstrap";
 import ProceduresStepsEditor from "../procedures-steps/procedures-steps-editor/ProceduresStepsEditor";
 import ComponentTitle from "../../../shared/custom-components/component-title/ComponentTitle";
-import ConfirmDialog from "../../../shared/custom-components/dialog/ConfirmDialog";
 import * as types from "../../../shared/types";
 import "./procedures-steps.scss";
 
