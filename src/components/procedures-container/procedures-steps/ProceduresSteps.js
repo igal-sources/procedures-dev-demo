@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { DataGrid, Column, Editing } from "devextreme-react/data-grid";
+import { Modal, Button } from "react-bootstrap";
 import ProceduresStepsEditor from "../procedures-steps/procedures-steps-editor/ProceduresStepsEditor";
 import ComponentTitle from "../../../shared/custom-components/component-title/ComponentTitle";
+import ConfirmDialog from "../../../shared/custom-components/dialog/ConfirmDialog";
 import * as types from "../../../shared/types";
 import "./procedures-steps.scss";
 
@@ -10,10 +12,17 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
   const [action, setAction] = useState();
   const [selectedStep, setSelectedStep] = useState({});
   const [procedureSteps, setProcedureSteps] = useState({});
+  const [showConfirmDelete, setShowConfirmDelete] = useState(false);
+
+  const handleClose = () => setShowConfirmDelete(false);
 
   const initData = () => {
     const { stepsList = [] } = procedure;
     setProcedureSteps(stepsList);
+  };
+
+  const handleShowConfirmDelete = () => {
+    setShowConfirmDelete(true);
   };
 
   const initNewProcedureStep = () => {
@@ -35,6 +44,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
 
     procedure.stepsList = newSteps;
     setProcedureSteps(procedure.stepsList);
+    setShowConfirmDelete(false);
   };
 
   const cellRenderResults = (data) => {
@@ -57,8 +67,6 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
       default:
         break;
     }
-
-    //setConfirm(true);
   };
 
   const handleSelected = ({ selectedRowsData }) => {
@@ -98,7 +106,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
 
   const handleToolbarActionsClick = (action) => {
     setAction(action);
-    //console.log("handleToolbarActionsClick-action: ", action);
+    console.log("handleToolbarActionsClick-action: ", action);
 
     switch (action) {
       case types.actions.ADD:
@@ -112,7 +120,8 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
         }
         break;
       case types.actions.REMOVE:
-        removeStep();
+        console.log("handleShowConfirmDelete: ", action);
+        handleShowConfirmDelete();
         break;
       default:
         break;
@@ -123,10 +132,31 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
     initData();
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [procedure.stepsList]);
+  }, [procedure.stepsList, showConfirmDelete]);
 
   return (
     <div className="ProceduresSteps-container">
+      <Modal
+        size="md"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        show={showConfirmDelete}
+        onHide={handleClose}
+        animation={false}
+      >
+        <Modal.Header>
+          <Modal.Title>Delete Step</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure you wish to delete?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={removeStep}>
+            OK
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <ProceduresStepsEditor
         show={isOpen}
         close={onClose}

@@ -17,14 +17,14 @@ const Header = () => {
   const [action, setAction] = useState();
   const [isReadOnly, setIsReadOnly] = useState(false);
   const [selectedProcedure, setSelectedProcedure] = useState({});
-  const [show, setShow] = useState(false);
+  const [showConfirmDelete, setShowConfirmDelete] = useState(false);
 
   const onClose = () => setIsOpen(false);
+  const handleClose = () => setShowConfirmDelete(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => {
-    console.log("setShow: ", show);
-    setShow(true);
+  const handleShowConfirmDelete = () => {
+    setShowConfirmDelete(true);
+    console.log("handleShowConfirmDelete: ", showConfirmDelete);
   };
 
   const openNew = () => {
@@ -45,7 +45,7 @@ const Header = () => {
     var procedureId = localStorage.getItem("selectedProcedureId");
     console.log("REMOVE - procedureId: ", procedureId);
     procedureId && deleteProcedure(procedureId);
-    setShow(false);
+    setShowConfirmDelete(false);
     refreshPage();
   };
 
@@ -66,7 +66,7 @@ const Header = () => {
         size="md"
         aria-labelledby="contained-modal-title-vcenter"
         centered
-        show={show}
+        show={showConfirmDelete}
         onHide={handleClose}
         animation={false}
       >
@@ -108,7 +108,7 @@ const Header = () => {
           </div>
         </Menu.Item>
         <Menu.Item
-          onClick={handleShow}
+          onClick={handleShowConfirmDelete}
           disabled={localStorage.getItem("selectedProcedureId") === null}
         >
           <div>
