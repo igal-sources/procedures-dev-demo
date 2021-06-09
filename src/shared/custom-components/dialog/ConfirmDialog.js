@@ -4,18 +4,7 @@ import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import * as types from "../../types";
 import "./confirm-dialog.scss";
 
-const ConfirmDialog = ({ headerText, messageText, showConfirm, onConfirm = types.EmptyFn }) => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  //const handleShow = () => setShow(true);
-
-  useEffect(() => {
-    setShow(showConfirm);
-
-    return () => {};
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [showConfirm]);
-
+const ConfirmDialog = ({ headerText, messageText, close, show, onConfirm = types.EmptyFn }) => {
   return (
     <>
       <Modal
@@ -23,7 +12,7 @@ const ConfirmDialog = ({ headerText, messageText, showConfirm, onConfirm = types
         aria-labelledby="contained-modal-title-vcenter"
         centered
         show={show}
-        onHide={handleClose}
+        onHide={close}
         animation={false}
       >
         <Modal.Header>
@@ -31,7 +20,7 @@ const ConfirmDialog = ({ headerText, messageText, showConfirm, onConfirm = types
         </Modal.Header>
         <Modal.Body>{messageText}</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={close}>
             Cancel
           </Button>
           <Button variant="primary" onClick={onConfirm}>

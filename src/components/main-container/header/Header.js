@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Menu, Image } from "semantic-ui-react";
-import { Modal, Button } from "react-bootstrap";
 import ProceduresEditor from "../../procedures-container/procedures-editor/ProceduresEditor";
 import { deleteProcedure } from "../../../services/procedures-http.service";
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
@@ -62,27 +61,12 @@ const Header = () => {
 
   return (
     <div>
-      <Modal
-        size="md"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
+      <ConfirmDialog
+        headerText={"Delete Procedure"}
+        messageText={"Are you sure you wish to delete?"}
+        close={handleClose}
         show={showConfirmDelete}
-        onHide={handleClose}
-        animation={false}
-      >
-        <Modal.Header>
-          <Modal.Title>Delete Procedure</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Are you sure you wish to delete?</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cancel
-          </Button>
-          <Button variant="primary" onClick={removeProc}>
-            OK
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      />
       <Menu className="Header-mainMenu">
         <ProceduresEditor
           show={isOpen}

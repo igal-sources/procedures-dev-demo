@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { DataGrid, Column, Editing } from "devextreme-react/data-grid";
-import { Modal, Button } from "react-bootstrap";
+import ConfirmDialog from "../../../shared/custom-components/dialog/ConfirmDialog";
 import ProceduresStepsEditor from "../procedures-steps/procedures-steps-editor/ProceduresStepsEditor";
 import ComponentTitle from "../../../shared/custom-components/component-title/ComponentTitle";
 import * as types from "../../../shared/types";
@@ -135,27 +135,12 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
 
   return (
     <div className="ProceduresSteps-container">
-      <Modal
-        size="md"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
+      <ConfirmDialog
+        headerText={"Delete Step"}
+        messageText={"Are you sure you wish to delete?"}
+        close={handleClose}
         show={showConfirmDelete}
-        onHide={handleClose}
-        animation={false}
-      >
-        <Modal.Header>
-          <Modal.Title>Delete Step</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Are you sure you wish to delete?</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cancel
-          </Button>
-          <Button variant="primary" onClick={removeStep}>
-            OK
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      />
       <ProceduresStepsEditor
         show={isOpen}
         close={onClose}
