@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { DataGrid, Column, Editing } from "devextreme-react/data-grid";
+import { DataGrid, Column, Editing, Paging } from "devextreme-react/data-grid";
 import { Modal, Button } from "react-bootstrap";
 import { Grid } from "semantic-ui-react";
 import Form, { GroupItem, SimpleItem } from "devextreme-react/form";
@@ -17,6 +17,7 @@ const ProceduresStepsEditor = ({
 }) => {
   const [headerText, setHeaderText] = useState("");
   const [stepResults, setStepResults] = useState([]);
+  const [isValid, setIsValid] = useState(false);
 
   const textBoxOptions = { width: "500px" };
 
@@ -39,17 +40,19 @@ const ProceduresStepsEditor = ({
     }
   };
 
-  const onConfirm = (action) => confirm();
+  const onConfirm = () => {
+    confirm();
+  };
 
-  const customizeItem = (item) => {
-    if (item.dataField === "title" || item.dataField === "instruction") {
-      item.validationRules = [
-        {
-          type: "required",
-          message: "The value is required",
-        },
-      ];
-    }
+  const validationRules = {
+    title: [{ type: "required", message: "Title cannot be empty." }],
+    instruction: [{ type: "required", message: "Instruction cannot be empty." }],
+  };
+
+  const validateForm = (e) => {
+    const validate = e.component.validate();
+    setIsValid(validate.isValid);
+    console.log("valid: ", validate.isValid);
   };
 
   useEffect(() => {
@@ -83,16 +86,24 @@ const ProceduresStepsEditor = ({
                     formData={selectedStep}
                     readOnly={false}
                     showColonAfterLabel={true}
-                    customizeItem={customizeItem}
-                    showValidationSummary={true}
+                    onContentReady={validateForm}
+                    // showValidationSummary={true}
                     labelLocation={"left"}
                     minColWidth={650}
                     colCount={2}
                     width={650}
                   >
                     <GroupItem>
-                      <SimpleItem dataField="title" editorOptions={textBoxOptions} />
-                      <SimpleItem dataField="instruction" editorOptions={textBoxOptions} />
+                      <SimpleItem
+                        dataField="title"
+                        editorOptions={textBoxOptions}
+                        validationRules={validationRules.title}
+                      />
+                      <SimpleItem
+                        dataField="instruction"
+                        editorOptions={textBoxOptions}
+                        validationRules={validationRules.instruction}
+                      />
                     </GroupItem>
                   </Form>
                 </div>
@@ -100,9 +111,10 @@ const ProceduresStepsEditor = ({
             </Grid.Row>
             <Grid.Row columns={1}>
               <Grid.Column>
-                <div className="ProceduresSteps-results">
+                <div>
                   <ComponentTitle title="Results" />
                   <DataGrid
+                    className="ProceduresSteps-results-grid"
                     allowColumnReordering={true}
                     selection={{ mode: "single" }}
                     columnAutoWidth={true}
@@ -110,6 +122,7 @@ const ProceduresStepsEditor = ({
                     dataSource={stepResults}
                     keyExpr="sequencenumber"
                   >
+                    <Paging enabled={false} />
                     <Editing
                       mode="cell"
                       allowAdding={!isReadOnly}
@@ -129,7 +142,11 @@ const ProceduresStepsEditor = ({
           <Button variant="secondary" onClick={close}>
             Close
           </Button>
-          <Button variant="primary" type="submit" onClick={() => onConfirm(actionType)}>
+          <Button
+            variant="primary"
+            /*disabled={!isValid}*/ type="submit"
+            onClick={() => onConfirm()}
+          >
             Save
           </Button>
         </Modal.Footer>
