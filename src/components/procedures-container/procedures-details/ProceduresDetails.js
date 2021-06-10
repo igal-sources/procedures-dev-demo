@@ -18,7 +18,7 @@ const ProceduresDetails = ({ procedure, isReadOnly }) => {
     <div className="ProceduresDetails-container">
       <ComponentTitle title={procedureName} image={new_procedure} />
       <Grid>
-        <Grid.Column className="ProceduresDetails-Conditions" width={7}>
+        <Grid.Column className="ProceduresDetails-Conditions" width={8}>
           <ProceduresConditions procedure={procedure} isReadOnly={isReadOnly} />
         </Grid.Column>
         <Grid.Column className="ProceduresConditions-From" width={7}>

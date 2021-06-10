@@ -32,15 +32,13 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
     setModifyDate(finalDate);
   };
 
-  const customizeItem = (item) => {
-    if (item.dataField === "name") {
-      item.validationRules = [
-        {
-          type: "required",
-          message: "The value is required",
-        },
-      ];
-    }
+  const validationRules = {
+    name: [{ type: "required", message: "Name is required." }],
+    description: [{ type: "required", message: "Description is required." }],
+  };
+
+  const validateForm = (e) => {
+    e.component.validate();
   };
 
   useEffect(() => {
@@ -60,7 +58,7 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
         className="ProceduresFrom-Form"
         formData={procedure}
         readOnly={isReadOnly}
-        customizeItem={customizeItem}
+        // onContentReady={validateForm}
         showValidationSummary={true}
         showColonAfterLabel={true}
         labelLocation={"left"}
@@ -69,9 +67,7 @@ const ProceduresFrom = ({ procedure = {}, isReadOnly }) => {
         width={750}
       >
         <GroupItem caption="From">
-          <SimpleItem dataField="name">
-            <RequiredRule message="Name is required" />
-          </SimpleItem>
+          <SimpleItem dataField="name" validationRules={validationRules.name} />
           <SimpleItem
             dataField="creatinguserid"
             editorOptions={{
