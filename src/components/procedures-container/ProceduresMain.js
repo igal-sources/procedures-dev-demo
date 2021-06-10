@@ -79,7 +79,7 @@ const ProceduresMain = () => {
             <ProceduresDetails procedure={selectedProcedure} isReadOnly={true} />
           </div>
           <div className="ProceduresMain-ProceduresSteps">
-            <ProceduresSteps procedure={selectedProcedure} isReadOnly={true} heightValue="65vh" />
+            <ProceduresSteps procedure={selectedProcedure} isReadOnly={true} heightValue="40vh" />
           </div>
         </Grid.Column>
       </Grid>
