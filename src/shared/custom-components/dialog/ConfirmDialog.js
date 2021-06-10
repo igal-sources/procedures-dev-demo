@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import * as types from "../../types";

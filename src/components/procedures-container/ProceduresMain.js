@@ -5,7 +5,6 @@ import ProceduresList from "./procedures-list/ProceduresList";
 import ProceduresDetails from "./procedures-details/ProceduresDetails";
 import ProceduresSteps from "./procedures-steps/ProceduresSteps";
 import Header from "../main-container/header/Header";
-import webProto from "../../proto/procedures_pb";
 import "./procedures-main.scss";
 
 const ProceduresMain = () => {

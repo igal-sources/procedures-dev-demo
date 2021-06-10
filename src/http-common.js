@@ -7,7 +7,6 @@ import {
   DeleteProcedureRequest,
 } from "../src/proto/procedures_pb";
 import {
-  createProcedureMapToProto,
   procedureMapToProto,
 } from "../src/services/adapters/proceduresAdapter";
 
