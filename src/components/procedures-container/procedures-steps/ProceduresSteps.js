@@ -105,7 +105,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
 
   const handleToolbarActionsClick = (action) => {
     setAction(action);
-    console.log("handleToolbarActionsClick-action: ", action);
+    //console.log("handleToolbarActionsClick-action: ", action);
 
     switch (action) {
       case types.actions.ADD:
@@ -119,7 +119,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
         }
         break;
       case types.actions.REMOVE:
-        console.log("handleShowConfirmDelete: ", action);
+        //console.log("handleShowConfirmDelete: ", action);
         handleShowConfirmDelete();
         break;
       default:
@@ -136,6 +136,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
   return (
     <div className="ProceduresSteps-container">
       <ConfirmDialog
+        onConfirm={removeStep}
         headerText={"Delete Step"}
         messageText={"Are you sure you wish to delete?"}
         close={handleClose}

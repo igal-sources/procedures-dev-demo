@@ -52,7 +52,7 @@ const ProceduresStepsEditor = ({
   const validateForm = (e) => {
     const validate = e.component.validate();
     setIsValid(validate.isValid);
-    console.log("valid: ", validate.isValid);
+    //console.log("valid: ", validate.isValid);
   };
 
   useEffect(() => {

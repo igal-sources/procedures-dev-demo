@@ -56,7 +56,7 @@ const ProceduresEditor = ({
         break;
     }
 
-    console.log("ProceduresEditor-procedure: ", procedure);
+    //console.log("ProceduresEditor-procedure: ", procedure);
   };
 
   const onConfirm = (action) => {

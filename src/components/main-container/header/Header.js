@@ -23,7 +23,7 @@ const Header = () => {
 
   const handleShowConfirmDelete = () => {
     setShowConfirmDelete(true);
-    console.log("handleShowConfirmDelete: ", showConfirmDelete);
+    //console.log("handleShowConfirmDelete: ", showConfirmDelete);
   };
 
   const openNew = () => {
@@ -62,6 +62,7 @@ const Header = () => {
   return (
     <div>
       <ConfirmDialog
+        onConfirm={removeProc}
         headerText={"Delete Procedure"}
         messageText={"Are you sure you wish to delete?"}
         close={handleClose}
