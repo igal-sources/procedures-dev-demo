@@ -23,7 +23,6 @@ const Header = () => {
 
   const handleShowConfirmDelete = () => {
     setShowConfirmDelete(true);
-    //console.log("handleShowConfirmDelete: ", showConfirmDelete);
   };
 
   const openNew = () => {

@@ -4,6 +4,7 @@ import ConfirmDialog from "../../../shared/custom-components/dialog/ConfirmDialo
 import ProceduresStepsEditor from "../procedures-steps/procedures-steps-editor/ProceduresStepsEditor";
 import ComponentTitle from "../../../shared/custom-components/component-title/ComponentTitle";
 import * as types from "../../../shared/types";
+import { isEmpty } from "../../../utils/types";
 import "./procedures-steps.scss";
 
 const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => {
@@ -42,7 +43,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
     );
 
     procedure.stepsList = newSteps;
-    setProcedureSteps(procedure.stepsList);
+    setProcedureSteps(newSteps);
     setShowConfirmDelete(false);
   };
 
@@ -88,7 +89,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
           widget: "dxButton",
           options: {
             icon: "edit",
-            // disabled: selectedStep === null,
+            disabled: isEmpty(selectedStep),
             onClick: () => handleToolbarActionsClick(types.actions.EDIT),
           },
         },
@@ -97,6 +98,7 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
           widget: "dxButton",
           options: {
             icon: "remove",
+            disabled: isEmpty(selectedStep),
             onClick: () => handleToolbarActionsClick(types.actions.REMOVE),
           },
         }
@@ -105,7 +107,6 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
 
   const handleToolbarActionsClick = (action) => {
     setAction(action);
-    //console.log("handleToolbarActionsClick-action: ", action);
 
     switch (action) {
       case types.actions.ADD:
@@ -113,14 +114,10 @@ const ProceduresSteps = ({ procedure, isReadOnly, actionType, heightValue }) => 
         initNewProcedureStep();
         break;
       case types.actions.EDIT:
-        setSelectedStep(selectedStep);
-        if (selectedStep !== null) {
-          setIsOpen(true);
-        }
+        !isEmpty(selectedStep) && setIsOpen(true);
         break;
       case types.actions.REMOVE:
-        //console.log("handleShowConfirmDelete: ", action);
-        handleShowConfirmDelete();
+        !isEmpty(selectedStep) && handleShowConfirmDelete();
         break;
       default:
         break;

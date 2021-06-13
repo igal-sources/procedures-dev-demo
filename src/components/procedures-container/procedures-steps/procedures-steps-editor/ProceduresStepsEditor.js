@@ -22,11 +22,9 @@ const ProceduresStepsEditor = ({
   const textBoxOptions = { width: "500px" };
 
   const initData = (action) => {
-    if (selectedStep) {
-      const { possibleresultsList = [] } = selectedStep;
-      setStepResults(possibleresultsList);
-      //console.log("possibleresultsList: ", possibleresultsList);
-    }
+    const { possibleresultsList = [] } = selectedStep;
+    setStepResults(possibleresultsList);
+    //console.log("possibleresultsList: ", possibleresultsList);
 
     switch (action) {
       case types.actions.ADD:

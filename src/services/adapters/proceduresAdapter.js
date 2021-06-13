@@ -69,7 +69,6 @@ export const mapToProto = (procedure, procToUpdate, callback) => {
         var stepsListObj = null;
         var stepResultObj = null;
         var stepsArray = [];
-        var possibleResultsArray = [];
 
         fieldValue.forEach((element) => {
           console.log("element: ", element);
@@ -79,8 +78,8 @@ export const mapToProto = (procedure, procToUpdate, callback) => {
           stepsListObj.setSequencenumber(sequencenumber);
           stepsListObj.setInstruction(instruction);
           stepsListObj.setTitle(title);
-          stepsArray.push(stepsListObj);
 
+          var possibleResultsArray = [];
           possibleresultsList.forEach((result) => {
             const { sequencenumber, name } = result;
             stepResultObj = new ProcedureStepResult();
@@ -90,6 +89,7 @@ export const mapToProto = (procedure, procToUpdate, callback) => {
           });
 
           stepsListObj.setPossibleresultsList(possibleResultsArray);
+          stepsArray.push(stepsListObj);
         });
 
         procToUpdate.setStepsList(stepsArray);
