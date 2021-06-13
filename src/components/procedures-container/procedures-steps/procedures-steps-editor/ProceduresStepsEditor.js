@@ -24,7 +24,6 @@ const ProceduresStepsEditor = ({
   const initData = (action) => {
     const { possibleresultsList = [] } = selectedStep;
     setStepResults(possibleresultsList);
-    //console.log("possibleresultsList: ", possibleresultsList);
 
     switch (action) {
       case types.actions.ADD:

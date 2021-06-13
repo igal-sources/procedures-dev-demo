@@ -5,9 +5,11 @@ import ProceduresList from "./procedures-list/ProceduresList";
 import ProceduresDetails from "./procedures-details/ProceduresDetails";
 import ProceduresSteps from "./procedures-steps/ProceduresSteps";
 import Header from "../main-container/header/Header";
+import logFactory from "../../utils/logger/logger";
 import "./procedures-main.scss";
 
 const ProceduresMain = () => {
+  const log = logFactory("Procedures", "ProceduresMain");
   const isCancelled = useRef(false);
   const [procedures, setProcedures] = useState([]);
   const [proceduresProto, setProceduresProto] = useState();
@@ -15,6 +17,7 @@ const ProceduresMain = () => {
 
   const fetchData = () => {
     //localStorage.clear();
+    log.info("ProceduresMain Started");
     localStorage.removeItem("selectedProcedureId");
     localStorage.removeItem("selectedIndexServerProcedure");
     localStorage.removeItem("selectedProtoProcedure");
