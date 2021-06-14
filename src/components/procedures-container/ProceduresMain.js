@@ -40,7 +40,7 @@ const ProceduresMain = () => {
     console.log("selectedProcedureId: ", id);
     localStorage.setItem("selectedProcedureId", id);
 
-    const selectedProc = procedures.find((obj) => obj.procedureid === id);
+    const selectedProc = Object.assign({}, procedures.find((obj) => obj.procedureid === id));
     setSelectedProcedure(selectedProc);
 
     const selectedProcIndex = procedures.findIndex((obj) => obj.procedureid === id);

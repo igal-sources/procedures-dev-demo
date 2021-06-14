@@ -8,12 +8,13 @@ import EventSeverities from "../../../assets/mock-data/EventSeverities.json";
 import "./procedures-list.scss";
 
 const ProceduresList = ({ procedures, onSelected = types.EmptyFn }) => {
-  console.log('ProceduresList-procedures: ', procedures);
+  console.log("ProceduresList-procedures: ", procedures.length);
 
   const handleSelected = ({ selectedRowsData }) => {
     const data = selectedRowsData[0];
 
     const { procedureid } = data && data;
+    console.log("ProceduresList-procedureid: ", procedureid);
     onSelected(procedureid);
   };
 

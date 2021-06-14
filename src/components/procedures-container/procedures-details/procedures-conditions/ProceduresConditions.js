@@ -26,7 +26,6 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
   const initData = () => {
     setSelectedProcedure(procedure);
     const { condition = {} } = procedure;
-    //console.log("ProceduresConditions-condition: ", condition);
     setCondition(condition);
     const { schedule } = condition;
     setHasRecurring(schedule !== null);
@@ -51,7 +50,9 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
     //console.log("eventTypeValueChanged-selectedItem: ", selectedItem);
     if (selectedItem !== null) {
       const { EventTypeId = {} } = selectedItem && selectedItem;
-      getEventSubTypes(EventTypeId);
+      if (isReadOnly === false) {
+        getEventSubTypes(EventTypeId);
+      }
     }
   };
 
@@ -65,7 +66,11 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
               Select
             </Button>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <Button disabled={true} className="recurringControl-button" onClick={removeRecurringValues}>
+            <Button
+              disabled={true}
+              className="recurringControl-button"
+              onClick={removeRecurringValues}
+            >
               Delete
             </Button>
           </div>
@@ -94,9 +99,7 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
 
   useEffect(() => {
     initData();
-    return () => {
-      isCancelled.current = true;
-    };
+    return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [procedure.condition]);
 
@@ -112,7 +115,7 @@ const ProceduresConditions = ({ procedure, isReadOnly }) => {
       <Form
         id="form"
         className="ProceduresConditions-Form"
-        formData={conditionObj}
+        formData={procedure.condition}
         readOnly={isReadOnly}
         showColonAfterLabel={true}
         labelLocation={"left"}
