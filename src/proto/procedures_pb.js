@@ -16,17 +16,15 @@ goog.exportSymbol('proto.v1.CreateProcedureRequest', null, global);
 goog.exportSymbol('proto.v1.CreateProcedureResponse', null, global);
 goog.exportSymbol('proto.v1.DeleteProcedureRequest', null, global);
 goog.exportSymbol('proto.v1.DeleteProcedureResponse', null, global);
+goog.exportSymbol('proto.v1.GetProcedureRequest', null, global);
+goog.exportSymbol('proto.v1.GetProcedureResponse', null, global);
 goog.exportSymbol('proto.v1.GetProceduresRequest', null, global);
 goog.exportSymbol('proto.v1.GetProceduresResponse', null, global);
-goog.exportSymbol('proto.v1.LockProcedureRequest', null, global);
-goog.exportSymbol('proto.v1.LockProcedureResponse', null, global);
 goog.exportSymbol('proto.v1.Notification', null, global);
-goog.exportSymbol('proto.v1.NotificationType', null, global);
 goog.exportSymbol('proto.v1.PermissionSet', null, global);
 goog.exportSymbol('proto.v1.ProcedureAdded', null, global);
 goog.exportSymbol('proto.v1.ProcedureCondition', null, global);
 goog.exportSymbol('proto.v1.ProcedureDeleted', null, global);
-goog.exportSymbol('proto.v1.ProcedureLocked', null, global);
 goog.exportSymbol('proto.v1.ProcedureSchedule', null, global);
 goog.exportSymbol('proto.v1.ProcedureStep', null, global);
 goog.exportSymbol('proto.v1.ProcedureStepResult', null, global);
@@ -2806,12 +2804,12 @@ proto.v1.DeleteProcedureResponse.serializeBinaryToWriter = function(message, wri
  * @extends {jspb.Message}
  * @constructor
  */
-proto.v1.LockProcedureRequest = function(opt_data) {
+proto.v1.GetProcedureRequest = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.v1.LockProcedureRequest, jspb.Message);
+goog.inherits(proto.v1.GetProcedureRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.v1.LockProcedureRequest.displayName = 'proto.v1.LockProcedureRequest';
+  proto.v1.GetProcedureRequest.displayName = 'proto.v1.GetProcedureRequest';
 }
 
 
@@ -2826,8 +2824,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.v1.LockProcedureRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.v1.LockProcedureRequest.toObject(opt_includeInstance, this);
+proto.v1.GetProcedureRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.v1.GetProcedureRequest.toObject(opt_includeInstance, this);
 };
 
 
@@ -2836,15 +2834,13 @@ proto.v1.LockProcedureRequest.prototype.toObject = function(opt_includeInstance)
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.v1.LockProcedureRequest} msg The msg instance to transform.
+ * @param {!proto.v1.GetProcedureRequest} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.v1.LockProcedureRequest.toObject = function(includeInstance, msg) {
+proto.v1.GetProcedureRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    procedureid: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    userid: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    islocked: jspb.Message.getFieldWithDefault(msg, 3, false)
+    procedureid: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -2858,23 +2854,23 @@ proto.v1.LockProcedureRequest.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.v1.LockProcedureRequest}
+ * @return {!proto.v1.GetProcedureRequest}
  */
-proto.v1.LockProcedureRequest.deserializeBinary = function(bytes) {
+proto.v1.GetProcedureRequest.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.v1.LockProcedureRequest;
-  return proto.v1.LockProcedureRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.v1.GetProcedureRequest;
+  return proto.v1.GetProcedureRequest.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.v1.LockProcedureRequest} msg The message object to deserialize into.
+ * @param {!proto.v1.GetProcedureRequest} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.v1.LockProcedureRequest}
+ * @return {!proto.v1.GetProcedureRequest}
  */
-proto.v1.LockProcedureRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.v1.GetProcedureRequest.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -2884,14 +2880,6 @@ proto.v1.LockProcedureRequest.deserializeBinaryFromReader = function(msg, reader
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setProcedureid(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setUserid(value);
-      break;
-    case 3:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setIslocked(value);
       break;
     default:
       reader.skipField();
@@ -2906,9 +2894,9 @@ proto.v1.LockProcedureRequest.deserializeBinaryFromReader = function(msg, reader
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.v1.LockProcedureRequest.prototype.serializeBinary = function() {
+proto.v1.GetProcedureRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.v1.LockProcedureRequest.serializeBinaryToWriter(this, writer);
+  proto.v1.GetProcedureRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -2916,30 +2904,16 @@ proto.v1.LockProcedureRequest.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.v1.LockProcedureRequest} message
+ * @param {!proto.v1.GetProcedureRequest} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.v1.LockProcedureRequest.serializeBinaryToWriter = function(message, writer) {
+proto.v1.GetProcedureRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getProcedureid();
   if (f.length > 0) {
     writer.writeString(
       1,
-      f
-    );
-  }
-  f = message.getUserid();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
-  f = message.getIslocked();
-  if (f) {
-    writer.writeBool(
-      3,
       f
     );
   }
@@ -2950,46 +2924,14 @@ proto.v1.LockProcedureRequest.serializeBinaryToWriter = function(message, writer
  * optional string procedureId = 1;
  * @return {string}
  */
-proto.v1.LockProcedureRequest.prototype.getProcedureid = function() {
+proto.v1.GetProcedureRequest.prototype.getProcedureid = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.v1.LockProcedureRequest.prototype.setProcedureid = function(value) {
+proto.v1.GetProcedureRequest.prototype.setProcedureid = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string userId = 2;
- * @return {string}
- */
-proto.v1.LockProcedureRequest.prototype.getUserid = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/** @param {string} value */
-proto.v1.LockProcedureRequest.prototype.setUserid = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
-};
-
-
-/**
- * optional bool isLocked = 3;
- * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
- * You should avoid comparisons like {@code val === true/false} in those cases.
- * @return {boolean}
- */
-proto.v1.LockProcedureRequest.prototype.getIslocked = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 3, false));
-};
-
-
-/** @param {boolean} value */
-proto.v1.LockProcedureRequest.prototype.setIslocked = function(value) {
-  jspb.Message.setProto3BooleanField(this, 3, value);
 };
 
 
@@ -3004,12 +2946,12 @@ proto.v1.LockProcedureRequest.prototype.setIslocked = function(value) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.v1.LockProcedureResponse = function(opt_data) {
+proto.v1.GetProcedureResponse = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.v1.LockProcedureResponse, jspb.Message);
+goog.inherits(proto.v1.GetProcedureResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.v1.LockProcedureResponse.displayName = 'proto.v1.LockProcedureResponse';
+  proto.v1.GetProcedureResponse.displayName = 'proto.v1.GetProcedureResponse';
 }
 
 
@@ -3024,8 +2966,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.v1.LockProcedureResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.v1.LockProcedureResponse.toObject(opt_includeInstance, this);
+proto.v1.GetProcedureResponse.prototype.toObject = function(opt_includeInstance) {
+  return proto.v1.GetProcedureResponse.toObject(opt_includeInstance, this);
 };
 
 
@@ -3034,13 +2976,13 @@ proto.v1.LockProcedureResponse.prototype.toObject = function(opt_includeInstance
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.v1.LockProcedureResponse} msg The msg instance to transform.
+ * @param {!proto.v1.GetProcedureResponse} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.v1.LockProcedureResponse.toObject = function(includeInstance, msg) {
+proto.v1.GetProcedureResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-
+    procedure: (f = msg.getProcedure()) && proto.v1.ProcedureTemplate.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -3054,29 +2996,34 @@ proto.v1.LockProcedureResponse.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.v1.LockProcedureResponse}
+ * @return {!proto.v1.GetProcedureResponse}
  */
-proto.v1.LockProcedureResponse.deserializeBinary = function(bytes) {
+proto.v1.GetProcedureResponse.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.v1.LockProcedureResponse;
-  return proto.v1.LockProcedureResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.v1.GetProcedureResponse;
+  return proto.v1.GetProcedureResponse.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.v1.LockProcedureResponse} msg The message object to deserialize into.
+ * @param {!proto.v1.GetProcedureResponse} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.v1.LockProcedureResponse}
+ * @return {!proto.v1.GetProcedureResponse}
  */
-proto.v1.LockProcedureResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.v1.GetProcedureResponse.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 1:
+      var value = new proto.v1.ProcedureTemplate;
+      reader.readMessage(value,proto.v1.ProcedureTemplate.deserializeBinaryFromReader);
+      msg.setProcedure(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -3090,9 +3037,9 @@ proto.v1.LockProcedureResponse.deserializeBinaryFromReader = function(msg, reade
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.v1.LockProcedureResponse.prototype.serializeBinary = function() {
+proto.v1.GetProcedureResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.v1.LockProcedureResponse.serializeBinaryToWriter(this, writer);
+  proto.v1.GetProcedureResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -3100,12 +3047,50 @@ proto.v1.LockProcedureResponse.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.v1.LockProcedureResponse} message
+ * @param {!proto.v1.GetProcedureResponse} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.v1.LockProcedureResponse.serializeBinaryToWriter = function(message, writer) {
+proto.v1.GetProcedureResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getProcedure();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      proto.v1.ProcedureTemplate.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional ProcedureTemplate procedure = 1;
+ * @return {?proto.v1.ProcedureTemplate}
+ */
+proto.v1.GetProcedureResponse.prototype.getProcedure = function() {
+  return /** @type{?proto.v1.ProcedureTemplate} */ (
+    jspb.Message.getWrapperField(this, proto.v1.ProcedureTemplate, 1));
+};
+
+
+/** @param {?proto.v1.ProcedureTemplate|undefined} value */
+proto.v1.GetProcedureResponse.prototype.setProcedure = function(value) {
+  jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+proto.v1.GetProcedureResponse.prototype.clearProcedure = function() {
+  this.setProcedure(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.v1.GetProcedureResponse.prototype.hasProcedure = function() {
+  return jspb.Message.getField(this, 1) != null;
 };
 
 
@@ -3121,19 +3106,12 @@ proto.v1.LockProcedureResponse.serializeBinaryToWriter = function(message, write
  * @constructor
  */
 proto.v1.GetProceduresRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.v1.GetProceduresRequest.repeatedFields_, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.v1.GetProceduresRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   proto.v1.GetProceduresRequest.displayName = 'proto.v1.GetProceduresRequest';
 }
-/**
- * List of repeated fields within this message type.
- * @private {!Array<number>}
- * @const
- */
-proto.v1.GetProceduresRequest.repeatedFields_ = [3];
-
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -3164,8 +3142,7 @@ proto.v1.GetProceduresRequest.prototype.toObject = function(opt_includeInstance)
 proto.v1.GetProceduresRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     skip: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    take: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    filterbyidsList: jspb.Message.getRepeatedField(msg, 3)
+    take: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -3210,10 +3187,6 @@ proto.v1.GetProceduresRequest.deserializeBinaryFromReader = function(msg, reader
       var value = /** @type {number} */ (reader.readInt32());
       msg.setTake(value);
       break;
-    case 3:
-      var value = /** @type {string} */ (reader.readString());
-      msg.addFilterbyids(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -3257,13 +3230,6 @@ proto.v1.GetProceduresRequest.serializeBinaryToWriter = function(message, writer
       f
     );
   }
-  f = message.getFilterbyidsList();
-  if (f.length > 0) {
-    writer.writeRepeatedString(
-      3,
-      f
-    );
-  }
 };
 
 
@@ -3294,35 +3260,6 @@ proto.v1.GetProceduresRequest.prototype.getTake = function() {
 /** @param {number} value */
 proto.v1.GetProceduresRequest.prototype.setTake = function(value) {
   jspb.Message.setProto3IntField(this, 2, value);
-};
-
-
-/**
- * repeated string filterByIds = 3;
- * @return {!Array<string>}
- */
-proto.v1.GetProceduresRequest.prototype.getFilterbyidsList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 3));
-};
-
-
-/** @param {!Array<string>} value */
-proto.v1.GetProceduresRequest.prototype.setFilterbyidsList = function(value) {
-  jspb.Message.setField(this, 3, value || []);
-};
-
-
-/**
- * @param {!string} value
- * @param {number=} opt_index
- */
-proto.v1.GetProceduresRequest.prototype.addFilterbyids = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 3, value, opt_index);
-};
-
-
-proto.v1.GetProceduresRequest.prototype.clearFilterbyidsList = function() {
-  this.setFilterbyidsList([]);
 };
 
 
@@ -3520,7 +3457,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.v1.Notification.oneofGroups_ = [[4,5,6,7]];
+proto.v1.Notification.oneofGroups_ = [[4,5,6]];
 
 /**
  * @enum {number}
@@ -3529,8 +3466,7 @@ proto.v1.Notification.MessageCase = {
   MESSAGE_NOT_SET: 0,
   ADDED: 4,
   UPDATED: 5,
-  DELETED: 6,
-  LOCKED: 7
+  DELETED: 6
 };
 
 /**
@@ -3570,12 +3506,11 @@ proto.v1.Notification.prototype.toObject = function(opt_includeInstance) {
 proto.v1.Notification.toObject = function(includeInstance, msg) {
   var f, obj = {
     entitytype: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    type: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    notificationtype: jspb.Message.getFieldWithDefault(msg, 2, ""),
     publishedat: (f = msg.getPublishedat()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     added: (f = msg.getAdded()) && proto.v1.ProcedureAdded.toObject(includeInstance, f),
     updated: (f = msg.getUpdated()) && proto.v1.ProcedureUpdated.toObject(includeInstance, f),
-    deleted: (f = msg.getDeleted()) && proto.v1.ProcedureDeleted.toObject(includeInstance, f),
-    locked: (f = msg.getLocked()) && proto.v1.ProcedureLocked.toObject(includeInstance, f)
+    deleted: (f = msg.getDeleted()) && proto.v1.ProcedureDeleted.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -3617,8 +3552,8 @@ proto.v1.Notification.deserializeBinaryFromReader = function(msg, reader) {
       msg.setEntitytype(value);
       break;
     case 2:
-      var value = /** @type {!proto.v1.NotificationType} */ (reader.readEnum());
-      msg.setType(value);
+      var value = /** @type {string} */ (reader.readString());
+      msg.setNotificationtype(value);
       break;
     case 3:
       var value = new google_protobuf_timestamp_pb.Timestamp;
@@ -3639,11 +3574,6 @@ proto.v1.Notification.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.v1.ProcedureDeleted;
       reader.readMessage(value,proto.v1.ProcedureDeleted.deserializeBinaryFromReader);
       msg.setDeleted(value);
-      break;
-    case 7:
-      var value = new proto.v1.ProcedureLocked;
-      reader.readMessage(value,proto.v1.ProcedureLocked.deserializeBinaryFromReader);
-      msg.setLocked(value);
       break;
     default:
       reader.skipField();
@@ -3681,9 +3611,9 @@ proto.v1.Notification.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getType();
-  if (f !== 0.0) {
-    writer.writeEnum(
+  f = message.getNotificationtype();
+  if (f.length > 0) {
+    writer.writeString(
       2,
       f
     );
@@ -3720,14 +3650,6 @@ proto.v1.Notification.serializeBinaryToWriter = function(message, writer) {
       proto.v1.ProcedureDeleted.serializeBinaryToWriter
     );
   }
-  f = message.getLocked();
-  if (f != null) {
-    writer.writeMessage(
-      7,
-      f,
-      proto.v1.ProcedureLocked.serializeBinaryToWriter
-    );
-  }
 };
 
 
@@ -3747,17 +3669,17 @@ proto.v1.Notification.prototype.setEntitytype = function(value) {
 
 
 /**
- * optional NotificationType type = 2;
- * @return {!proto.v1.NotificationType}
+ * optional string notificationType = 2;
+ * @return {string}
  */
-proto.v1.Notification.prototype.getType = function() {
-  return /** @type {!proto.v1.NotificationType} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+proto.v1.Notification.prototype.getNotificationtype = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {!proto.v1.NotificationType} value */
-proto.v1.Notification.prototype.setType = function(value) {
-  jspb.Message.setProto3EnumField(this, 2, value);
+/** @param {string} value */
+proto.v1.Notification.prototype.setNotificationtype = function(value) {
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -3878,36 +3800,6 @@ proto.v1.Notification.prototype.clearDeleted = function() {
  */
 proto.v1.Notification.prototype.hasDeleted = function() {
   return jspb.Message.getField(this, 6) != null;
-};
-
-
-/**
- * optional ProcedureLocked locked = 7;
- * @return {?proto.v1.ProcedureLocked}
- */
-proto.v1.Notification.prototype.getLocked = function() {
-  return /** @type{?proto.v1.ProcedureLocked} */ (
-    jspb.Message.getWrapperField(this, proto.v1.ProcedureLocked, 7));
-};
-
-
-/** @param {?proto.v1.ProcedureLocked|undefined} value */
-proto.v1.Notification.prototype.setLocked = function(value) {
-  jspb.Message.setOneofWrapperField(this, 7, proto.v1.Notification.oneofGroups_[0], value);
-};
-
-
-proto.v1.Notification.prototype.clearLocked = function() {
-  this.setLocked(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {!boolean}
- */
-proto.v1.Notification.prototype.hasLocked = function() {
-  return jspb.Message.getField(this, 7) != null;
 };
 
 
@@ -4371,204 +4263,6 @@ proto.v1.ProcedureDeleted.prototype.setProcedureid = function(value) {
 };
 
 
-
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
-proto.v1.ProcedureLocked = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
-};
-goog.inherits(proto.v1.ProcedureLocked, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  proto.v1.ProcedureLocked.displayName = 'proto.v1.ProcedureLocked';
-}
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.v1.ProcedureLocked.prototype.toObject = function(opt_includeInstance) {
-  return proto.v1.ProcedureLocked.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.v1.ProcedureLocked} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.v1.ProcedureLocked.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    procedureid: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    userid: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    islocked: jspb.Message.getFieldWithDefault(msg, 3, false)
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.v1.ProcedureLocked}
- */
-proto.v1.ProcedureLocked.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.v1.ProcedureLocked;
-  return proto.v1.ProcedureLocked.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.v1.ProcedureLocked} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.v1.ProcedureLocked}
- */
-proto.v1.ProcedureLocked.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setProcedureid(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setUserid(value);
-      break;
-    case 3:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setIslocked(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.v1.ProcedureLocked.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.v1.ProcedureLocked.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.v1.ProcedureLocked} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.v1.ProcedureLocked.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getProcedureid();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-  f = message.getUserid();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
-  f = message.getIslocked();
-  if (f) {
-    writer.writeBool(
-      3,
-      f
-    );
-  }
-};
-
-
-/**
- * optional string procedureId = 1;
- * @return {string}
- */
-proto.v1.ProcedureLocked.prototype.getProcedureid = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/** @param {string} value */
-proto.v1.ProcedureLocked.prototype.setProcedureid = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string userId = 2;
- * @return {string}
- */
-proto.v1.ProcedureLocked.prototype.getUserid = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/** @param {string} value */
-proto.v1.ProcedureLocked.prototype.setUserid = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
-};
-
-
-/**
- * optional bool isLocked = 3;
- * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
- * You should avoid comparisons like {@code val === true/false} in those cases.
- * @return {boolean}
- */
-proto.v1.ProcedureLocked.prototype.getIslocked = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 3, false));
-};
-
-
-/** @param {boolean} value */
-proto.v1.ProcedureLocked.prototype.setIslocked = function(value) {
-  jspb.Message.setProto3BooleanField(this, 3, value);
-};
-
-
 /**
  * @enum {number}
  */
@@ -4580,15 +4274,6 @@ proto.v1.ScheduleType = {
   MONTHLY: 4,
   YEARLY: 5,
   ALL: 6
-};
-
-/**
- * @enum {number}
- */
-proto.v1.NotificationType = {
-  CREATED: 0,
-  UPDATED: 1,
-  DELETED: 2
 };
 
 goog.object.extend(exports, proto.v1);

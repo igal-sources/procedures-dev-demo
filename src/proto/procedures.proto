@@ -75,7 +75,8 @@ message ProcedureTemplate
     PermissionSet permissions = 13;
     bool isLocked = 14;
     string lockedByUserId = 15;
-    repeated ProcedureStep steps = 16;  }
+    repeated ProcedureStep steps = 16;  
+}
 
 message CreateProcedureRequest
 {
@@ -107,23 +108,20 @@ message DeleteProcedureResponse
 
 }
 
-message LockProcedureRequest
+message GetProcedureRequest
 {
     string procedureId = 1;
-    string userId = 2;
-    bool isLocked = 3;
 }
 
-message LockProcedureResponse
+message GetProcedureResponse
 {
-
+    ProcedureTemplate procedure = 1;
 }
 
 message GetProceduresRequest
 {
     int32 skip = 1;
     int32 take = 2;
-    repeated string filterByIds = 3;
 }
 
 message GetProceduresResponse
@@ -137,26 +135,18 @@ service ProcedureService
     rpc CreateProcedure(CreateProcedureRequest) returns (CreateProcedureResponse);
     rpc UpdateProcedure(UpdateProcedureRequest) returns (UpdateProcedureResponse);
     rpc DeleteProcedure(DeleteProcedureRequest) returns (DeleteProcedureResponse);
-    rpc LockProcedure(LockProcedureRequest) returns (LockProcedureResponse);
-}
-
-enum NotificationType 
-{
-    Created = 0;
-    Updated = 1;
-    Deleted = 2;
+    rpc GetProcedure(GetProcedureRequest) returns (GetProcedureResponse);
 }
 
 message Notification 
 {
     string entityType = 1;
-    NotificationType type = 2;
+    string notificationType = 2;
     google.protobuf.Timestamp publishedAt = 3;
     oneof message {
         ProcedureAdded added = 4;
         ProcedureUpdated updated = 5;
         ProcedureDeleted deleted = 6;
-        ProcedureLocked locked = 7;
     } 
 }
 
@@ -173,11 +163,4 @@ message ProcedureUpdated
 message ProcedureDeleted
 {
     string procedureId = 1;
-}
-
-message ProcedureLocked
-{
-    string procedureId = 1;
-    string userId = 2;
-    bool isLocked = 3;
 }

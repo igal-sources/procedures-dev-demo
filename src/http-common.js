@@ -6,9 +6,7 @@ import {
   UpdateProcedureRequest,
   DeleteProcedureRequest,
 } from "../src/proto/procedures_pb";
-import {
-  procedureMapToProto,
-} from "../src/services/adapters/proceduresAdapter";
+import { procedureMapToProto } from "../src/services/adapters/proceduresAdapter";
 
 const enableDevTools = window.__GRPCWEB_DEVTOOLS__ || (() => {});
 var client = new ProcedureServiceClient("http://192.168.35.135:9999");
@@ -27,10 +25,11 @@ export const getServerProcedures = async (id, callback) => {
   console.log("Get Procedures from server");
 
   var pingRequest = new GetProceduresRequest();
-   pingRequest.setSkip(10);
+  pingRequest.setSkip(10);
   pingRequest.setTake(15);
+  const metadata = JSON.parse(localStorage.getItem("accessTokenMetadata"));
 
-  await client.getProcedures(pingRequest, null, (err, response) => {
+  await client.getProcedures(pingRequest, metadata, (err, response) => {
     //console.log("err, response: ", err, response);
 
     if (err !== null) {
@@ -54,8 +53,9 @@ export const createServerProcedure = async (data) => {
   procedureMapToProto(data, (res) => {
     console.log("protoProcedure: ", res);
     pingRequest.setProcedure(res);
+    const metadata = JSON.parse(localStorage.getItem("accessTokenMetadata"));
 
-    client.createProcedure(pingRequest, null, (err, response) => {
+    client.createProcedure(pingRequest, metadata, (err, response) => {
       if (err !== null) {
         console.log("createProcedure: err.code", err.code);
         console.log("createProcedure: err.message", err.message);
@@ -76,8 +76,9 @@ export const updateServerProcedure = (data) => {
   procedureMapToProto(data, (res) => {
     console.log("protoProcedure: ", res);
     pingRequest.setProcedure(res);
+    const metadata = JSON.parse(localStorage.getItem("accessTokenMetadata"));
 
-    client.updateProcedure(pingRequest, null, (err, response) => {
+    client.updateProcedure(pingRequest, metadata, (err, response) => {
       if (err !== null) {
         console.log("updateProcedure: err.code", err.code);
         console.log("updateProcedure: err.message", err.message);
@@ -92,8 +93,9 @@ export const deleteServerProcedure = (procId) => {
 
   var pingRequest = new DeleteProcedureRequest();
   pingRequest.setProcedureid(procId);
+  const metadata = JSON.parse(localStorage.getItem("accessTokenMetadata"));
 
-  client.deleteProcedure(pingRequest, null, (err, response) => {
+  client.deleteProcedure(pingRequest, metadata, (err, response) => {
     console.log("err, response: ", err, response);
 
     if (err !== null) {

@@ -395,80 +395,80 @@ proto.v1.ProcedureServicePromiseClient.prototype.deleteProcedure =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.v1.LockProcedureRequest,
- *   !proto.v1.LockProcedureResponse>}
+ *   !proto.v1.GetProcedureRequest,
+ *   !proto.v1.GetProcedureResponse>}
  */
-const methodDescriptor_ProcedureService_LockProcedure = new grpc.web.MethodDescriptor(
-  '/v1.ProcedureService/LockProcedure',
+const methodDescriptor_ProcedureService_GetProcedure = new grpc.web.MethodDescriptor(
+  '/v1.ProcedureService/GetProcedure',
   grpc.web.MethodType.UNARY,
-  proto.v1.LockProcedureRequest,
-  proto.v1.LockProcedureResponse,
+  proto.v1.GetProcedureRequest,
+  proto.v1.GetProcedureResponse,
   /**
-   * @param {!proto.v1.LockProcedureRequest} request
+   * @param {!proto.v1.GetProcedureRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.v1.LockProcedureResponse.deserializeBinary
+  proto.v1.GetProcedureResponse.deserializeBinary
 );
 
 
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.v1.LockProcedureRequest,
- *   !proto.v1.LockProcedureResponse>}
+ *   !proto.v1.GetProcedureRequest,
+ *   !proto.v1.GetProcedureResponse>}
  */
-const methodInfo_ProcedureService_LockProcedure = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.v1.LockProcedureResponse,
+const methodInfo_ProcedureService_GetProcedure = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.v1.GetProcedureResponse,
   /**
-   * @param {!proto.v1.LockProcedureRequest} request
+   * @param {!proto.v1.GetProcedureRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.v1.LockProcedureResponse.deserializeBinary
+  proto.v1.GetProcedureResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.v1.LockProcedureRequest} request The
+ * @param {!proto.v1.GetProcedureRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.v1.LockProcedureResponse)}
+ * @param {function(?grpc.web.Error, ?proto.v1.GetProcedureResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.v1.LockProcedureResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.v1.GetProcedureResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.v1.ProcedureServiceClient.prototype.lockProcedure =
+proto.v1.ProcedureServiceClient.prototype.getProcedure =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/v1.ProcedureService/LockProcedure',
+      '/v1.ProcedureService/GetProcedure',
       request,
       metadata || {},
-      methodDescriptor_ProcedureService_LockProcedure,
+      methodDescriptor_ProcedureService_GetProcedure,
       callback);
 };
 
 
 /**
- * @param {!proto.v1.LockProcedureRequest} request The
+ * @param {!proto.v1.GetProcedureRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.v1.LockProcedureResponse>}
+ * @return {!Promise<!proto.v1.GetProcedureResponse>}
  *     Promise that resolves to the response
  */
-proto.v1.ProcedureServicePromiseClient.prototype.lockProcedure =
+proto.v1.ProcedureServicePromiseClient.prototype.getProcedure =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/v1.ProcedureService/LockProcedure',
+      '/v1.ProcedureService/GetProcedure',
       request,
       metadata || {},
-      methodDescriptor_ProcedureService_LockProcedure);
+      methodDescriptor_ProcedureService_GetProcedure);
 };
 
 

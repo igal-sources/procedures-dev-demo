@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package auth_v1;
+
+option go_package = ".;auth_v1";
+
+import "google/protobuf/timestamp.proto";
+
+message Organization
+{
+    string id = 1;
+    string name = 2;
+}
+
+message LoginRequest
+{
+    string username = 1;
+    string password = 2;
+    string hostname = 3;
+    string selectedOrganizationId = 4;
+}
+
+message LoginResponse
+{
+    string accessToken = 1;
+    google.protobuf.Timestamp accessTokenExp = 2;
+    string refreshToken = 3;
+    google.protobuf.Timestamp refreshTokenExp = 4;
+}
+
+message RefreshRequest
+{
+    string refreshToken = 1;
+}
+
+message LogoutRequest
+{
+    string accessToken = 1;
+    string refreshToken = 2;
+}
+
+message LogoutResponse
+{
+
+}
+
+message OrganizationAssociationRequest
+{
+    string username = 1;
+    string password = 2;
+}
+
+message OrganizationAssociationResponse
+{
+    repeated Organization allowedOrganizations = 1;
+}
+
+service AuthService
+{   
+    rpc GetOrganizationAssociation(OrganizationAssociationRequest) returns (OrganizationAssociationResponse);
+    rpc Login(LoginRequest) returns (LoginResponse);   
+    rpc Refresh(RefreshRequest) returns (LoginResponse);
+    rpc Logout(LogoutRequest) returns (LogoutResponse);
+}

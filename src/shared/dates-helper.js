@@ -17,6 +17,20 @@ export const fromProtoToDate = (seconds, nanos) => {
   }
 };
 
+export const fromProtoToMilliseconds = (seconds, nanos) => {
+  if (window.proto) {
+    const proto = window.proto;
+    const timestamp = new proto.google.protobuf.Timestamp();
+    timestamp.setSeconds(seconds);
+    timestamp.setNanos(nanos);
+
+    var startDate = new Date();
+    var endDate = new Date(timestamp.toDate());
+
+    return endDate.getTime() - startDate.getTime();
+  }
+};
+
 export const toProtoTimestamp = (fieldValue) => {
   const timestamp = new timestamp_pb.Timestamp();
   timestamp.setSeconds(fieldValue.seconds);
